@@ -48,8 +48,6 @@ const LogoWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
-  position: relative;
-  z-index: 1;
 `;
 
 const Title = styled.span`
