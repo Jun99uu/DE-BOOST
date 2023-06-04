@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import BookmarkContent, { BookmarkInfo } from "./BookmarkContent";
 import { mq } from "@/styles/breakpoints";
 import { colors } from "@/styles/tokens";
+import { useEffect, useState } from "react";
+import ExtendButton from "./ExtendButton";
 
 interface Props {
   datas: Array<BookmarkInfo>;
@@ -11,13 +13,52 @@ interface Props {
  * 북마크 박스
  */
 const Bookmark = ({ datas }: Props) => {
+  const [marks, setMarks] = useState<Array<Array<BookmarkInfo>>>([]);
+  const [curIdx, setCurIdx] = useState(0);
+
+  //datas를 5개씩 분리하는 함수
+  const cuttingDatas = (array: Array<BookmarkInfo>) => {
+    const chunkedArray = [];
+    let index = 0;
+    while (index < array.length) {
+      chunkedArray.push(array.slice(index, index + 5));
+      index += 5;
+    }
+    setMarks(chunkedArray);
+  };
+
+  //확장함수
+  const onExtend = () => {
+    setCurIdx((prev) => prev + 1);
+  };
+
+  //배열 값과 인덱스에 따라 표시되는 확장버튼
+  const ArrayExtendButton = () => {
+    return marks.length > curIdx + 1 ? (
+      <ExtendButton onClick={onExtend} />
+    ) : (
+      <></>
+    );
+  };
+
+  useEffect(() => {
+    cuttingDatas(datas);
+  }, [datas]);
+
   return (
     <Container>
-      {datas.map((data) => (
-        <ContentWrapper key={data.bookmarkId}>
-          <BookmarkContent data={data} />
-        </ContentWrapper>
-      ))}
+      {marks.map((mark, idx) =>
+        idx <= curIdx ? (
+          mark.map((data) => (
+            <ContentWrapper key={data.bookmarkId}>
+              <BookmarkContent data={data} />
+            </ContentWrapper>
+          ))
+        ) : (
+          <></>
+        )
+      )}
+      <ArrayExtendButton />
     </Container>
   );
 };
