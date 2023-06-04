@@ -50,7 +50,6 @@ const Header = ({ isLogined, ...props }: headerProps) => {
 
 const Container = styled.div`
   width: 100%;
-  min-height: 65px;
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
