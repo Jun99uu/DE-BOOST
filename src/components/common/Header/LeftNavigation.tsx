@@ -24,15 +24,15 @@ const NavigationList = styled.ul`
 `;
 
 const Vertical = styled.div`
-  width: 1px;
+  width: 2px;
   height: 15px;
   border-radius: 100%;
-  background-color: ${colors.white};
+  background-color: ${colors.gray30};
 `;
 
 const Menu = styled.span`
   ${typography.content.md2.eb};
-  color: ${colors.gray20};
+  color: ${colors.gray30};
   cursor: pointer;
   transition: all 0.15s;
 
