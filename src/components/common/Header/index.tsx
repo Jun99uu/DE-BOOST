@@ -58,6 +58,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 20px;
   position: relative;
+  z-index: 10;
 `;
 
 const Background = styled.div`
