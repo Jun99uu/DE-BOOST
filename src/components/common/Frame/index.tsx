@@ -30,7 +30,7 @@ const Frame = ({ children }: Props) => {
   }, []);
 
   const backgroundStyle = css`
-    width: 100vw;
+    width: 100%;
     min-height: calc(${vh}px * 100);
 
     ${mq[3]} {

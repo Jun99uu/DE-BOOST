@@ -24,6 +24,7 @@ const Section = ({ children, title, subtitle, ...props }: Props) => {
 };
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
