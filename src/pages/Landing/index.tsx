@@ -1,4 +1,4 @@
-import SearchSection from "@/components/landing/SearchSection";
+import { SearchSection, BookmarkSection } from "@/components/landing";
 import styled from "@emotion/styled";
 
 /**
@@ -8,6 +8,7 @@ const Landing = () => {
   return (
     <Container>
       <SearchSection />
+      <BookmarkSection />
     </Container>
   );
 };
@@ -18,6 +19,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  gap: 60px;
 `;
 
 export default Landing;
