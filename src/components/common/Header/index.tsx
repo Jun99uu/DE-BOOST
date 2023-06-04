@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useMemo } from "react";
 import { SerializedStyles, css } from "@emotion/react";
 import { colors } from "@/styles/tokens";
+import { HeaderBg } from "@/assets/HeaderBg";
 
 interface headerProps extends React.ComponentProps<"div"> {
   isLogined: boolean;
@@ -22,12 +23,15 @@ const Header = ({ isLogined, ...props }: headerProps) => {
         return css`
           background-color: ${colors.primary};
         `;
-      case "/serach":
+      case "/search":
         return css`
-          background-image: url("이미지 URL");
+          background-image: ${`url(${
+            HeaderBg[Math.floor(Math.random() * HeaderBg.length)]
+          })`};
           background-position: center;
           background-size: cover;
           background-repeat: no-repeat;
+          filter: brightness(0.5);
         `;
       default:
         return css`
