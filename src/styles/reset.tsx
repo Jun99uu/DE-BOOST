@@ -7,9 +7,6 @@ const reset = css`
     padding: 0px;
     margin: 0px;
     font-family: "SUIT Variable", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #f2f4f6;
     font-size: 8px;
 

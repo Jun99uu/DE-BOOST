@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import { mq } from "@/styles/breakpoints";
 import { useState, useEffect } from "react";
+import Header from "../Header";
 
 interface Props {
   /**
@@ -37,7 +38,12 @@ const Frame = ({ children }: Props) => {
     }
   `;
 
-  return <div css={backgroundStyle}>{children}</div>;
+  return (
+    <div css={backgroundStyle}>
+      <Header isLogined={false} />
+      {children}
+    </div>
+  );
 };
 
 export default Frame;

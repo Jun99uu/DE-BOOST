@@ -3,6 +3,7 @@ import { RecoilRoot } from "recoil";
 import { Landing, Login, Search } from "./pages";
 import { Global } from "@emotion/react";
 import reset from "./styles/reset";
+import { Frame } from "./components/common";
 
 function App() {
   return (
@@ -10,9 +11,30 @@ function App() {
       <Global styles={reset} />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/search" element={<Search />} />
+          <Route
+            path="/"
+            element={
+              <Frame>
+                <Landing />
+              </Frame>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Frame>
+                <Login />
+              </Frame>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <Frame>
+                <Search />
+              </Frame>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>
