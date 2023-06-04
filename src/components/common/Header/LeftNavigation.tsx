@@ -1,13 +1,29 @@
 import styled from "@emotion/styled";
 import Title from "./Title";
 import { colors, typography } from "@/styles/tokens";
+import useMobile from "@/hooks/useMobile";
 
 const LeftNavigation = () => {
+  const isMobile = useMobile();
+
+  /**
+   * PC에서만 보이는 네비게이션 바
+   */
+  const PCView = () => {
+    return !isMobile ? (
+      <>
+        <Vertical />
+        <Menu>About DE:BOOST</Menu>
+      </>
+    ) : (
+      <></>
+    );
+  };
+
   return (
     <NavigationList>
       <Title />
-      <Vertical />
-      <Menu>About DE:BOOST</Menu>
+      <PCView />
     </NavigationList>
   );
 };
