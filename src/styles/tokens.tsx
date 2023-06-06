@@ -35,6 +35,10 @@ export const typography = {
       `,
     },
     lg: {
+      eb: css`
+        font-size: 2rem;
+        font-weight: 800;
+      `,
       bd: css`
         font-size: 2rem;
         font-weight: 700;

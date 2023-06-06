@@ -1,3 +1,5 @@
+import { SPELL_OBJ } from "@/libs/getRes";
+
 /**
  * 플레이어 검색 결과 정보 인터페이스
  */
@@ -40,13 +42,13 @@ interface GameInfoData {
   gameData: GameData;
 }
 
-interface GameData {
+export interface GameData {
   championId: number;
   championName: string;
   summonerName: string;
   champLevel: number;
-  summoner1Id: number; //스펠
-  summoner2Id: number; //스펠
+  summoner1Id: keyof typeof SPELL_OBJ; //스펠
+  summoner2Id: keyof typeof SPELL_OBJ; //스펠
   kills: number;
   deaths: number;
   assists: number;
