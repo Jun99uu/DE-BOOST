@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import { mq } from "@/styles/breakpoints";
 import { useState, useEffect } from "react";
 import Header from "../Header";
+import Footer from "../Footer";
 
 interface Props {
   /**
@@ -42,6 +43,7 @@ const Frame = ({ children }: Props) => {
     <div css={backgroundStyle}>
       <Header isLogined={false} />
       {children}
+      <Footer />
     </div>
   );
 };
