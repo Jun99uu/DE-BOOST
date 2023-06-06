@@ -2,6 +2,23 @@
 
 const LATEST_VER = "13.11.1";
 
+export const SPELL_OBJ = {
+  21: "SummonerBarrier",
+  1: "SummonerBoost",
+  14: "SummonerDot",
+  3: "SummonerExhaust",
+  4: "SummonerFlash",
+  6: "SummonerHaste",
+  7: "SummonerHeal",
+  13: "SummonerMana",
+  30: "SummonerPoroRecall",
+  31: "ummonerPoroThrow",
+  11: "SummonerSmite",
+  39: "SummonerSnowURFSnowball_Mark",
+  32: "SummonerSnowball",
+  12: "SummonerTeleport",
+};
+
 /**
  * 사용자 아이콘 받아오기
  * @icon 사용자 아이콘 번호
@@ -24,8 +41,10 @@ export const getPortrait = (name: string): string => {
  * 스펠 받아오기
  * @name 스펠 영문 이름
  */
-export const getSpell = (name: string): string => {
-  const spellRes = `https://ddragon.leagueoflegends.com/cdn/${LATEST_VER}/img/spell/${name}.png`;
+export const getSpell = (num: keyof typeof SPELL_OBJ): string => {
+  const spellRes = `https://ddragon.leagueoflegends.com/cdn/${LATEST_VER}/img/spell/${
+    SPELL_OBJ[`${num}`]
+  }.png`;
   return spellRes;
 };
 
