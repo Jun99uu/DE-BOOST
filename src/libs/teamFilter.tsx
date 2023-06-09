@@ -1,10 +1,16 @@
 import { GameData, MatchData } from "@/components/search/interface";
 
+export interface FilteredTeam {
+  my: GameData[];
+  enemy: GameData[];
+  win: boolean;
+}
+
 /** 플레이어 닉네임을 입력해서 해당 플레이어가 속한 팀과 승패 여부를 받아올 수 있는 라이브러리 */
 export function getTeamAndWinStatus(
   data: MatchData,
   summonerName: string
-): { my: GameData[]; enemy: GameData[]; win: boolean } | undefined {
+): FilteredTeam | undefined {
   const team1Map: { [key: string]: GameData } = {};
   const team2Map: { [key: string]: GameData } = {};
 

@@ -24,3 +24,12 @@ export const dateFormatter = (timestamp: number): string => {
     return `${year}년 ${month}월 ${day}일`;
   }
 };
+
+/**
+ * 게임 시간을 분 초로 변환해주는 유틸함수
+ */
+export const convertToMinutes = (gameDuration: number): string => {
+  const minutes = Math.floor(gameDuration / 60);
+  const seconds = gameDuration % 60;
+  return `${minutes}분 ${seconds}초`;
+};

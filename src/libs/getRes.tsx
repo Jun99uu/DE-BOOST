@@ -52,9 +52,9 @@ export const getSpell = (num: keyof typeof SPELL_OBJ): string => {
  * 아이템 아이콘 받아오기
  * @icon 아이템 아이콘 번호
  */
-export const getItem = (icon: number): string => {
+export const getItem = (icon: number): string | null => {
   const itemRes = `https://ddragon.leagueoflegends.com/cdn/${LATEST_VER}/img/item/${icon}.png`;
-  return itemRes;
+  return icon === 0 ? null : itemRes;
 };
 
 /**

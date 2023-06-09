@@ -8,7 +8,7 @@ import { dateFormatter } from "@/libs/dateCalculator";
 import { useEffect, useState } from "react";
 
 interface Props extends React.ComponentProps<"div"> {
-  endTime: number;
+  endTime?: number;
   info: GameData;
   type?: "win" | "lose" | "basic";
 }
@@ -62,9 +62,22 @@ const Summoner = ({ info, endTime, type, ...props }: Props) => {
 
   /**정보 부분 */
   const InfoSection = () => {
-    const grade = (info.kills + info.assists) / info.deaths;
+    const grade = ((info.kills + info.assists) / info.deaths).toFixed(2);
     return (
       <InfoWrapper>
+        {endTime ? (
+          <></>
+        ) : (
+          <span
+            css={css`
+              ${typography.caption.lg.reg};
+              color: ${colors.gray10};
+              white-space: nowrap;
+            `}
+          >
+            {info.summonerName}
+          </span>
+        )}
         <GradesWrapper>
           <span
             css={css`
@@ -110,14 +123,18 @@ const Summoner = ({ info, endTime, type, ...props }: Props) => {
         >
           평점 {grade}
         </span>
-        <span
-          css={css`
-            ${typography.caption.lg.reg};
-            color: ${colors.gray10};
-          `}
-        >
-          {dateFormatter(endTime)}
-        </span>
+        {endTime ? (
+          <span
+            css={css`
+              ${typography.caption.lg.reg};
+              color: ${colors.gray10};
+            `}
+          >
+            {dateFormatter(endTime)}
+          </span>
+        ) : (
+          <></>
+        )}
       </InfoWrapper>
     );
   };
@@ -134,10 +151,9 @@ const Summoner = ({ info, endTime, type, ...props }: Props) => {
     ];
     return (
       <ItemWrapper>
-        {items.map((item) => (
-          <ResIcon src={item} key={item} />
-          // <Tmp />
-        ))}
+        {items.map((item) =>
+          item ? <ResIcon src={item} key={item} /> : <EmptyBox />
+        )}
       </ItemWrapper>
     );
   };
@@ -147,7 +163,7 @@ const Summoner = ({ info, endTime, type, ...props }: Props) => {
     return (
       <WardWrapper>
         <ResIcon
-          src={getItem(info.item6)}
+          src={getItem(info.item6)!}
           css={css`
             width: 20px;
             height: 20px;
@@ -176,19 +192,18 @@ const basic = css`
 
 const win = css`
   background-color: ${colors.primary10};
-  border: 0.5 solid ${colors.primary};
+  border: 0.5px solid ${colors.primary};
   box-shadow: 0px;
 `;
 
 const lose = css`
   background-color: ${colors.negative10};
-  border: 0.5 solid ${colors.negative};
+  border: 0.5px solid ${colors.negative};
   box-shadow: 0px;
 `;
 
 const Container = styled.div`
-  width: 90%;
-  min-width: 355px;
+  width: 100%;
   height: 110px;
   display: flex;
   flex-direction: row;
@@ -200,21 +215,6 @@ const Container = styled.div`
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   gap: 5px;
-
-  ${mq[2]} {
-    width: 70%;
-  }
-
-  ${mq[3]} {
-    min-width: 39px;
-    width: 40%;
-    height: 115px;
-  }
-
-  ${mq[4]} {
-    width: 35%;
-    height: 120px;
-  }
 `;
 
 const PortraitWrapper = styled.div`
@@ -268,9 +268,10 @@ const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   flex-grow: 1;
   margin-left: 5px;
+  gap: 2px;
 `;
 
 const GradesWrapper = styled.div`
@@ -309,6 +310,13 @@ const SpellIcon = styled.img`
   height: 40%;
   aspect-ratio: 1;
   border-radius: 5px;
+`;
+
+const EmptyBox = styled.div`
+  height: 50%;
+  aspect-ratio: 1;
+  border-radius: 5px;
+  background-color: #6666662f;
 `;
 
 export default Summoner;
