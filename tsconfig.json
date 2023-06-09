@@ -31,7 +31,8 @@
       "@libs/*": ["src/libs/*"],
       "@assets/*": ["src/assets/*"],
       "@apis/*": ["src/apis/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@store/*": ["src/store/*"]
     }
   },
   "include": ["src", "**/*.ts", "**/*.tsx", "custom.d.ts"],

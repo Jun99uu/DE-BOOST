@@ -20,6 +20,7 @@ export default defineConfig({
       { find: "@libs", replacement: "/src/libs" },
       { find: "@apis", replacement: "/src/apis" },
       { find: "@styles", replacement: "/src/styles" },
+      { find: "@store", replacement: "/src/store" },
     ],
   },
 });
