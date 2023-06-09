@@ -7,10 +7,12 @@ import { css } from "@emotion/react";
 import { dateFormatter } from "@/libs/dateCalculator";
 import { useEffect, useState } from "react";
 
+type Win = "win" | "lose" | "basic";
+
 interface Props extends React.ComponentProps<"div"> {
   endTime?: number;
   info: GameData;
-  type?: "win" | "lose" | "basic";
+  type?: Win;
 }
 
 /**
@@ -174,7 +176,7 @@ const Summoner = ({ info, endTime, type, ...props }: Props) => {
   };
 
   return (
-    <Container css={styleType} {...props}>
+    <Container css={styleType} win={type} {...props}>
       <PortraitSection />
       <SpellSection />
       <InfoSection />
@@ -202,7 +204,7 @@ const lose = css`
   box-shadow: 0px;
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ win?: Win }>`
   width: 100%;
   height: 110px;
   display: flex;
@@ -215,6 +217,17 @@ const Container = styled.div`
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   gap: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: ${(props) =>
+      props.win
+        ? props.win === "win"
+          ? colors.primary10
+          : colors.negative10
+        : ""};
+  }
 `;
 
 const PortraitWrapper = styled.div`

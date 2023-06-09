@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { GameData } from "../interface";
 import { getPortrait } from "@/libs/getRes";
 import { mq } from "@/styles/breakpoints";
+import { css } from "@emotion/react";
 
 interface Props {
   info: GameData;
@@ -10,17 +11,27 @@ interface Props {
 
 const Enemy = ({ info }: Props) => {
   return (
-    <Box>
+    <Box css={info.win ? win : lose}>
       <PortraitWrapper>
         <Portrait
           src={getPortrait(info.championName)}
           alt={info.championName}
         />
-        <LevelWrapper></LevelWrapper>
+        <LevelWrapper>{info.champLevel}</LevelWrapper>
       </PortraitWrapper>
     </Box>
   );
 };
+
+const win = css`
+  background-color: ${colors.primary10};
+  border: 0.5px solid ${colors.primary};
+`;
+
+const lose = css`
+  background-color: ${colors.negative10};
+  border: 0.5px solid ${colors.negative};
+`;
 
 const Box = styled.div`
   width: 20%;
@@ -46,7 +57,7 @@ const Portrait = styled.img`
 `;
 
 const LevelWrapper = styled.span`
-  ${typography.content.md2.sb};
+  ${typography.caption.lg.sb};
   width: 20px;
   height: 20px;
   display: flex;

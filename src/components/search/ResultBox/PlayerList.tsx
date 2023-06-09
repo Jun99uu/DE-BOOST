@@ -7,6 +7,7 @@ import { colors, typography } from "@/styles/tokens";
 import Summoner from "./Summoner";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
+import Enemy from "./Enemy";
 
 interface Props extends ComponentProps<"div"> {
   my: Array<GameData>;
@@ -91,13 +92,20 @@ const PlayerList = ({
 
   /** 적 팀 리스트 */
   const EnemyList = () => {
-    return <></>;
+    return (
+      <EnemyWrapper>
+        {enemy.map((data) => (
+          <Enemy info={data} key={data.championId} />
+        ))}
+      </EnemyWrapper>
+    );
   };
 
   return (
     <Container {...props}>
       <CaptionSection />
       <MyList />
+      <EnemyList />
     </Container>
   );
 };
@@ -120,6 +128,15 @@ const CaptionList = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
+`;
+
+const EnemyWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 `;
 
 export default PlayerList;
