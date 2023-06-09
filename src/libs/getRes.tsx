@@ -65,3 +65,27 @@ export const getIllust = (name: string): string => {
   const illustRes = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_0.jpg`;
   return illustRes;
 };
+
+export const Tier = {
+  IRON: "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/01_iron/images/iron_base.png",
+  BRONZE:
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/02_bronze/images/bronze_base.png",
+  SILVER:
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/03_silver/images/silver_base.png",
+  GOLD: "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/04_gold/images/gold_base.png",
+  PLATINUM:
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/05_platinum/images/platinum_base.png",
+  DIAMOND:
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/06_diamond/images/diamond_base.png",
+  MASTER:
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/07_master/images/master_base.png",
+  GRANDMASTER:
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/08_grandmaster/images/grandmaster_base.png",
+  CHALLENGER:
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/09_challenger/images/challenger_base.png",
+};
+
+/** 티어 테두리 이미지 받아오기 */
+export const getTier = (tier: keyof typeof Tier): string => {
+  return Tier[tier];
+};

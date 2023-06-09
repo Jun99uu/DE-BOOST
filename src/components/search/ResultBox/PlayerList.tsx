@@ -79,7 +79,11 @@ const PlayerList = ({
               info={data}
               key={data.championId}
               type={
-                user === data.summonerName ? (win ? "win" : "lose") : "basic"
+                user.name === data.summonerName
+                  ? win
+                    ? "win"
+                    : "lose"
+                  : "basic"
               }
             />
           ))
@@ -94,9 +98,11 @@ const PlayerList = ({
   const EnemyList = () => {
     return (
       <EnemyWrapper>
-        {enemy.map((data) => (
-          <Enemy info={data} key={data.championId} />
-        ))}
+        {enemy ? (
+          enemy.map((data) => <Enemy info={data} key={data.championId} />)
+        ) : (
+          <></>
+        )}
       </EnemyWrapper>
     );
   };

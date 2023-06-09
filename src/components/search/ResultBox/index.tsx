@@ -8,15 +8,18 @@ import { dummy } from "./dummy";
 import { FilteredTeam, getTeamAndWinStatus } from "@/libs/teamFilter";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
+import Analysis from "./Analysis";
+import useMobile from "@/hooks/useMobile";
 
 const ResultBox = () => {
   const user = useRecoilValue(userNameState);
   const [data, setData] = useState(dummy);
   const [info, setInfo] = useState<FilteredTeam | undefined>();
+  const isMobile = useMobile();
 
   useEffect(() => {
     if (data) {
-      const newInfo = getTeamAndWinStatus(data, user); //TODO user로 변경해야함
+      const newInfo = getTeamAndWinStatus(data, user.name); //TODO user로 변경해야함
       setInfo(newInfo);
     }
   }, [data]);
@@ -24,12 +27,16 @@ const ResultBox = () => {
   return (
     <Container>
       <Heading css={info?.win ? winStyle : loseStyle} />
-      <PlayerList
-        {...info!}
-        duration={data.gameInfo.gameDuration}
-        dateBefore={data.gameInfo.gameStartTimestamp}
-      />
-      <div />
+      {isMobile ? (
+        <></>
+      ) : (
+        <PlayerList
+          {...info!}
+          duration={data.gameInfo.gameDuration}
+          dateBefore={data.gameInfo.gameStartTimestamp}
+        />
+      )}
+      <Analysis info={data} />
     </Container>
   );
 };
@@ -64,6 +71,7 @@ const Heading = styled.div`
   position: absolute;
   top: 0px;
   left: 0px;
+  z-index: 1;
 `;
 
 export default ResultBox;

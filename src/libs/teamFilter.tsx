@@ -42,3 +42,21 @@ export function getTeamAndWinStatus(
 
   return undefined;
 }
+
+/**특정 플레이어 게임 정보만 가져오기 */
+export const getPlayerBySummonerName = (
+  data: MatchData,
+  summonerName: string
+): GameData | null => {
+  for (const player of data.team1) {
+    if (player.summonerName === summonerName) {
+      return player;
+    }
+  }
+  for (const player of data.team2) {
+    if (player.summonerName === summonerName) {
+      return player;
+    }
+  }
+  return null;
+};
