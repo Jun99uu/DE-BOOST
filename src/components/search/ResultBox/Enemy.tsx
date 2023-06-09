@@ -23,14 +23,29 @@ const Enemy = ({ info }: Props) => {
   );
 };
 
+const PortraitWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.2s;
+`;
+
 const win = css`
   background-color: ${colors.primary10};
   border: 0.5px solid ${colors.primary};
+
+  &:hover ${PortraitWrapper} {
+    transform: scale(1.05);
+  }
 `;
 
 const lose = css`
   background-color: ${colors.negative10};
   border: 0.5px solid ${colors.negative};
+
+  &:hover ${PortraitWrapper} {
+    transform: scale(1.05);
+  }
 `;
 
 const Box = styled.div`
@@ -41,14 +56,9 @@ const Box = styled.div`
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
 `;
-
-const PortraitWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-`;
-
 const Portrait = styled.img`
   width: 100%;
   height: 100%;
@@ -78,4 +88,5 @@ const LevelWrapper = styled.span`
     right: -5px;
   }
 `;
+
 export default Enemy;
