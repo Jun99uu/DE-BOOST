@@ -5,16 +5,36 @@ import { GameData } from "../interface";
 import { getItem, getPortrait, getSpell } from "@/libs/getRes";
 import { css } from "@emotion/react";
 import { dateFormatter } from "@/libs/dateCalculator";
+import { useEffect, useState } from "react";
 
-interface Props {
+interface Props extends React.ComponentProps<"div"> {
   endTime: number;
   info: GameData;
+  type?: "win" | "lose" | "basic";
 }
 
 /**
  * 검색된 플레이어 본인에 대한 박스
  */
-const Summoner = ({ info, endTime }: Props) => {
+const Summoner = ({ info, endTime, type, ...props }: Props) => {
+  const [styleType, setStyleType] = useState(css``);
+
+  useEffect(() => {
+    if (type) {
+      switch (type) {
+        case "win":
+          setStyleType(win);
+          break;
+        case "lose":
+          setStyleType(lose);
+          break;
+        case "basic":
+          setStyleType(basic);
+          break;
+      }
+    } else setStyleType(css``);
+  }, []);
+
   /**챔피언 초상화 + 레벨 부분 */
   const PortraitSection = () => {
     return (
@@ -34,7 +54,7 @@ const Summoner = ({ info, endTime }: Props) => {
     return (
       <SpellWrapper>
         {spells.map((spell) => (
-          <ResIcon src={spell} key={spell} />
+          <SpellIcon src={spell} key={spell} />
         ))}
       </SpellWrapper>
     );
@@ -116,6 +136,7 @@ const Summoner = ({ info, endTime }: Props) => {
       <ItemWrapper>
         {items.map((item) => (
           <ResIcon src={item} key={item} />
+          // <Tmp />
         ))}
       </ItemWrapper>
     );
@@ -137,7 +158,7 @@ const Summoner = ({ info, endTime }: Props) => {
   };
 
   return (
-    <Container>
+    <Container css={styleType} {...props}>
       <PortraitSection />
       <SpellSection />
       <InfoSection />
@@ -147,27 +168,49 @@ const Summoner = ({ info, endTime }: Props) => {
   );
 };
 
+const basic = css`
+  background-color: #f6f6f6;
+  border: 0.5px solid ${colors.gray30};
+  box-shadow: 0px;
+`;
+
+const win = css`
+  background-color: ${colors.primary10};
+  border: 0.5 solid ${colors.primary};
+  box-shadow: 0px;
+`;
+
+const lose = css`
+  background-color: ${colors.negative10};
+  border: 0.5 solid ${colors.negative};
+  box-shadow: 0px;
+`;
+
 const Container = styled.div`
   width: 90%;
+  min-width: 355px;
   height: 110px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 29px 32px;
+  padding: 29px 25px;
   background-color: white;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   gap: 5px;
+
   ${mq[2]} {
     width: 70%;
   }
 
   ${mq[3]} {
+    min-width: 39px;
     width: 40%;
     height: 115px;
   }
+
   ${mq[4]} {
     width: 35%;
     height: 120px;
@@ -203,10 +246,10 @@ const LevelWrapper = styled.span`
   right: -5px;
 
   ${mq[3]} {
-    width: 32px;
-    height: 32px;
-    bottom: -10px;
-    right: -10px;
+    width: 25px;
+    height: 25px;
+    bottom: -5px;
+    right: -5px;
   }
 `;
 
@@ -214,6 +257,8 @@ const SpellWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   margin-left: 8px;
 `;
@@ -238,13 +283,14 @@ const GradesWrapper = styled.div`
 `;
 
 const ItemWrapper = styled.div`
+  width: 105px;
   height: 100%;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-  justify-content: center;
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 5px;
 `;
 
 const WardWrapper = styled.div`
@@ -254,7 +300,15 @@ const WardWrapper = styled.div`
 `;
 
 const ResIcon = styled.img`
-  height: 100%;
+  height: 50%;
+  aspect-ratio: 1;
   border-radius: 5px;
 `;
+
+const SpellIcon = styled.img`
+  height: 40%;
+  aspect-ratio: 1;
+  border-radius: 5px;
+`;
+
 export default Summoner;

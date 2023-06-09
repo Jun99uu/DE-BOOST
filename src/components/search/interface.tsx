@@ -65,3 +65,34 @@ export interface GameData {
   baronKills: number;
   win: boolean;
 }
+
+/**
+ * 하나의 매치 분석했을 때 사용하는 인터페이스
+ */
+interface MatchInfo {
+  gameDuration: number;
+  gameStartTimestamp: number;
+}
+
+interface ManufactureInfo {
+  dtm: number;
+  dpm: number;
+  kap: number;
+  vs: number;
+  dbgpm: number;
+  csm: number;
+  gpm: number;
+  dmgp: number;
+  vspm: number;
+  avgwpm: number;
+  avgwcpm: number;
+  avgvwpm: number;
+}
+
+export interface MatchData {
+  gameId: string;
+  gameInfo: MatchInfo;
+  team1: GameData[];
+  team2: GameData[];
+  manufactureInfo: ManufactureInfo;
+}
