@@ -562,6 +562,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@qve-ui/qds@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@qve-ui/qds/-/qds-1.0.1.tgz#a759f784060d2bf69a1a76d9b45940df82aef382"
+  integrity sha512-m4nzElhQa6GbBDnHG/e8jHEyWVaBvGHJpR4lMQsFX5wJPJT3QLbueLGax70ZyZcRjpAtbSjkk8tyEdn0E+qGjw==
+
 "@remix-run/router@1.6.2":
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.6.2.tgz#bbe75f8c59e0b7077584920ce2cc76f8f354934d"
