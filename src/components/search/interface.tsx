@@ -74,7 +74,7 @@ interface MatchInfo {
   gameStartTimestamp: number;
 }
 
-interface ManufactureInfo {
+export interface ManufactureInfo {
   dtm: number;
   dpm: number;
   kap: number;

@@ -7,6 +7,8 @@ import { userNameState } from "@/store/usernameAtom";
 import { getIllust } from "@/libs/getRes";
 import Profile from "./Profile";
 import Percentage from "./Percentage";
+import { mq } from "@/styles/breakpoints";
+import Report from "./Report";
 
 interface Props {
   info: MatchData;
@@ -28,6 +30,7 @@ const Analysis = ({ info }: Props) => {
       </BackgroundWrapper>
       <Profile data={myInfo} />
       <Percentage />
+      <Report data={info.manufactureInfo} />
     </Container>
   );
 };
@@ -40,6 +43,7 @@ const Container = styled.div`
   justify-content: center;
   position: relative;
   gap: 30px;
+  padding: 5rem 0rem;
 `;
 
 const BackgroundWrapper = styled.div`
@@ -59,10 +63,14 @@ const Background = styled.img`
 const BackgroundGradient = styled.div`
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #00ff0000, white);
+  background: linear-gradient(to bottom, #00ff0000, #ffffffcf, white);
   position: absolute;
   top: 0px;
   left: 0px;
+
+  ${mq[3]} {
+    background: linear-gradient(to bottom, #00ff0000, white);
+  }
 `;
 
 export default Analysis;
