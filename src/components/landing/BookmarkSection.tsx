@@ -1,11 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Bookmark from "./Bookmark";
 import Section from "./Section";
-import { dummyBookmarks } from "./dummy";
 import EmptyComponent from "./Bookmark/Empty";
+import useLoginState from "@/hooks/useLogined";
+import { customApi } from "@/libs/api";
 
 const BookmarkSection = () => {
   const [bookmarks, setBookmarks] = useState([]);
+  const { loginState } = useLoginState();
+
+  const getBookmarkList = (token: string) => {
+    customApi
+      .get("/bookmark", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => setBookmarks(res.data))
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("at");
+    if (token) getBookmarkList(token);
+  }, [loginState.isLogined]);
 
   return (
     <Section
@@ -15,7 +33,7 @@ const BookmarkSection = () => {
       {bookmarks.length > 0 ? (
         <Bookmark datas={bookmarks} />
       ) : (
-        <EmptyComponent isLogined={false} />
+        <EmptyComponent isLogined={loginState.isLogined} />
       )}
     </Section>
   );

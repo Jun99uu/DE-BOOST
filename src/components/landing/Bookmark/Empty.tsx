@@ -2,24 +2,27 @@ import { mq } from "@/styles/breakpoints";
 import { colors, typography } from "@/styles/tokens";
 import { ReactComponent as Empty } from "@assets/empty.svg";
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   isLogined: boolean;
 }
 
 const EmptyComponent = ({ isLogined }: Props) => {
+  const navigate = useNavigate();
   const content = {
     title: isLogined
-      ? "궁금한 소환사 검색하고\n분석 신청하기!"
-      : "로그인하고\n궁금한 소환사 분석하기!",
+      ? "궁금한 소환사 검색하고\n북마크하기!"
+      : "로그인하고\n관심있는 소환사 북마크하기!",
     button: isLogined ? "검색하기" : "로그인",
+    handler: () => (isLogined ? null : navigate("/login")),
   };
   return (
     <Container>
       <Empty style={{ width: "100%" }} />
       <Wrapper>
         <Title>{content.title}</Title>
-        <Button>{content.button}</Button>
+        <Button onClick={content.handler}>{content.button}</Button>
       </Wrapper>
     </Container>
   );
