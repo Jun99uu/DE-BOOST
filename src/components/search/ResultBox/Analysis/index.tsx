@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
 import { getIllust } from "@/libs/getRes";
 import Profile from "./Profile";
+import Percentage from "./Percentage";
 
 interface Props {
   info: MatchData;
@@ -26,6 +27,7 @@ const Analysis = ({ info }: Props) => {
         <BackgroundGradient />
       </BackgroundWrapper>
       <Profile data={myInfo} />
+      <Percentage />
     </Container>
   );
 };
@@ -37,7 +39,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 50px;
+  gap: 30px;
 `;
 
 const BackgroundWrapper = styled.div`
