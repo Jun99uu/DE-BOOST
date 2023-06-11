@@ -5,11 +5,27 @@ import styled from "@emotion/styled";
 import { ReactComponent as GoogleLogo } from "@assets/Google.svg";
 
 const RightSection = () => {
+  const secretKeys = {
+    clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+    redirectURI: import.meta.env.VITE_GOOGLE_REDIRECT_URI,
+  };
+
+  const onLogin = () => {
+    const url =
+      "https://accounts.google.com/o/oauth2/v2/auth?client_id=" +
+      secretKeys.clientId +
+      "&redirect_uri=" +
+      secretKeys.redirectURI +
+      "&response_type=code&scope=email profile openid&access_type=offline&service=lso&o2v=2&flowName=GeneralOAuthFlow";
+
+    location.href = url;
+  };
+
   return (
     <Container>
       <Title>{`DE:BOOST는,\n건전한 게임 문화를 지향합니다.`}</Title>
       <Subtitle>{`AI 부스팅 탐지 기술을 무료로 경험해보세요!`}</Subtitle>
-      <GoogleLogin>
+      <GoogleLogin onClick={onLogin}>
         <GoogleLogo />
         <span>Sign in with Google</span>
       </GoogleLogin>
