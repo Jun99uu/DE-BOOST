@@ -7,6 +7,7 @@ import { css } from "@emotion/react";
 import { colors, typography } from "@/styles/tokens";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoins, faDragon, faGhost } from "@fortawesome/free-solid-svg-icons";
+import { mq } from "@/styles/breakpoints";
 
 interface Props {
   data: GameData;
@@ -143,15 +144,22 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 0.8rem;
+  position: relative;
+  z-index: 0;
 `;
 
 const ImageWrapper = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+
+  ${mq[3]} {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 const Portrait = styled.img`
