@@ -40,7 +40,7 @@ export const dummyLanding: { endTime: number; info: GameData } = {
   endTime: 1685506975839,
   info: {
     championId: 85,
-    championName: "Zoe",
+    championName: "Kennen",
     summonerName: "노는게제일행보케",
     champLevel: 17,
     summoner1Id: 12,
