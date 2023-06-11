@@ -142,7 +142,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 1.5rem;
+  gap: 0.8rem;
 `;
 
 const ImageWrapper = styled.div`
@@ -177,7 +177,7 @@ const NameWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0.2rem;
-  margin-top: 25px;
+  margin-top: 35px;
 `;
 
 const InfoWrapper = styled.div`
