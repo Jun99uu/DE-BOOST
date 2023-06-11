@@ -56,7 +56,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  position: relative;
+  position: absolute;
   z-index: 10;
 `;
 

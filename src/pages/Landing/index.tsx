@@ -19,6 +19,7 @@ const Landing = () => {
 };
 
 const Container = styled.div`
+  padding-top: 60px;
   width: 100%;
   display: flex;
   flex-direction: column;

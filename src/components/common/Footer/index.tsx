@@ -1,15 +1,17 @@
 import Logo from "@/assets/Logo";
 import { colors, typography } from "@/styles/tokens";
 import styled from "@emotion/styled";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const { pathname } = useLocation();
   const contents = [
     "DE:BOOST | 서울특별시 동작구 사당로 50 숭실대학교 그 어딘가",
     "특허번호 : 제2022-서울동작-1234 | Contact : DE:BOOST@email.com",
     "Copyright by DE:BOOST. All right reserved.",
   ];
   return (
-    <Container>
+    <Container none={pathname === "/login"}>
       <Logo blue={true} />
       {contents.map((content) => (
         <Content key={content}>{content}</Content>
@@ -18,9 +20,9 @@ const Footer = () => {
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<{ none: boolean }>`
   width: 100%;
-  display: flex;
+  display: ${(props) => (props.none ? "none" : "flex")};
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
