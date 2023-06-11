@@ -1,7 +1,7 @@
+import { LeftSection, RightSection } from "@/components/login";
 import { mq } from "@/styles/breakpoints";
 import { colors } from "@/styles/tokens";
 import { css } from "@emotion/react";
-import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 
 /**
@@ -27,13 +27,24 @@ const Login = () => {
     width: 100%;
     height: calc(${vh}px * 100);
     background-color: ${colors.primary};
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
 
     ${mq[3]} {
       min-height: 100vh;
     }
   `;
 
-  return <div css={backgroundStyle}></div>;
+  return (
+    <div css={backgroundStyle}>
+      <LeftSection />
+      <RightSection />
+    </div>
+  );
 };
 
 export default Login;

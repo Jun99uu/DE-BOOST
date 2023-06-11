@@ -22,6 +22,16 @@ export const typography = {
         font-weight: 600;
       `,
     },
+    md: {
+      bd: css`
+        font-size: 3.2rem;
+        font-weight: 700;
+      `,
+      sb: css`
+        font-size: 3.2rem;
+        font-weight: 600;
+      `,
+    },
   },
   subtitle: {
     xl: {
