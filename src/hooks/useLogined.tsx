@@ -95,12 +95,12 @@ const useLoginState = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("at");
-    setLoginState((prevLoginState) => ({
-      ...prevLoginState,
+    localStorage.removeItem("rt");
+    setLoginState({
       isLogined: false,
       name: "",
       img: "",
-    }));
+    });
     navigate("/login"); // Redirect to login page after logout
   };
 
