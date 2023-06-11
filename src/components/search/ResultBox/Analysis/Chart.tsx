@@ -5,6 +5,7 @@ import { userNameState } from "@/store/usernameAtom";
 import { useEffect, useState } from "react";
 import { ManufactureInfo } from "../../interface";
 import { AVERAGE } from "@/assets/AVERAGE";
+import styled from "@emotion/styled";
 
 interface Props {
   data: ManufactureInfo;
@@ -83,8 +84,6 @@ const Chart = ({ data }: Props) => {
   const [series, setSeries] = useState(defaultSeries);
   const [options, setOptions] = useState<ApexOptions>(defaultOptions);
 
-  console.log(series, options);
-
   useEffect(() => {
     const myTierAverage = AVERAGE[user.tier][1]["all"];
     const myAverage = [
@@ -96,7 +95,7 @@ const Chart = ({ data }: Props) => {
       myTierAverage.dpm,
       myTierAverage.dtm,
       myTierAverage.gpm * 2,
-      myTierAverage.kills * 100,
+      myTierAverage.kap * 100,
       myTierAverage.vs * 30,
       myTierAverage.vspm * 1000,
     ];
@@ -126,13 +125,22 @@ const Chart = ({ data }: Props) => {
   }, [user.tier]);
 
   return (
-    <ReactApexChart
-      options={options}
-      series={series}
-      type="radar"
-      height={350}
-    />
+    <Container>
+      <ReactApexChart
+        options={options}
+        series={series}
+        type="radar"
+        height={300}
+      />
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+`;
 
 export default Chart;
