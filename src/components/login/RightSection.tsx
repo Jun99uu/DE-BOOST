@@ -38,9 +38,10 @@ const moveToLeft = keyframes`
         right: -500px;
     }
     to{
-        right: 2rem;
+        right: 3rem;
     }
 `;
+
 const moveToLeftPC = keyframes`
     from{
         right: -500px;
