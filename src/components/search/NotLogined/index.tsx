@@ -37,7 +37,7 @@ const NotLogined = () => {
   );
 };
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -48,12 +48,12 @@ const Container = styled.div`
   z-index: 1;
 `;
 
-const Title = styled.span`
+export const Title = styled.span`
   ${typography.subtitle.xl.bd};
   color: ${colors.black};
 `;
 
-const Subtitle = styled.span`
+export const Subtitle = styled.span`
   ${typography.content.lg.sb};
   color: ${colors.darkest};
 `;

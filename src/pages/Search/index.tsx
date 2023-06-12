@@ -1,8 +1,8 @@
 import { CircleSquare } from "@/components/common/Loading";
-import { NotLogined } from "@/components/search";
+import { NotFound, NotLogined } from "@/components/search";
 import { SearchResult } from "@/components/search/interface";
-import useAxios from "@/hooks/useAxios";
 import { getChampionRandomIllust } from "@/libs/champions";
+import { loginState } from "@/store/loginAtom";
 import { userNameState } from "@/store/usernameAtom";
 import { mq } from "@/styles/breakpoints";
 import { colors } from "@/styles/tokens";
@@ -10,7 +10,7 @@ import styled from "@emotion/styled";
 import { Modal } from "@qve-ui/qds";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 /**
  * 검색 결과 페이지
@@ -18,16 +18,9 @@ import { useSetRecoilState } from "recoil";
 const Search = () => {
   const { name } = useParams();
   const setUserName = useSetRecoilState(userNameState);
+  const loginInfo = useRecoilValue(loginState);
   const [data, setData] = useState<SearchResult>(); //TODO 유저 정보 받아오기
-  const { response, error, loading, isLogined } = useAxios({
-    method: "get",
-    url: "/riot/gameinfo",
-    params: {
-      summonerName: name,
-    },
-  });
-
-  console.log(response, error, loading, isLogined);
+  const [loading, setLoading] = useState(true);
 
   const settingSummonerName = () => {
     if (name && data) {
@@ -42,8 +35,14 @@ const Search = () => {
     settingSummonerName();
   }, []);
 
+  /**로그인하지 않은 경우의 섹션 */
   const IfNotLogined = () => {
-    return !isLogined ? <NotLogined /> : <></>;
+    return !loginInfo.isLogined ? <NotLogined /> : <></>;
+  };
+
+  /** 검색 결과가 존재하지 않는 경우 */
+  const NotFoundSection = () => {
+    return !data && loginInfo.isLogined ? <NotFound /> : <></>;
   };
 
   return (
@@ -52,10 +51,11 @@ const Search = () => {
         <Background src={getChampionRandomIllust()} alt="bg" />
         <BackgroundGradient />
       </BackgroundWrapper>
-      <Modal isOpen={!loading} onClose={() => null}>
-        <CircleSquare />
-      </Modal>
       <IfNotLogined />
+      <NotFoundSection />
+      {/* <Modal isOpen={loading} onClose={() => null}>
+        <CircleSquare />
+      </Modal> */}
     </Container>
   );
 };
@@ -87,7 +87,7 @@ const Background = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
 `;
 
 const BackgroundGradient = styled.div`
