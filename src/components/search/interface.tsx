@@ -1,4 +1,4 @@
-import { SPELL_OBJ } from "@/libs/getRes";
+import { SPELL_OBJ, Tier } from "@/libs/getRes";
 
 /**
  * 플레이어 검색 결과 정보 인터페이스
@@ -18,7 +18,7 @@ interface SummonerInfo {
   summonerName: string;
   summonerLevel: number;
   summonerIconId: number;
-  tier: string;
+  tier: keyof typeof Tier;
 }
 
 interface GameInfo {
