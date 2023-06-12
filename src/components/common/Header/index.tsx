@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
 import Navigation from "./Navigation";
 import { useLocation } from "react-router-dom";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SerializedStyles, css } from "@emotion/react";
 import { colors } from "@/styles/tokens";
 import { HeaderBg } from "@/assets/HeaderBg";
+import SearchInput from "./SearchInput";
 
 interface headerProps extends React.ComponentProps<"div"> {
   isLogined: boolean;
@@ -12,8 +13,21 @@ interface headerProps extends React.ComponentProps<"div"> {
 
 const Header = ({ isLogined, ...props }: headerProps) => {
   const { pathname } = useLocation();
+  const [isSearch, setIsSearch] = useState(false);
 
   const settingBg = useMemo<SerializedStyles>(() => {
+    if (pathname.includes("/search")) {
+      return css`
+        background-image: ${`url(${
+          HeaderBg[Math.floor(Math.random() * HeaderBg.length)]
+        })`};
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: brightness(0.5);
+      `;
+    }
+
     switch (pathname) {
       case "/":
         return css`
@@ -23,16 +37,6 @@ const Header = ({ isLogined, ...props }: headerProps) => {
         return css`
           background-color: ${colors.primary};
         `;
-      case "/search":
-        return css`
-          background-image: ${`url(${
-            HeaderBg[Math.floor(Math.random() * HeaderBg.length)]
-          })`};
-          background-position: center;
-          background-size: cover;
-          background-repeat: no-repeat;
-          filter: brightness(0.5);
-        `;
       default:
         return css`
           background-color: ${colors.gray};
@@ -40,10 +44,27 @@ const Header = ({ isLogined, ...props }: headerProps) => {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    setIsSearch(pathname.includes("/search"));
+  }, [pathname]);
+
+  const SearchSection = () => {
+    return isSearch ? (
+      <BottomWrapper>
+        <SearchInput />
+      </BottomWrapper>
+    ) : (
+      <></>
+    );
+  };
+
   return (
     <Container {...props}>
-      <Background css={settingBg} />
-      <Navigation />
+      <TopWrapper>
+        <Background css={settingBg} />
+        <Navigation />
+      </TopWrapper>
+      <SearchSection />
     </Container>
   );
 };
@@ -58,6 +79,22 @@ const Container = styled.div`
   gap: 20px;
   position: absolute;
   z-index: 10;
+`;
+
+const TopWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const BottomWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
 `;
 
 const Background = styled.div`

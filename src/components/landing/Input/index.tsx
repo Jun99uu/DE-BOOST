@@ -2,16 +2,39 @@ import styled from "@emotion/styled";
 import Nation from "./Nation";
 import Magnifying from "./Magnifying";
 import { colors, typography } from "@/styles/tokens";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { KeyboardEvent } from "react";
 
 /**
  * 검색 박스 wrapper
  */
 const SearchInput = () => {
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+
+  const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
+  const onEnter = () => {
+    navigate(`search/${name}`);
+  };
+
+  const onKeyEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") onEnter();
+  };
+
   return (
     <InputWrapper>
       <Nation />
-      <CustomInput placeholder="소환사 이름을 입력해주세요." />
-      <Magnifying />
+      <CustomInput
+        placeholder="소환사 이름을 입력해주세요."
+        value={name}
+        onChange={onChangeName}
+        onKeyDown={onKeyEnter}
+      />
+      <Magnifying onClick={onEnter} />
     </InputWrapper>
   );
 };

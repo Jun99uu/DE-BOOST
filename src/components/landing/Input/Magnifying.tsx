@@ -4,9 +4,13 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { ComponentProps, useEffect, useState } from "react";
 
-const Magnifying = ({ ...props }: React.ComponentProps<"button">) => {
+interface Props extends ComponentProps<"button"> {
+  settingWidth?: number;
+}
+
+const Magnifying = ({ settingWidth, ...props }: Props) => {
   const isMobile = useMobile();
   const [size, setSize] = useState(65);
 
@@ -17,7 +21,7 @@ const Magnifying = ({ ...props }: React.ComponentProps<"button">) => {
   return (
     <ButtonWrapper
       css={css`
-        width: ${size}px;
+        width: ${settingWidth ? settingWidth : size}px;
       `}
     >
       <MagnifyingButton {...props}>

@@ -27,7 +27,7 @@ const Container = styled.div<{ none: boolean }>`
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
-  padding: 100px 50px 50px 50px;
+  padding: 150px 50px 50px 50px;
 `;
 
 const Content = styled.span`
