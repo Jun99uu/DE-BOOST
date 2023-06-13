@@ -13,6 +13,7 @@ import { useParams } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import NotRegister from "@/components/search/NotRegister";
 import dummy from "@assets/dummy.json";
+import Contents from "@/components/search/Contents";
 
 /**
  * 검색 결과 페이지
@@ -60,10 +61,13 @@ const Search = () => {
 
   /** 정보가 있는 경우 */
   const InfoSection = () => {
-    return (
+    return data.searchedBefore && loginInfo.isLogined ? (
       <InfoContainer>
         <Profile data={data} />
+        <Contents data={data} />
       </InfoContainer>
+    ) : (
+      <></>
     );
   };
 
@@ -96,19 +100,19 @@ const Container = styled.div`
   top: 12rem;
 
   ${mq[3]} {
-    padding: 20rem 0rem 10rem 0rem;
+    padding: 10rem 0rem 10rem 0rem;
   }
 `;
 
 const BackgroundWrapper = styled.div`
   width: 100%;
-  height: 300px;
+  height: 200px;
   position: absolute;
   top: 0px;
   left: 0px;
 
   ${mq[3]} {
-    height: 500px;
+    height: 300px;
   }
 `;
 

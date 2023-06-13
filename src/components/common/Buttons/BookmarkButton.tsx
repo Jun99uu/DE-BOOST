@@ -43,13 +43,14 @@ const BookmarkButton = ({ isBookmarked, ...props }: Props) => {
 
   return (
     <Button css={content.style} isBookmarked={isBookmarked} {...props}>
-      {content.content}
-      <FontAwesomeIcon
-        icon={faStar}
+      <span
         css={css`
-          padding-bottom: 3px;
+          padding-top: 2px;
         `}
-      />
+      >
+        {content.content}
+      </span>
+      <FontAwesomeIcon icon={faStar} />
     </Button>
   );
 };
