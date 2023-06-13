@@ -139,7 +139,6 @@ const CHAMPIONS = [
   "Vladimir",
   "Volibear",
   "Warwick",
-  "Wukong",
   "Xayah",
   "Xerath",
   "XinZhao",
