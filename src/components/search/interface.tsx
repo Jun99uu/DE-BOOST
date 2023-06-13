@@ -21,7 +21,7 @@ interface SummonerInfo {
   tier: keyof typeof Tier | string;
 }
 
-interface GameInfo {
+export interface GameInfo {
   gameId: string;
   participantInfos: {
     team1: TeamParticipant[];
