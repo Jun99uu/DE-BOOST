@@ -32,6 +32,13 @@ const BgVideo = styled.video`
   height: 100%;
   object-fit: cover;
   position: absolute;
+
+  ${mq[3]} {
+    object-position: center -9rem;
+  }
+  ${mq[6]} {
+    object-position: center -18rem;
+  }
 `;
 
 const BgWrapper = styled.div`
