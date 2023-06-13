@@ -3,7 +3,7 @@ import { Tier } from "@/libs/getRes";
 
 interface Info {
   name: string;
-  tier: keyof typeof Tier;
+  tier: keyof typeof Tier | string;
 }
 
 const defaultInfo: Info = {

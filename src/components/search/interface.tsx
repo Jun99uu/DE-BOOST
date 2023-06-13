@@ -18,7 +18,7 @@ interface SummonerInfo {
   summonerName: string;
   summonerLevel: number;
   summonerIconId: number;
-  tier: keyof typeof Tier;
+  tier: keyof typeof Tier | string;
 }
 
 interface GameInfo {
@@ -47,8 +47,8 @@ export interface GameData {
   championName: string;
   summonerName: string;
   champLevel: number;
-  summoner1Id: keyof typeof SPELL_OBJ; //스펠
-  summoner2Id: keyof typeof SPELL_OBJ; //스펠
+  summoner1Id: keyof typeof SPELL_OBJ | number; //스펠
+  summoner2Id: keyof typeof SPELL_OBJ | number; //스펠
   kills: number;
   deaths: number;
   assists: number;
