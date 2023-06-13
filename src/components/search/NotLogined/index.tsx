@@ -56,6 +56,8 @@ export const Title = styled.span`
 export const Subtitle = styled.span`
   ${typography.content.lg.sb};
   color: ${colors.darkest};
+  white-space: pre-line;
+  text-align: center;
 `;
 
 const Button = styled.button`
