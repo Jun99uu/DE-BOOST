@@ -1,3 +1,4 @@
+import { colors } from "@/styles/tokens";
 import { css, SerializedStyles } from "@emotion/react";
 import { ComponentProps } from "react";
 
@@ -60,7 +61,7 @@ const style = {
   `,
   firstChildCircle: css`
     stroke-dashoffset: 0;
-    stroke: #f3f3f3;
+    stroke: ${colors.light};
   `,
   secondChildCircle: (percent: number): SerializedStyles => css`
     stroke-dashoffset: calc(440 - (440 * ${percent}) / 100);

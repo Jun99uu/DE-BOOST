@@ -9,11 +9,15 @@ import styled from "@emotion/styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Progress from "@/components/common/Progress";
+import usePercent from "@/hooks/usePercent";
+import useMobile from "@/hooks/useMobile";
 
 /** 해당 소환사가 최초 업데이트 되지 않은 경우 */
 const NotRegister = () => {
   const { name } = useParams();
   const navigate = useNavigate();
+  const percent = usePercent(); //TODO 콜백 통신 연동 필요
+  const isMobile = useMobile();
 
   const onBack = () => {
     navigate(-1);
@@ -22,13 +26,17 @@ const NotRegister = () => {
   return (
     <ReactPortal wrapperId="registing">
       <Container>
-        <LoadingWrapper>
+        <LoadingWrapper
+          css={css`
+            transform: ${isMobile ? "scale(0.8)" : ""};
+          `}
+        >
           <Lottie
             animationData={registing}
             style={{ width: "87%", height: "87%" }}
           />
           <Progress
-            percent={90}
+            percent={percent}
             css={css`
               position: absolute;
             `}
