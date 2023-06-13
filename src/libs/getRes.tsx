@@ -2,7 +2,7 @@
 
 const LATEST_VER = "13.11.1";
 
-export const SPELL_OBJ = {
+export const SPELL_OBJ: { [key: number]: string } = {
   21: "SummonerBarrier",
   1: "SummonerBoost",
   14: "SummonerDot",
@@ -41,10 +41,8 @@ export const getPortrait = (name: string): string => {
  * 스펠 받아오기
  * @name 스펠 영문 이름
  */
-export const getSpell = (num: keyof typeof SPELL_OBJ): string => {
-  const spellRes = `https://ddragon.leagueoflegends.com/cdn/${LATEST_VER}/img/spell/${
-    SPELL_OBJ[`${num}`]
-  }.png`;
+export const getSpell = (num: number): string => {
+  const spellRes = `https://ddragon.leagueoflegends.com/cdn/${LATEST_VER}/img/spell/${SPELL_OBJ[num]}.png`;
   return spellRes;
 };
 
