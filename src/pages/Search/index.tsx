@@ -142,10 +142,10 @@ const InfoContainer = styled.div`
   z-index: 2;
 
   ${mq[3]} {
-    padding: 0px 30rem;
+    padding: 0px 10rem;
   }
   ${mq[4]} {
-    padding: 0px 35rem;
+    padding: 0px 30rem;
   }
   ${mq[5]} {
     padding: 0px 38rem;

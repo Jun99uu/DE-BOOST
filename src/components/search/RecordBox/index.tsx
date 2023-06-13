@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { GameInfo } from "../interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import BasicInfoSection from "./BasicInfoSection";
 
 interface Props {
   match: GameInfo;
@@ -41,6 +42,7 @@ const RecordBox = ({ match }: Props) => {
   return (
     <Container onClick={openResult} css={style.bg}>
       <Vertical css={[style.vertical, leftStyle]} />
+      <BasicInfoSection match={match} />
       <Vertical css={[style.vertical, rightStyle]}>
         <AngleButton css={angle}>
           <FontAwesomeIcon icon={faAngleDown} />
