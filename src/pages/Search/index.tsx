@@ -125,7 +125,7 @@ const BackgroundGradient = styled.div`
   position: absolute;
   top: 0px;
   left: 0px;
-  background: ${`linear-gradient(to bottom, #00ff0000, #f2f4f6bb,${colors.white})`};
+  background: ${`linear-gradient(to bottom, #00ff0000, #f2f4f6af, #f2f4f6d2,${colors.white})`};
 `;
 
 const InfoContainer = styled.div`
