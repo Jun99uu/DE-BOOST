@@ -30,6 +30,8 @@ const Container = styled.div<{ none: boolean; isMobile: boolean }>`
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
+  position: relative;
+  z-index: 2;
   padding: ${(props) =>
     props.isMobile ? "150px 3rem 5rem 3rem" : "150px 50px 50px 50px"};
 `;

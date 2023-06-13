@@ -1,5 +1,5 @@
 import { CircleSquare } from "@/components/common/Loading";
-import { NotFound, NotLogined } from "@/components/search";
+import { NotFound, NotLogined, Profile } from "@/components/search";
 import { SearchResult } from "@/components/search/interface";
 import { getChampionRandomIllust } from "@/libs/champions";
 import { loginState } from "@/store/loginAtom";
@@ -11,6 +11,8 @@ import { Modal } from "@qve-ui/qds";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
+import NotRegister from "@/components/search/NotRegister";
+import dummy from "@assets/dummy.json";
 
 /**
  * 검색 결과 페이지
@@ -19,8 +21,8 @@ const Search = () => {
   const { name } = useParams();
   const setUserName = useSetRecoilState(userNameState);
   const loginInfo = useRecoilValue(loginState);
-  const [data, setData] = useState<SearchResult>(); //TODO 유저 정보 받아오기
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<SearchResult>(dummy); //TODO 유저 정보 받아오기
+  const [loading, setLoading] = useState(true); // TODO 로딩 끝나는 시점 세팅하기
 
   const settingSummonerName = () => {
     if (name && data) {
@@ -33,6 +35,8 @@ const Search = () => {
 
   useEffect(() => {
     settingSummonerName();
+    setData(dummy);
+    setLoading(false);
   }, []);
 
   /**로그인하지 않은 경우의 섹션 */
@@ -42,7 +46,25 @@ const Search = () => {
 
   /** 검색 결과가 존재하지 않는 경우 */
   const NotFoundSection = () => {
-    return !data && loginInfo.isLogined ? <NotFound /> : <></>;
+    return !data.searchedBefore && loginInfo.isLogined ? <NotFound /> : <></>; //TODO : 등록 안된 경우와 아예 존재하지 않는 경우 구분 필요
+  };
+
+  /** 아직 등록되지 않은 경우 */
+  const NotRegisterSection = () => {
+    return !data.searchedBefore && loginInfo.isLogined ? (
+      <NotRegister />
+    ) : (
+      <></>
+    ); //TODO : 등록 안된 경우와 아예 존재하지 않는 경우 구분 필요
+  };
+
+  /** 정보가 있는 경우 */
+  const InfoSection = () => {
+    return (
+      <InfoContainer>
+        <Profile data={data} />
+      </InfoContainer>
+    );
   };
 
   return (
@@ -53,9 +75,11 @@ const Search = () => {
       </BackgroundWrapper>
       <IfNotLogined />
       <NotFoundSection />
-      {/* <Modal isOpen={loading} onClose={() => null}>
+      <Modal isOpen={loading} onClose={() => null}>
         <CircleSquare />
-      </Modal> */}
+      </Modal>
+      <NotRegisterSection />
+      <InfoSection />
     </Container>
   );
 };
@@ -63,12 +87,17 @@ const Search = () => {
 const Container = styled.div`
   padding: 10rem 0rem 10rem 0rem;
   width: 100%;
+  min-height: 58vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   position: relative;
   top: 12rem;
+
+  ${mq[3]} {
+    padding: 20rem 0rem 10rem 0rem;
+  }
 `;
 
 const BackgroundWrapper = styled.div`
@@ -79,7 +108,7 @@ const BackgroundWrapper = styled.div`
   left: 0px;
 
   ${mq[3]} {
-    height: 550px;
+    height: 500px;
   }
 `;
 
@@ -97,6 +126,26 @@ const BackgroundGradient = styled.div`
   top: 0px;
   left: 0px;
   background: ${`linear-gradient(to bottom, #00ff0000, #f2f4f6bb,${colors.white})`};
+`;
+
+const InfoContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 3rem;
+  z-index: 2;
+
+  ${mq[3]} {
+    padding: 0px 30rem;
+  }
+  ${mq[4]} {
+    padding: 0px 35rem;
+  }
+  ${mq[5]} {
+    padding: 0px 38rem;
+  }
 `;
 
 export default Search;
