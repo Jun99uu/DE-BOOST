@@ -1,4 +1,4 @@
-export const breakpoints = [320, 375, 425, 768, 1024, 1440, 2560];
+export const breakpoints = [320, 375, 425, 768, 1024, 1441, 2560];
 /**
  * 종단점
  * @default default 적용하지 않을 경우 가장 작은 디바이스
