@@ -16,7 +16,7 @@ interface Props {
 
 const Analysis = ({ info }: Props) => {
   const user = useRecoilValue(userNameState);
-  const [myInfo, setMyInfo] = useState<GameData>(info.team1[0]);
+  const [myInfo, setMyInfo] = useState<GameData>();
 
   useEffect(() => {
     setMyInfo(getPlayerBySummonerName(info, user.name)!);
@@ -25,10 +25,10 @@ const Analysis = ({ info }: Props) => {
   return (
     <Container>
       <BackgroundWrapper>
-        <Background src={getIllust(myInfo?.championName!)} />
+        {myInfo ? <Background src={getIllust(myInfo?.championName!)} /> : <></>}
         <BackgroundGradient />
       </BackgroundWrapper>
-      <Profile data={myInfo} />
+      {myInfo ? <Profile data={myInfo} /> : <></>}
       <Percentage />
       <Report data={info.manufactureInfo} />
     </Container>

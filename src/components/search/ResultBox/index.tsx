@@ -10,10 +10,15 @@ import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
 import Analysis from "./Analysis";
 import useMobile from "@/hooks/useMobile";
+import { MatchData } from "../interface";
 
-const ResultBox = () => {
+interface Props {
+  match?: MatchData;
+}
+
+const ResultBox = ({ match = dummy }: Props) => {
   const user = useRecoilValue(userNameState);
-  const [data, setData] = useState(dummy);
+  const [data, setData] = useState(match);
   const [info, setInfo] = useState<FilteredTeam | undefined>();
   const isMobile = useMobile();
 
@@ -59,6 +64,7 @@ const Container = styled.div`
   background-color: white;
 
   ${mq[3]} {
+    min-width: 1120px;
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 2fr;

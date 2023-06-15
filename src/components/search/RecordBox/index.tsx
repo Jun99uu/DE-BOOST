@@ -10,6 +10,7 @@ import BasicInfoSection from "./BasicInfoSection";
 import Summoner from "./Summoner";
 import TeamSection from "./TeamSection";
 import useMobile from "@/hooks/useMobile";
+import { ResultBox } from "..";
 
 interface Props {
   match: GameInfo;
@@ -35,8 +36,12 @@ const RecordBox = ({ match }: Props) => {
 
   const openResult = () => {
     setOpen((prev) => !prev);
-    if (open) setAngle(upStyle);
+    if (!open) setAngle(upStyle);
     else setAngle(downStyle);
+  };
+
+  const ResultSection = ({}) => {
+    return open ? <ResultBox /> : <></>;
   };
 
   useEffect(() => {
@@ -44,21 +49,33 @@ const RecordBox = ({ match }: Props) => {
   }, []);
 
   return (
-    <Container onClick={openResult} css={style.bg}>
-      <Vertical css={[style.vertical, leftStyle]} />
-      <LeftSection>
-        <BasicInfoSection match={match} />
-        <Summoner match={match} />
-      </LeftSection>
-      {!isMobile && <TeamSection data={match} css={teamStyle} />}
-      <Vertical css={[style.vertical, rightStyle]}>
-        <AngleButton css={angle}>
-          <FontAwesomeIcon icon={faAngleDown} />
-        </AngleButton>
-      </Vertical>
-    </Container>
+    <ContainerWrapper>
+      <Container onClick={openResult} css={style.bg}>
+        <Vertical css={[style.vertical, leftStyle]} />
+        <LeftSection>
+          <BasicInfoSection match={match} />
+          <Summoner match={match} />
+        </LeftSection>
+        {!isMobile && <TeamSection data={match} css={teamStyle} />}
+        <Vertical css={[style.vertical, rightStyle]}>
+          <AngleButton css={angle}>
+            <FontAwesomeIcon icon={faAngleDown} />
+          </AngleButton>
+        </Vertical>
+      </Container>
+      <ResultSection />
+    </ContainerWrapper>
   );
 };
+
+const ContainerWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+`;
 
 const Container = styled.div`
   width: 100%;
