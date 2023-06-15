@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import BasicInfoSection from "./BasicInfoSection";
 import Summoner from "./Summoner";
+import TeamSection from "./TeamSection";
+import useMobile from "@/hooks/useMobile";
 
 interface Props {
   match: GameInfo;
@@ -23,6 +25,7 @@ const RecordBox = ({ match }: Props) => {
   const [style, setStyle] = useState<StyleProps>(winStyle);
   const [open, setOpen] = useState(false);
   const [angle, setAngle] = useState<SerializedStyles>(downStyle);
+  const isMobile = useMobile();
 
   /** 매치 데이터 내부 승패 여부 확인 후 세로선 스타일링 */
   const settingVerticalStyle = () => {
@@ -47,6 +50,7 @@ const RecordBox = ({ match }: Props) => {
         <BasicInfoSection match={match} />
         <Summoner match={match} />
       </LeftSection>
+      {!isMobile && <TeamSection data={match} css={teamStyle} />}
       <Vertical css={[style.vertical, rightStyle]}>
         <AngleButton css={angle}>
           <FontAwesomeIcon icon={faAngleDown} />
@@ -73,7 +77,7 @@ const Container = styled.div`
 
   ${mq[3]} {
     height: 13rem;
-    padding: 3.5rem 3.3rem;
+    padding: 3.5rem;
   }
 `;
 
@@ -146,6 +150,17 @@ const LeftSection = styled.div`
   justify-content: flex-start;
   gap: 3rem;
   height: 100%;
+`;
+
+const teamStyle = css`
+  position: absolute;
+  top: 50%;
+  left: 68%;
+  transform: translateY(-50%);
+
+  ${mq[5]} {
+    left: 75%;
+  }
 `;
 
 export default RecordBox;

@@ -126,7 +126,7 @@ const Profile = ({ data }: Props) => {
     <Container>
       <ImageWrapper>
         <Portrait src={getPortrait(data.championName)} />
-        <Frame src={getTier(user.tier)} alt={user.tier} />
+        <Frame src={getTier(user.tier)} />
       </ImageWrapper>
       <NameSection />
       <InfoWrapper>

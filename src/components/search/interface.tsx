@@ -30,7 +30,7 @@ export interface GameInfo {
   info: GameInfoData;
 }
 
-interface TeamParticipant {
+export interface TeamParticipant {
   teamId: number;
   summonerName: string;
   championId: number;

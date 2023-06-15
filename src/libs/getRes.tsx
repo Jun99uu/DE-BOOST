@@ -64,7 +64,7 @@ export const getIllust = (name: string): string => {
   return illustRes;
 };
 
-export const Tier = {
+export const Tier: { [key: string]: string } = {
   IRON: "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/01_iron/images/iron_base.png",
   BRONZE:
     "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/rankedcrests/02_bronze/images/bronze_base.png",
@@ -84,6 +84,6 @@ export const Tier = {
 };
 
 /** 티어 테두리 이미지 받아오기 */
-export const getTier = (tier: keyof typeof Tier): string => {
+export const getTier = (tier: keyof typeof Tier | string): string => {
   return Tier[tier];
 };
