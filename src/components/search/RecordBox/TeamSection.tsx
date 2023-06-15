@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { GameInfo, TeamParticipant } from "../interface";
 import { getPortrait } from "@/libs/getRes";
 import { ComponentProps } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props extends ComponentProps<"div"> {
   data: GameInfo;
@@ -14,11 +15,13 @@ interface OneProps {
 
 /**  팀원 섹션  */
 const TeamSection = ({ data, ...props }: Props) => {
+  const navigate = useNavigate();
+
   /** 한 명의 데이터 */
   const One = ({ one }: OneProps) => {
     //TODO 초상화 챔피언 명으로 수정해야됨. 현재 검색결과는 챔피언 아이디가 오고있음;
     return (
-      <OneWrapper>
+      <OneWrapper onClick={() => navigate(`/search/${one.summonerName}`)}>
         <Portrait src={getPortrait("Zoe")} />
         <span>{one.summonerName}</span>
       </OneWrapper>
@@ -67,6 +70,12 @@ const OneWrapper = styled.div`
 
   ${typography.caption.md1.reg};
   color: #757575;
+
+  transition: all 0.1s;
+
+  &:hover {
+    color: #2f2f2f;
+  }
 `;
 
 const Portrait = styled.img`

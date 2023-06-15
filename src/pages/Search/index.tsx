@@ -112,7 +112,7 @@ const BackgroundWrapper = styled.div`
   left: 0px;
 
   ${mq[3]} {
-    height: 300px;
+    height: 350px;
   }
 `;
 
