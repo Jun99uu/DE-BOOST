@@ -7,6 +7,7 @@ import { GameInfo } from "../interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import BasicInfoSection from "./BasicInfoSection";
+import Summoner from "./Summoner";
 
 interface Props {
   match: GameInfo;
@@ -42,7 +43,10 @@ const RecordBox = ({ match }: Props) => {
   return (
     <Container onClick={openResult} css={style.bg}>
       <Vertical css={[style.vertical, leftStyle]} />
-      <BasicInfoSection match={match} />
+      <LeftSection>
+        <BasicInfoSection match={match} />
+        <Summoner match={match} />
+      </LeftSection>
       <Vertical css={[style.vertical, rightStyle]}>
         <AngleButton css={angle}>
           <FontAwesomeIcon icon={faAngleDown} />
@@ -54,21 +58,22 @@ const RecordBox = ({ match }: Props) => {
 
 const Container = styled.div`
   width: 100%;
-  height: 13rem;
+  height: 11rem;
   border-radius: 1rem;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 1.2rem;
+  padding: 2rem 2.5rem;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   cursor: pointer;
 
   ${mq[3]} {
-    padding: 4rem 2rem;
+    height: 13rem;
+    padding: 3.5rem 3.3rem;
   }
 `;
 
@@ -132,6 +137,15 @@ const upStyle = css`
 
 const downStyle = css`
   transform: rotate(0deg);
+`;
+
+const LeftSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3rem;
+  height: 100%;
 `;
 
 export default RecordBox;

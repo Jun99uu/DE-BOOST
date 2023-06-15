@@ -3,6 +3,7 @@ import Navigation, { MENU } from "./Navigation";
 import { useState } from "react";
 import { Props } from "../Profile/interface";
 import RecordSection from "./RecordSection";
+import { mq } from "@/styles/breakpoints";
 
 /**
  * 전적이 표시되는 콘텐츠 섹션 내부
@@ -45,7 +46,11 @@ const Container = styled.div`
 
 const ContentsWrapper = styled.div`
   width: 100%;
-  padding: 3rem 1rem;
+  padding: 3rem 0rem;
+
+  ${mq[3]} {
+    padding: 3rem 1rem;
+  }
 `;
 
 export default Contents;

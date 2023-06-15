@@ -138,7 +138,7 @@ const InfoContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 0px 3rem;
+  padding: 0px 2rem;
   z-index: 2;
 
   ${mq[3]} {

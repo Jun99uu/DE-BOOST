@@ -59,7 +59,10 @@ export const InfoWrapper = styled.div`
   justify-content: center;
   flex-grow: 1;
   margin-left: 5px;
-  gap: 2px;
+
+  ${mq[3]} {
+    gap: 2px;
+  }
 `;
 
 export const GradesWrapper = styled.div`
@@ -72,14 +75,19 @@ export const GradesWrapper = styled.div`
 `;
 
 export const ItemWrapper = styled.div`
-  width: 105px;
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 3px;
+
+  ${mq[3]} {
+    width: 105px;
+    justify-content: flex-end;
+    gap: 5px;
+  }
 `;
 
 export const WardWrapper = styled.div`
@@ -92,15 +100,19 @@ export const ResIcon = styled.img`
   height: 50%;
   aspect-ratio: 1;
   border-radius: 5px;
+  min-width: 17px;
+  min-height: 17px;
 `;
 
 export const SpellIcon = styled.img`
-  height: 40%;
+  height: 45%;
   aspect-ratio: 1;
   border-radius: 5px;
 `;
 
 export const EmptyBox = styled.div`
+  min-width: 17px;
+  min-height: 17px;
   height: 50%;
   aspect-ratio: 1;
   border-radius: 5px;

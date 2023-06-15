@@ -37,6 +37,7 @@ const BarWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  padding: 0rem 1rem;
 `;
 
 const Bar = styled.div`

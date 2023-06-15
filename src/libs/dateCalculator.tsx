@@ -4,7 +4,6 @@
 export const dateFormatter = (timestamp: number): string => {
   const currentTime = Date.now();
   const diffTime = currentTime - timestamp;
-
   if (diffTime < 60000) {
     return "방금 전";
   } else if (diffTime < 3600000) {
@@ -16,12 +15,15 @@ export const dateFormatter = (timestamp: number): string => {
   } else if (diffTime < 604800000) {
     const days = Math.floor(diffTime / 86400000);
     return `${days}일 전`;
+  } else if (diffTime < 2629800000) {
+    const weeks = Math.floor(diffTime / 604800000);
+    return `${weeks}주 전`;
+  } else if (diffTime < 31557600000) {
+    const months = Math.floor(diffTime / 2629800000);
+    return `${months}달 전`;
   } else {
-    const date = new Date(timestamp);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    return `${year}년 ${month}월 ${day}일`;
+    const years = Math.floor(diffTime / 31557600000);
+    return `${years}년 전`;
   }
 };
 

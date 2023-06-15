@@ -1,13 +1,10 @@
 import styled from "@emotion/styled";
 import { GameInfo } from "../interface";
 import { useEffect, useState } from "react";
-import {
-  convertColon,
-  dateFormatter,
-  getTimeDifference,
-} from "@/libs/dateCalculator";
+import { dateFormatter, getTimeDifference } from "@/libs/dateCalculator";
 import { css } from "@emotion/react";
 import { colors, typography } from "@/styles/tokens";
+import { mq } from "@/styles/breakpoints";
 
 type InfoProps = typeof defaultInfos;
 
@@ -26,8 +23,6 @@ interface Props {
 /** 게임 기본 정보 섹션 */
 const BasicInfoSection = ({ match }: Props) => {
   const [contents, setContents] = useState<InfoProps>(defaultInfos);
-
-  console.log(match.info.gameEndTimestamp - match.info.gameStartTimestamp);
 
   const settingCotents = () => {
     const newContents: InfoProps = {
@@ -75,18 +70,31 @@ const loseStyle = css`
 `;
 
 const Title = styled.span`
-  ${typography.content.md2.sb};
+  ${typography.caption.lg.sb};
   text-align: center;
+
+  ${mq[3]} {
+    ${typography.content.md2.sb};
+  }
 `;
 
 const Subtitle = styled.span`
-  ${typography.content.md2.reg};
+  ${typography.caption.md1.reg};
   text-align: center;
+
+  ${mq[3]} {
+    ${typography.caption.lg.reg};
+  }
 `;
 
 const Content = styled.span`
   ${typography.caption.md1.reg};
   color: ${colors.gray};
+  text-align: center;
+
+  ${mq[3]} {
+    ${typography.caption.lg.reg};
+  }
 `;
 
 export default BasicInfoSection;

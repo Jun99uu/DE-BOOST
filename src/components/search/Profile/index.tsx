@@ -21,6 +21,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 1.5rem;
+  padding: 0rem 1rem;
 
   ${mq[3]} {
     gap: 2rem;
