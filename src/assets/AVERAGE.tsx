@@ -1,4 +1,4 @@
-export const AVERAGE = {
+export const AVERAGE: { [key: string]: any } = {
   IRON: {
     1: {
       top: {

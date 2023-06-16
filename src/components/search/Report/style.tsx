@@ -9,7 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 5rem 0rem;
+  padding: 1rem;
   gap: 3.5rem;
 `;
 
@@ -52,7 +52,7 @@ export const ContentMid = styled.span<{ color?: string }>`
 
 /**1.5 */
 export const ContentBd = styled.span<{ color?: string }>`
-  ${typography.content.md1.sb};
+  ${typography.content.md1.bd};
   ${commonSpan};
   line-height: 2rem;
   color: ${(props) => props.color || colors.darkest};
@@ -68,7 +68,7 @@ export const Caption = styled.span<{ color?: string }>`
 export const Horizon = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${colors.gray30};
+  background-color: ${colors.light};
   border-radius: 100%;
 `;
 
@@ -92,7 +92,7 @@ export const ReportContainer = styled.div`
   justify-content: flex-start;
   gap: 4rem;
 
-  ${mq[3]} {
+  ${mq[5]} {
     padding: 0rem 1rem;
   }
 `;
@@ -111,9 +111,20 @@ export const TitleBox = styled.div`
 export const RowWrapper = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+
+  ${mq[3]} {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  ${mq[5]} {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export const DownLoadWrapper = styled.div`
