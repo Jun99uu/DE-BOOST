@@ -75,6 +75,10 @@ export const typography = {
       `,
     },
     md1: {
+      bd: css`
+        font-size: 1.5rem;
+        font-weight: 700;
+      `,
       sb: css`
         font-size: 1.5rem;
         font-weight: 600;
@@ -143,6 +147,7 @@ export const colors = {
   white: "#f2f4f6",
   darkest: "#121212",
   black: "#181818",
+  lightBlack: "#757575",
   gray: "#4B4B4B",
   gray10: "#6D6D6D",
   gray20: "#A3A3A3",

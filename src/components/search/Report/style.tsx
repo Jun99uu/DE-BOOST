@@ -10,6 +10,16 @@ export const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 5rem 0rem;
+  gap: 3rem;
+`;
+
+export const ContentsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
 `;
 
 const commonSpan = css`
@@ -19,21 +29,21 @@ const commonSpan = css`
 `;
 
 /** 3.2 */
-export const Title = styled.span<{ color: string }>`
-  ${typography.title.md.bd};
-  ${commonSpan};
-  color: ${(props) => props.color || colors.darkest};
-`;
-
-/**2.0 */
-export const Subtitle = styled.span`
+export const Title = styled.span<{ color?: string }>`
   ${typography.subtitle.lg.bd};
   ${commonSpan};
   color: ${(props) => props.color || colors.darkest};
 `;
 
+/**2.0 */
+export const Subtitle = styled.span<{ color?: string }>`
+  ${typography.content.lg.md};
+  ${commonSpan};
+  color: ${(props) => props.color || colors.darkest};
+`;
+
 /**1.5 */
-export const ContentMid = styled.span`
+export const ContentMid = styled.span<{ color?: string }>`
   ${typography.content.md1.md};
   ${commonSpan};
   line-height: 2rem;
@@ -41,7 +51,7 @@ export const ContentMid = styled.span`
 `;
 
 /**1.5 */
-export const ContentBd = styled.span`
+export const ContentBd = styled.span<{ color?: string }>`
   ${typography.content.md1.sb};
   ${commonSpan};
   line-height: 2rem;
@@ -114,7 +124,8 @@ export const LinkSpan = styled.span`
   cursor: pointer;
 `;
 
-export const DownLoadButton = styled.button`
+export const Button = styled.button`
+  width: 70%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -125,7 +136,7 @@ export const DownLoadButton = styled.button`
   background-color: ${colors.primary};
   color: white;
   ${typography.content.md1.bd};
-  padding: 2rem;
-  border-radius: 2rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
   cursor: pointer;
 `;

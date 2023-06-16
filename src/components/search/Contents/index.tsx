@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Props } from "../Profile/interface";
 import RecordSection from "./RecordSection";
 import { mq } from "@/styles/breakpoints";
+import { NotReported } from "../Report";
 
 /**
  * 전적이 표시되는 콘텐츠 섹션 내부
@@ -21,7 +22,7 @@ const Contents = ({ data }: Props) => {
       case MENU.game:
         return <RecordSection data={data} />;
       case MENU.analyze:
-        return <></>;
+        return <NotReported />;
     }
   };
 
