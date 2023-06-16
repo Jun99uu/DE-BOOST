@@ -96,3 +96,8 @@ export interface MatchData {
   team2: GameData[];
   manufactureInfo: ManufactureInfo;
 }
+
+export interface AnalysisResult {
+  manufactureInfo: ManufactureInfo;
+  predictionList: Array<number>;
+}
