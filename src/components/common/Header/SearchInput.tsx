@@ -3,13 +3,36 @@ import { mq } from "@/styles/breakpoints";
 import { colors, typography } from "@/styles/tokens";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { KeyboardEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
+  const [value, setValue] = useState("");
+  const navigate = useNavigate();
+
+  const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  const onEnter = () => {
+    navigate(`/search/${value}`);
+  };
+
+  const onKeyEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") onEnter();
+  };
+
   return (
     <InputWrapper>
-      <Input placeholder="소환사 이름을 입력해주세요." />
+      <Input
+        placeholder="소환사 이름을 입력해주세요."
+        value={value}
+        onChange={changeValue}
+        onKeyDown={onKeyEnter}
+      />
       <Magnifying
         settingWidth={22}
+        onClick={onEnter}
         css={css`
           width: 10px;
           height: 10px;
