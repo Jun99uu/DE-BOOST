@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { AnalysisResult, ManufactureInfo } from "../../interface";
 import { useEffect, useState } from "react";
@@ -6,7 +5,7 @@ import { AVERAGE } from "@/assets/AVERAGE";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
 import { compareObjects } from "@/libs/reportMaker";
-import { ContentBd, ContentMid } from "../style";
+import { CaptionWrapper, ContentBd, ContentMid, flexStyle } from "../style";
 
 interface Props {
   result: AnalysisResult;
@@ -107,21 +106,9 @@ const CarryRatingCaptions = ({ result }: Props) => {
   );
 };
 
-const flexStyle = css`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-`;
-
 const Container = styled.div`
   ${flexStyle};
   gap: 2rem;
-`;
-
-const CaptionWrapper = styled.div`
-  ${flexStyle};
-  gap: 0.2rem;
 `;
 
 export default CarryRatingCaptions;

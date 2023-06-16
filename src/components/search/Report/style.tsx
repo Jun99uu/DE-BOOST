@@ -90,7 +90,7 @@ export const ReportContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 4rem;
+  gap: 8rem;
 
   ${mq[5]} {
     padding: 0rem 1rem;
@@ -157,4 +157,16 @@ export const Button = styled.button`
   padding: 1.5rem;
   border-radius: 1rem;
   cursor: pointer;
+`;
+
+export const flexStyle = css`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+`;
+
+export const CaptionWrapper = styled.div`
+  ${flexStyle};
+  gap: 0.2rem;
 `;

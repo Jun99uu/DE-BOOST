@@ -1,11 +1,12 @@
 import { Container, Horizon, ReportContainer } from "../style";
 import CarryRatingSection from "./CarryRatingSection";
 import PreviewSection from "./PreviewSection";
+import TrendSection from "./TrendSection";
 import { dummy } from "./dummy";
 
 /** 종합 분석 보고서 */
 const ReportBox = () => {
-  const COMPONENTS = [CarryRatingSection];
+  const COMPONENTS = [CarryRatingSection, TrendSection];
 
   return (
     <Container>

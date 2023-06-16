@@ -6,6 +6,7 @@ import { colors } from "@/styles/tokens";
 import { ContentBd, ContentMid, PreviewWrapper } from "../style";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
+import { STANDARD } from "@/libs/higherPercent";
 
 interface Props {
   result: AnalysisResult;
@@ -39,21 +40,21 @@ const PreviewSection = ({ result }: Props) => {
   // 분석 값에 대비하여 추가정보 저장하는 함수
   const analyzePercentage = (percent: number) => {
     let newInfo = { caption: "", color: css`` };
-    if (percent >= 95)
+    if (percent >= STANDARD.highest)
       newInfo = {
         caption: "상당히 높은 편",
         color: css`
           color: ${colors.negative};
         `,
       };
-    else if (percent >= 90)
+    else if (percent >= STANDARD.higher)
       newInfo = {
         caption: "높은 편",
         color: css`
           color: ${colors.negative};
         `,
       };
-    else if (percent >= 70)
+    else if (percent >= STANDARD.regular)
       newInfo = {
         caption: "높지 않은 편",
         color: css`
