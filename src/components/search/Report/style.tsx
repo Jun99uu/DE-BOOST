@@ -10,7 +10,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 5rem 0rem;
-  gap: 3rem;
+  gap: 3.5rem;
 `;
 
 export const ContentsWrapper = styled.div`
@@ -53,6 +53,13 @@ export const ContentMid = styled.span<{ color?: string }>`
 /**1.5 */
 export const ContentBd = styled.span<{ color?: string }>`
   ${typography.content.md1.sb};
+  ${commonSpan};
+  line-height: 2rem;
+  color: ${(props) => props.color || colors.darkest};
+`;
+
+export const Caption = styled.span<{ color?: string }>`
+  ${typography.caption.lg.md};
   ${commonSpan};
   line-height: 2rem;
   color: ${(props) => props.color || colors.darkest};
