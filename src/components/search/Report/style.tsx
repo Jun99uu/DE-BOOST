@@ -11,6 +11,12 @@ export const Container = styled.div`
   justify-content: flex-start;
   padding: 1rem;
   gap: 3.5rem;
+
+  @page {
+    size: A4;
+    margin: 20mm;
+    background-color: ${colors.white};
+  }
 `;
 
 export const ContentsWrapper = styled.div`
