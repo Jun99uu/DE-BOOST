@@ -4,14 +4,15 @@ import { GameData } from "../interface";
 import { getPortrait } from "@/libs/getRes";
 import { mq } from "@/styles/breakpoints";
 import { css } from "@emotion/react";
+import { ComponentProps } from "react";
 
-interface Props {
+interface Props extends ComponentProps<"div"> {
   info: GameData;
 }
 
-const Enemy = ({ info }: Props) => {
+const Enemy = ({ info, ...props }: Props) => {
   return (
-    <Box css={info.win ? win : lose}>
+    <Box css={info.win ? win : lose} {...props}>
       <PortraitWrapper>
         <Portrait
           src={getPortrait(info.championName)}

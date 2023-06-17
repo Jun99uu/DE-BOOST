@@ -8,6 +8,7 @@ import Summoner from "./Summoner";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
 import Enemy from "./Enemy";
+import { useNavigate } from "react-router-dom";
 
 interface Props extends ComponentProps<"div"> {
   my: Array<GameData>;
@@ -30,6 +31,11 @@ const PlayerList = ({
   ...props
 }: Props) => {
   const user = useRecoilValue(userNameState);
+  const navigate = useNavigate();
+
+  const onNavi = (name: string) => {
+    navigate(`/search/${name}`);
+  };
 
   /** 최상단 게임 정보 */
   const CaptionSection = () => {
@@ -78,6 +84,7 @@ const PlayerList = ({
             <Summoner
               info={data}
               key={data.championId}
+              onClick={() => onNavi(data.summonerName)}
               type={
                 user.name === data.summonerName
                   ? win
@@ -99,7 +106,13 @@ const PlayerList = ({
     return (
       <EnemyWrapper>
         {enemy ? (
-          enemy.map((data) => <Enemy info={data} key={data.championId} />)
+          enemy.map((data) => (
+            <Enemy
+              info={data}
+              onClick={() => onNavi(data.summonerName)}
+              key={data.championId}
+            />
+          ))
         ) : (
           <></>
         )}

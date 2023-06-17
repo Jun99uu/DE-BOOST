@@ -66,11 +66,11 @@ const ResultBox = ({ gameId }: Props) => {
             duration={data.gameInfo.gameDuration}
             dateBefore={data.gameInfo.gameStartTimestamp}
           />
-          <Analysis info={data} />
         </>
       ) : (
         <></>
       )}
+      {data ? <Analysis info={data} /> : <></>}
       <LoadingSection />
     </Container>
   );

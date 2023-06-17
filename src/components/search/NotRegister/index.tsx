@@ -36,7 +36,6 @@ const NotRegister = ({ settingData, onLoading }: Props) => {
     onLoading(true);
     getSearchResult(name!, 1)
       .then((res) => {
-        console.log(res);
         settingData(res.data);
         onLoading(false);
       })
@@ -47,7 +46,10 @@ const NotRegister = ({ settingData, onLoading }: Props) => {
   };
 
   useEffect(() => {
-    if (percent === 100) reSearchData();
+    if (percent === 100)
+      setTimeout(() => {
+        reSearchData();
+      }, 1000);
   }, [percent]);
 
   return (

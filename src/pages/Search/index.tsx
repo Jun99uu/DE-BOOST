@@ -59,6 +59,10 @@ const Search = () => {
     getSearchData();
   }, [name]);
 
+  useEffect(() => {
+    if (data) settingSummonerName(data);
+  }, [data]);
+
   /**로그인하지 않은 경우의 섹션 */
   const IfNotLogined = () => {
     return !loginInfo.isLogined ? <NotLogined /> : <></>;
