@@ -40,8 +40,8 @@ const RecordBox = ({ match }: Props) => {
     else setAngle(downStyle);
   };
 
-  const ResultSection = ({}) => {
-    return open ? <ResultBox /> : <></>;
+  const ResultSection = () => {
+    return open ? <ResultBox gameId={match.gameId} /> : <></>;
   };
 
   useEffect(() => {

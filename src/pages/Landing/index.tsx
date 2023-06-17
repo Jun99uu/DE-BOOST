@@ -43,7 +43,7 @@ const Landing = () => {
     <Container>
       <SearchSection />
       <BookmarkSection />
-      <PreviewSection />
+      {/* <PreviewSection /> */}
       <Modal isOpen={loading} onClose={() => null}>
         <CircleSquare />
       </Modal>

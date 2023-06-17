@@ -9,11 +9,11 @@ import { colors } from "@/styles/tokens";
 import styled from "@emotion/styled";
 import { Modal } from "@qve-ui/qds";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import NotRegister from "@/components/search/NotRegister";
-import dummy from "@assets/dummy.json";
 import Contents from "@/components/search/Contents";
+import { useParams } from "react-router-dom";
+import { getSearchResult } from "@/libs/api/apis";
 
 /**
  * 검색 결과 페이지
@@ -22,24 +22,42 @@ const Search = () => {
   const { name } = useParams();
   const setUserName = useSetRecoilState(userNameState);
   const loginInfo = useRecoilValue(loginState);
-  const [data, setData] = useState<SearchResult>(dummy); //TODO 유저 정보 받아오기
+  const [data, setData] = useState<SearchResult | null>(null); //TODO 유저 정보 받아오기
   const [loading, setLoading] = useState(true); // TODO 로딩 끝나는 시점 세팅하기
+  const [cursor, setCursor] = useState(1);
 
-  const settingSummonerName = () => {
-    if (name && data) {
-      setUserName({
-        name: name,
-        tier: data.summonerInfo.tier,
-        rank: data.summonerInfo.rank,
+  const getSearchData = () => {
+    getSearchResult(name!, cursor)
+      .then((res) => {
+        settingData(res.data);
+        settingSummonerName(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
       });
-    }
+  };
+
+  const onLoading = (state: boolean) => {
+    setLoading(state);
+  };
+
+  const settingData = (data: SearchResult | null) => {
+    setData(data);
+  };
+
+  const settingSummonerName = (data: SearchResult) => {
+    setUserName({
+      name: data.summonerInfo.summonerName,
+      tier: data.summonerInfo.tier,
+      rank: data.summonerInfo.rank,
+    });
   };
 
   useEffect(() => {
-    settingSummonerName();
-    setData(dummy);
-    setLoading(false);
-  }, []);
+    getSearchData();
+  }, [name]);
 
   /**로그인하지 않은 경우의 섹션 */
   const IfNotLogined = () => {
@@ -48,21 +66,21 @@ const Search = () => {
 
   /** 검색 결과가 존재하지 않는 경우 */
   const NotFoundSection = () => {
-    return !data.searchedBefore && loginInfo.isLogined ? <NotFound /> : <></>; //TODO : 등록 안된 경우와 아예 존재하지 않는 경우 구분 필요
+    return !data && loginInfo.isLogined && !loading ? <NotFound /> : <></>;
   };
 
   /** 아직 등록되지 않은 경우 */
   const NotRegisterSection = () => {
-    return !data.searchedBefore && loginInfo.isLogined ? (
-      <NotRegister />
+    return data && !data.searchedBefore && loginInfo.isLogined ? (
+      <NotRegister settingData={settingData} onLoading={onLoading} />
     ) : (
       <></>
-    ); //TODO : 등록 안된 경우와 아예 존재하지 않는 경우 구분 필요
+    );
   };
 
   /** 정보가 있는 경우 */
   const InfoSection = () => {
-    return data.searchedBefore && loginInfo.isLogined ? (
+    return data && data.searchedBefore && loginInfo.isLogined ? (
       <InfoContainer>
         <Profile data={data} />
         <Contents data={data} />

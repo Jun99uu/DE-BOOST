@@ -1,6 +1,7 @@
+import { AxiosResponse } from "axios";
 import { useState, useEffect, useRef, useCallback } from "react";
 
-type Callback = () => Promise<void>;
+type Callback = Promise<AxiosResponse<any, any>>;
 
 const usePercent = (callback?: Callback, interval = 60000) => {
   const [percent, setPercent] = useState(0);
@@ -15,7 +16,7 @@ const usePercent = (callback?: Callback, interval = 60000) => {
       Math.min((timePassed.current / totalDuration.current) * 100, 100)
     );
     if (callback && timePassed.current % 10000 === 0) {
-      callback()
+      callback
         .then(() => {
           setPercent(100);
           if (timerId.current) {

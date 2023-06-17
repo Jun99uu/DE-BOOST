@@ -4,44 +4,74 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import PlayerList from "./PlayerList";
-import { dummy } from "./dummy";
 import { FilteredTeam, getTeamAndWinStatus } from "@/libs/teamFilter";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
 import Analysis from "./Analysis";
 import useMobile from "@/hooks/useMobile";
 import { MatchData } from "../interface";
+import { getInfoDetails } from "@/libs/api/apis";
+import { CircleSquare } from "@/components/common/Loading";
 
 interface Props {
-  match?: MatchData;
+  gameId: string;
 }
 
-const ResultBox = ({ match = dummy }: Props) => {
+const ResultBox = ({ gameId }: Props) => {
   const user = useRecoilValue(userNameState);
-  const [data, setData] = useState(match);
+  const [data, setData] = useState<MatchData | null>();
   const [info, setInfo] = useState<FilteredTeam | undefined>();
+  const [loading, setLoading] = useState(true);
   const isMobile = useMobile();
 
+  const gettingMatchInfo = () => {
+    getInfoDetails(user.name, gameId)
+      .then((res) => {
+        setData(res.data);
+        convertStatus(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  };
+
+  const convertStatus = (data: MatchData) => {
+    const newInfo = getTeamAndWinStatus(data, user.name);
+    setInfo(newInfo);
+  };
+
   useEffect(() => {
-    if (data) {
-      const newInfo = getTeamAndWinStatus(data, user.name); //TODO user로 변경해야함
-      setInfo(newInfo);
-    }
-  }, [data]);
+    gettingMatchInfo();
+  }, []);
+
+  const LoadingSection = () => {
+    return loading ? (
+      <LoadingContainer>
+        <CircleSquare />
+      </LoadingContainer>
+    ) : (
+      <></>
+    );
+  };
 
   return (
     <Container>
       <Heading css={info?.win ? winStyle : loseStyle} />
-      {isMobile ? (
-        <></>
+      {!isMobile && data && !loading ? (
+        <>
+          <PlayerList
+            {...info!}
+            duration={data.gameInfo.gameDuration}
+            dateBefore={data.gameInfo.gameStartTimestamp}
+          />
+          <Analysis info={data} />
+        </>
       ) : (
-        <PlayerList
-          {...info!}
-          duration={data.gameInfo.gameDuration}
-          dateBefore={data.gameInfo.gameStartTimestamp}
-        />
+        <></>
       )}
-      <Analysis info={data} />
+      <LoadingSection />
     </Container>
   );
 };
@@ -78,6 +108,14 @@ const Heading = styled.div`
   top: 0px;
   left: 0px;
   z-index: 1;
+`;
+
+const LoadingContainer = styled.div`
+  width: 100%;
+  height: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default ResultBox;

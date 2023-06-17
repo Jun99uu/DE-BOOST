@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { ManufactureInfo } from "../../interface";
 import { AVERAGE } from "@/assets/AVERAGE";
 import styled from "@emotion/styled";
+import { convertToRomanNumber } from "@/libs/toRome";
 
 interface Props {
   data: ManufactureInfo;
@@ -85,7 +86,7 @@ const Chart = ({ data }: Props) => {
   const [options, setOptions] = useState<ApexOptions>(defaultOptions);
 
   useEffect(() => {
-    const myTierAverage = AVERAGE[user.tier][user.rank]["all"];
+    const myTierAverage = AVERAGE[user.tier][user.rank || 1]["all"];
     const myAverage = [
       myTierAverage.avgvwpm * 10000,
       myTierAverage.avgwcpm * 5000,
@@ -117,7 +118,7 @@ const Chart = ({ data }: Props) => {
         ],
       },
       {
-        name: `${user.tier} avg`,
+        name: `${user.tier} ${convertToRomanNumber(user.rank)} avg`,
         data: myAverage,
       },
     ];

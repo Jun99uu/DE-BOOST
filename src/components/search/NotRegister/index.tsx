@@ -11,17 +11,44 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Progress from "@/components/common/Progress";
 import usePercent from "@/hooks/usePercent";
 import useMobile from "@/hooks/useMobile";
+import { SearchResult } from "../interface";
+import { getSearchResult, postSearchResult } from "@/libs/api/apis";
+import { useEffect } from "react";
+
+interface Props {
+  settingData: (data: SearchResult | null) => void;
+  onLoading: (state: boolean) => void;
+}
 
 /** 해당 소환사가 최초 업데이트 되지 않은 경우 */
-const NotRegister = () => {
+const NotRegister = ({ settingData, onLoading }: Props) => {
   const { name } = useParams();
   const navigate = useNavigate();
-  const percent = usePercent(); //TODO 콜백 통신 연동 필요
   const isMobile = useMobile();
 
+  const percent = usePercent(postSearchResult(name!));
   const onBack = () => {
     navigate(-1);
   };
+
+  const reSearchData = () => {
+    settingData(null);
+    onLoading(true);
+    getSearchResult(name!, 1)
+      .then((res) => {
+        console.log(res);
+        settingData(res.data);
+        onLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        onLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    if (percent === 100) reSearchData();
+  }, [percent]);
 
   return (
     <ReactPortal wrapperId="registing">

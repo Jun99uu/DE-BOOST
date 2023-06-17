@@ -6,6 +6,7 @@ import { faCrown } from "@fortawesome/free-solid-svg-icons";
 import { css } from "@emotion/react";
 import BookmarkButton from "@/components/common/Buttons/BookmarkButton";
 import { useState } from "react";
+import { convertToRomanNumber } from "@/libs/toRome";
 
 /** 프로필 컴포넌트에서 우측 정보 부분 */
 const Info = ({ data }: Props) => {
@@ -30,7 +31,8 @@ const Info = ({ data }: Props) => {
               margin-right: 0.2rem;
             `}
           />
-          {data.summonerInfo.tier}
+          {data.summonerInfo.tier}{" "}
+          {convertToRomanNumber(data.summonerInfo.rank)}
         </Tier>
       </Wrapper>
       <BookmarkButton

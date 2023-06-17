@@ -8,6 +8,7 @@ import { compareObjects } from "@/libs/reportMaker";
 import { colors, typography } from "@/styles/tokens";
 import { css } from "@emotion/react";
 import { mq } from "@/styles/breakpoints";
+import { convertToRomanNumber } from "@/libs/toRome";
 
 interface Props {
   data: ManufactureInfo;
@@ -28,7 +29,7 @@ const Captions = ({ data }: Props) => {
   });
 
   const calculate = (data: ManufactureInfo) => {
-    const myTierAverage = AVERAGE[user.tier][user.rank]["all"];
+    const myTierAverage = AVERAGE[user.tier][user.rank || 1]["all"];
     const newInfo = compareObjects(data, myTierAverage);
 
     setReport(newInfo);
@@ -50,7 +51,7 @@ const Captions = ({ data }: Props) => {
                   color: ${colors.primary};
                 `}
               >
-                {user.tier}
+                {user.tier} {convertToRomanNumber(user.rank)}
               </Content>
               보다 높아요.
             </Content>
@@ -74,7 +75,7 @@ const Captions = ({ data }: Props) => {
                   color: #48c232;
                 `}
               >
-                {user.tier}
+                {user.tier} {convertToRomanNumber(user.rank)}
               </Content>
               과 유사해요.
             </Content>
@@ -98,7 +99,7 @@ const Captions = ({ data }: Props) => {
                   color: #6e1ad2;
                 `}
               >
-                {user.tier}
+                {user.tier} {convertToRomanNumber(user.rank)}
               </Content>
               보다 낮아요.
             </Content>
