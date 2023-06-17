@@ -6,7 +6,7 @@ const token = localStorage.getItem("at");
 /** 검색 결과 받아오기 */
 export const getSearchResult = (
   name: string,
-  cursor: number = 0
+  cursor?: number
 ): Promise<AxiosResponse<any, any>> => {
   const get = customAPI.get(`/riot/gameinfo`, {
     headers: {
@@ -14,7 +14,7 @@ export const getSearchResult = (
     },
     params: {
       summonerName: name,
-      //   cursor: cursor,
+      cursor: cursor ? cursor : "",
     },
   });
 
@@ -96,4 +96,36 @@ export const deleteBookmark = (
     },
   });
   return remove;
+};
+
+/** 종합 분석 데이터 받아오기 */
+export const getAnalysis = (name: string): Promise<AxiosResponse<any, any>> => {
+  const get = customAPI.get("/riot/gameinfo/analysis", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    params: {
+      summonerName: name,
+    },
+  });
+  return get;
+};
+
+/** 종합 분석 데이터 신청하기 */
+export const postAnalysis = (
+  name: string
+): Promise<AxiosResponse<any, any>> => {
+  const post = customAPI.post(
+    "/riot/gameinfo/analysis",
+    {
+      summonerName: name,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  return post;
 };

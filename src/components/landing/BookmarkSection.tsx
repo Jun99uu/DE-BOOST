@@ -17,7 +17,7 @@ const BookmarkSection = () => {
   return (
     <Section
       title="관심 소환사"
-      subtitle="총 10명의 소환사까지, 최근 전적을 통합하여 분석할 수 있어요."
+      subtitle="관심 있는 소환사를 북마크하고, 쉽게 확인해보세요!"
     >
       {bookmarkLists.length > 0 ? (
         <Bookmark datas={bookmarkLists} />

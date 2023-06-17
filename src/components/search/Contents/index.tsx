@@ -1,28 +1,43 @@
 import styled from "@emotion/styled";
 import Navigation, { MENU } from "./Navigation";
 import { useState } from "react";
-import { Props } from "../Profile/interface";
 import RecordSection from "./RecordSection";
 import { mq } from "@/styles/breakpoints";
-import { NotReported, ReportBox, Reporting } from "../Report";
+import ReportSection from "./ReportSection";
+import { SearchResult } from "../interface";
+
+interface Props {
+  data: SearchResult;
+  loadMore: () => void;
+}
 
 /**
  * 전적이 표시되는 콘텐츠 섹션 내부
  */
-const Contents = ({ data }: Props) => {
+const Contents = ({ data, loadMore }: Props) => {
   const [menu, setMenu] = useState<MENU>(MENU.game);
 
   const selectMenu = (menu: MENU) => {
     setMenu(menu);
   };
 
+  const moveToAnalysis = () => {
+    setMenu(MENU.analyze);
+  };
+
   /** 인게임 / 종합분석 내용이 보여지는 부분 */
   const ContentsSection = () => {
     switch (menu) {
       case MENU.game:
-        return <RecordSection data={data} />;
+        return (
+          <RecordSection
+            data={data}
+            moveToAnalysis={moveToAnalysis}
+            loadMore={loadMore}
+          />
+        );
       case MENU.analyze:
-        return <ReportBox />;
+        return <ReportSection data={data} />;
     }
   };
 

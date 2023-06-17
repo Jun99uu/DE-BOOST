@@ -1,14 +1,59 @@
 import styled from "@emotion/styled";
-import { Props } from "../Profile/interface";
 import RecordBox from "../RecordBox";
+import { SearchResult } from "../interface";
+import { useEffect, useRef } from "react";
+
+interface Props {
+  data: SearchResult;
+  moveToAnalysis: () => void;
+  loadMore: () => void;
+}
 
 /** 실제로 전적이 보여지는 섹션 */
-const RecordSection = ({ data }: Props) => {
+const RecordSection = ({ data, moveToAnalysis, loadMore }: Props) => {
+  const observer = useRef<IntersectionObserver | null>(null);
+  const lastRecordBoxElementRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMore();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    if (lastRecordBoxElementRef.current) {
+      observer.current.observe(lastRecordBoxElementRef.current);
+    }
+
+    return () => {
+      if (lastRecordBoxElementRef.current) {
+        observer.current?.unobserve(lastRecordBoxElementRef.current);
+      }
+    };
+  }, [loadMore]);
+
   return (
     <Container>
-      {data.gameInfos.map((match) => (
-        <RecordBox match={match} key={match.gameId} />
-      ))}
+      {data.gameInfos.map((match, index) => {
+        if (index === data.gameInfos.length - 1) {
+          return (
+            <div ref={lastRecordBoxElementRef} key={match.gameId}>
+              <RecordBox match={match} moveToAnalysis={moveToAnalysis} />
+            </div>
+          );
+        } else {
+          return (
+            <RecordBox
+              match={match}
+              key={match.gameId}
+              moveToAnalysis={moveToAnalysis}
+            />
+          );
+        }
+      })}
     </Container>
   );
 };

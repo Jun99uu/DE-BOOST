@@ -22,12 +22,12 @@ const Search = () => {
   const { name } = useParams();
   const setUserName = useSetRecoilState(userNameState);
   const loginInfo = useRecoilValue(loginState);
-  const [data, setData] = useState<SearchResult | null>(null); //TODO 유저 정보 받아오기
-  const [loading, setLoading] = useState(true); // TODO 로딩 끝나는 시점 세팅하기
+  const [data, setData] = useState<SearchResult | null>(null);
+  const [loading, setLoading] = useState(true);
   const [cursor, setCursor] = useState(1);
 
   const getSearchData = () => {
-    getSearchResult(name!, cursor)
+    getSearchResult(name!)
       .then((res) => {
         settingData(res.data);
         settingSummonerName(res.data);
@@ -37,6 +37,26 @@ const Search = () => {
         console.log(err);
         setLoading(false);
       });
+  };
+
+  const getNextPage = () => {
+    if (data && !loading) {
+      setLoading(true);
+      getSearchResult(name!, cursor)
+        .then((res) => {
+          console.log(res);
+          setData({
+            ...data,
+            gameInfos: [...data.gameInfos, ...res.data.gameInfos],
+          });
+          setCursor((prev) => prev + 1);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    }
   };
 
   const onLoading = (state: boolean) => {
@@ -56,6 +76,7 @@ const Search = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
     getSearchData();
   }, [name]);
 
@@ -73,9 +94,11 @@ const Search = () => {
     return !data && loginInfo.isLogined && !loading ? <NotFound /> : <></>;
   };
 
-  /** 아직 등록되지 않은 경우 */
+  /** 아직 등록되지 않은 경우, 최신화 안된 경우 */
   const NotRegisterSection = () => {
-    return data && !data.searchedBefore && loginInfo.isLogined ? (
+    return data &&
+      (!data.searchedBefore || !data.updated) &&
+      loginInfo.isLogined ? (
       <NotRegister settingData={settingData} onLoading={onLoading} />
     ) : (
       <></>
@@ -87,7 +110,7 @@ const Search = () => {
     return data && data.searchedBefore && loginInfo.isLogined ? (
       <InfoContainer>
         <Profile data={data} />
-        <Contents data={data} />
+        <Contents data={data} loadMore={getNextPage} />
       </InfoContainer>
     ) : (
       <></>

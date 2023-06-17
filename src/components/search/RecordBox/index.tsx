@@ -14,6 +14,7 @@ import { ResultBox } from "..";
 
 interface Props {
   match: GameInfo;
+  moveToAnalysis: () => void;
 }
 
 interface StyleProps {
@@ -22,7 +23,7 @@ interface StyleProps {
 }
 
 /** 검색 결과 -> 하나의 매치 전적 프리뷰 박스 */
-const RecordBox = ({ match }: Props) => {
+const RecordBox = ({ match, moveToAnalysis }: Props) => {
   const [style, setStyle] = useState<StyleProps>(winStyle);
   const [open, setOpen] = useState(false);
   const [angle, setAngle] = useState<SerializedStyles>(downStyle);
@@ -41,7 +42,11 @@ const RecordBox = ({ match }: Props) => {
   };
 
   const ResultSection = () => {
-    return open ? <ResultBox gameId={match.gameId} /> : <></>;
+    return open ? (
+      <ResultBox gameId={match.gameId} moveToAnalysis={moveToAnalysis} />
+    ) : (
+      <></>
+    );
   };
 
   useEffect(() => {

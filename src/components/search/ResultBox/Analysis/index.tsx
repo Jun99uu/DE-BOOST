@@ -12,9 +12,10 @@ import Report from "./Report";
 
 interface Props {
   info: MatchData;
+  moveToAnalysis: () => void;
 }
 
-const Analysis = ({ info }: Props) => {
+const Analysis = ({ info, moveToAnalysis }: Props) => {
   const user = useRecoilValue(userNameState);
   const [myInfo, setMyInfo] = useState<GameData>();
 
@@ -29,7 +30,7 @@ const Analysis = ({ info }: Props) => {
         <BackgroundGradient />
       </BackgroundWrapper>
       {myInfo ? <Profile data={myInfo} /> : <></>}
-      <Percentage />
+      <Percentage onClick={moveToAnalysis} />
       <Report data={info.manufactureInfo} />
     </Container>
   );
@@ -57,7 +58,7 @@ const Background = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
 `;
 
 const BackgroundGradient = styled.div`

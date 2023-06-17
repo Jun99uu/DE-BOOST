@@ -15,9 +15,10 @@ import { CircleSquare } from "@/components/common/Loading";
 
 interface Props {
   gameId: string;
+  moveToAnalysis: () => void;
 }
 
-const ResultBox = ({ gameId }: Props) => {
+const ResultBox = ({ gameId, moveToAnalysis }: Props) => {
   const user = useRecoilValue(userNameState);
   const [data, setData] = useState<MatchData | null>();
   const [info, setInfo] = useState<FilteredTeam | undefined>();
@@ -70,7 +71,7 @@ const ResultBox = ({ gameId }: Props) => {
       ) : (
         <></>
       )}
-      {data ? <Analysis info={data} /> : <></>}
+      {data ? <Analysis info={data} moveToAnalysis={moveToAnalysis} /> : <></>}
       <LoadingSection />
     </Container>
   );

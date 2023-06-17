@@ -5,13 +5,17 @@ import GeneralSection from "./GeneralSection";
 import PdfDownloader from "./PdfDownlader";
 import PreviewSection from "./PreviewSection";
 import TrendSection from "./TrendSection";
-import { dummy } from "./dummy";
 import { useReactToPrint } from "react-to-print";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
+import { AnalysisResult } from "../../interface";
+
+interface Props {
+  result: AnalysisResult;
+}
 
 /** 종합 분석 보고서 */
-const ReportBox = () => {
+const ReportBox = ({ result }: Props) => {
   const user = useRecoilValue(userNameState);
   const componentRef = useRef(null);
   const COMPONENTS = [CarryRatingSection, TrendSection, GeneralSection];
@@ -28,15 +32,15 @@ const ReportBox = () => {
   return (
     <Container>
       <Container ref={componentRef}>
-        <PreviewSection result={dummy} />
+        <PreviewSection result={result} />
         <Horizon />
         <ReportContainer>
           {COMPONENTS.map((Component) => (
-            <Component result={dummy} />
+            <Component result={result} />
           ))}
         </ReportContainer>
       </Container>
-      <PdfDownloader result={dummy} printReport={printReport} />
+      <PdfDownloader result={result} printReport={printReport} />
     </Container>
   );
 };

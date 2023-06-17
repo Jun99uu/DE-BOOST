@@ -4,10 +4,21 @@ import { Button, Container, ContentsWrapper, Subtitle, Title } from "../style";
 import useMobile from "@/hooks/useMobile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { postAnalysis } from "@/libs/api/apis";
+
+interface Props {
+  name: string;
+}
 
 /** 종합 분석이 되지 않은 상태 */
-const NotReported = () => {
+const NotReported = ({ name }: Props) => {
   const isMobile = useMobile();
+
+  const register = () => {
+    postAnalysis(name)
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
+  };
 
   return (
     <Container>
@@ -19,7 +30,7 @@ const NotReported = () => {
         <Title>종합 분석을 진행한 적 없는 소환사네요!</Title>
         <Subtitle>종합 분석을 원한다면, 아래 버튼을 클릭해주세요.</Subtitle>
       </ContentsWrapper>
-      <Button>
+      <Button onClick={register}>
         <span>종합 분석 신청하기</span>
         <FontAwesomeIcon icon={faArrowRight} />
       </Button>

@@ -1,6 +1,9 @@
 import { css } from "@emotion/react";
 import { AnalysisResult } from "../../interface";
 import { ContentMid, Title, TitleBox } from "../style";
+import { boostingPercent } from "@/libs/boostingPercent";
+import { ANALYSIS } from "@/assets/ANALYSIS";
+import { STANDARD } from "@/libs/higherPercent";
 
 interface Props {
   result: AnalysisResult;
@@ -8,6 +11,15 @@ interface Props {
 
 /** 전체 분석 섹션 */
 const GeneralSection = ({ result }: Props) => {
+  const percentage = Number(boostingPercent(result.predictionList));
+
+  const getAnalysis = () => {
+    if (percentage > STANDARD.highest) return ANALYSIS.highest;
+    if (percentage > STANDARD.higher) return ANALYSIS.higher;
+    if (percentage > STANDARD.regular) return ANALYSIS.regular;
+    else return ANALYSIS.lower;
+  };
+
   return (
     <TitleBox>
       <Title>전체 분석</Title>
@@ -16,16 +28,10 @@ const GeneralSection = ({ result }: Props) => {
           line-height: 2.8rem;
         `}
       >
-        {dummy}
+        {getAnalysis()}
       </ContentMid>
     </TitleBox>
   );
 };
 
 export default GeneralSection;
-
-const dummy = `리그오브레전드는 대표적인 MOBA 게임 중 하나로, 전 세계적으로 수많은 유저들이 즐기고 있습니다. 이 게임에서는 각 유저들이 소환사라는 캐릭터를 조종하여 적군을 물리치고, 자신의 팀이 승리할 수 있도록 협력합니다. 게임 내에서는 다양한 캐릭터와 아이템, 전략 등이 존재하며, 이들을 잘 조합하여 승리할 수 있는 전략적인 요소가 강조되는 게임입니다.
-그러나 최근에는 대리 플레이어가 게임 내에서 유행하고 있습니다. 대리 플레이어란, 다른 유저가 대신 게임을 플레이하는 것을 의미합니다. 이는 게임 내의 랭킹 시스템 등에 영향을 미치며, 게임 내의 공정성과 경쟁 원칙을 위배하는 행동으로 여겨집니다.
-이에 대한 대응책으로, 최근에는 머신러닝 및 딥러닝 기술을 활용한 대리 플레이어 탐지 기술이 개발되고 있습니다. 이러한 기술을 통해, 게임 내에서 대리 플레이어가 플레이하는 것을 적극적으로 방지할 수 있습니다.
-머신러닝 기술을 활용한 대리 플레이어 탐지 기술은, 인공지능 모델을 학습시켜 해당 소환사가 대리 플레이어인지 아닌지를 판별할 수 있게 됩니다. 이를 위해서는 해당 소환사의 플레이 데이터를 수집하고, 이를 인공지능 모델에 입력하여 학습시켜야 합니다. 이러한 모델을 통해, 해당 소환사의 최근 게임 기록을 분석하여 대리 플레이어의 존재 여부를 파악할 수 있습니다.
-하지만, 이러한 인공지능 모델을 활용하여 대리 플레이어를 탐지하는 것만으로는 충분하지 않습니다. 대리 플레이어를 찾아내는 것이 중요하지만, 그 이유를 파악하는 것도 중요합니다. 대리 플레이어가 발생하는 이유는 다양합니다. 예를 들어, 게임 내에서의 경쟁이 치열해지면서, 높은 랭킹을 유지하기`;
