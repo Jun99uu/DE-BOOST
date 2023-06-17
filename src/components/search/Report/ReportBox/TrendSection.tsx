@@ -56,7 +56,7 @@ const TrendSection = ({ result }: Props) => {
         text: "부스팅 확률",
       },
       labels: {
-        show: false, // This will hide the y-axis labels
+        show: true, // This will hide the y-axis labels
       },
     },
     xaxis: {
@@ -66,7 +66,7 @@ const TrendSection = ({ result }: Props) => {
 
   const series = [
     {
-      name: "XYZ MOTORS",
+      name: "Boosting probability",
       data: result.predictionList,
     },
   ];

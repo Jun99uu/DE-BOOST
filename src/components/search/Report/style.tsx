@@ -104,7 +104,7 @@ export const TitleBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 3.5rem;
+  gap: 2.5rem;
 `;
 
 /** 캐리레이팅 / 일반 지표 분석에서 보여지는 row 축 래퍼 */
