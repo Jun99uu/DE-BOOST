@@ -25,6 +25,7 @@ const Search = () => {
   const [data, setData] = useState<SearchResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [cursor, setCursor] = useState(1);
+  const [end, setEnd] = useState(false); //무한 스크롤이 끝났는가
 
   const getSearchData = () => {
     getSearchResult(name!)
@@ -40,7 +41,7 @@ const Search = () => {
   };
 
   const getNextPage = () => {
-    if (data && !loading) {
+    if (data && !loading && !end) {
       setLoading(true);
       getSearchResult(name!, cursor)
         .then((res) => {
@@ -51,6 +52,7 @@ const Search = () => {
           });
           setCursor((prev) => prev + 1);
           setLoading(false);
+          if (res.data.gameInfos.length < 10) setEnd(true);
         })
         .catch((err) => {
           console.log(err);

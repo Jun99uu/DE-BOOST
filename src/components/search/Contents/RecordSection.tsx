@@ -40,9 +40,12 @@ const RecordSection = ({ data, moveToAnalysis, loadMore }: Props) => {
       {data.gameInfos.map((match, index) => {
         if (index === data.gameInfos.length - 1) {
           return (
-            <div ref={lastRecordBoxElementRef} key={match.gameId}>
+            <LastElementWrapper
+              ref={lastRecordBoxElementRef}
+              key={match.gameId}
+            >
               <RecordBox match={match} moveToAnalysis={moveToAnalysis} />
-            </div>
+            </LastElementWrapper>
           );
         } else {
           return (
@@ -67,4 +70,7 @@ const Container = styled.div`
   gap: 2.2rem;
 `;
 
+const LastElementWrapper = styled.div`
+  width: 100%;
+`;
 export default RecordSection;

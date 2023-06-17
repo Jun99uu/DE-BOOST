@@ -4,6 +4,7 @@ import { GameInfo, TeamParticipant } from "../interface";
 import { getPortrait } from "@/libs/getRes";
 import { ComponentProps } from "react";
 import { useNavigate } from "react-router-dom";
+import { truncateString } from "@/libs/truncate";
 
 interface Props extends ComponentProps<"div"> {
   data: GameInfo;
@@ -22,7 +23,7 @@ const TeamSection = ({ data, ...props }: Props) => {
     return (
       <OneWrapper onClick={() => navigate(`/search/${one.summonerName}`)}>
         <Portrait src={getPortrait(one.championName)} />
-        <span>{one.summonerName}</span>
+        <span>{truncateString(one.summonerName)}</span>
       </OneWrapper>
     );
   };
