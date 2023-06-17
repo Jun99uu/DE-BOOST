@@ -19,6 +19,7 @@ interface SummonerInfo {
   summonerLevel: number;
   summonerIconId: number;
   tier: keyof typeof Tier | string;
+  rank: number;
 }
 
 export interface GameInfo {
@@ -34,6 +35,7 @@ export interface TeamParticipant {
   teamId: number;
   summonerName: string;
   championId: number;
+  championName: string;
 }
 
 interface GameInfoData {

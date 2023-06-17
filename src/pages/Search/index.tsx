@@ -30,6 +30,7 @@ const Search = () => {
       setUserName({
         name: name,
         tier: data.summonerInfo.tier,
+        rank: data.summonerInfo.rank,
       });
     }
   };

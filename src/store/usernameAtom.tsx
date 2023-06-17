@@ -4,11 +4,13 @@ import { Tier } from "@/libs/getRes";
 interface Info {
   name: string;
   tier: keyof typeof Tier | string;
+  rank?: number;
 }
 
 const defaultInfo: Info = {
   name: "노는게제일행보케",
   tier: "GOLD",
+  rank: 1,
 };
 
 /**

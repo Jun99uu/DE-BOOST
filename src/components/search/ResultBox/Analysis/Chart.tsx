@@ -85,7 +85,7 @@ const Chart = ({ data }: Props) => {
   const [options, setOptions] = useState<ApexOptions>(defaultOptions);
 
   useEffect(() => {
-    const myTierAverage = AVERAGE[user.tier][1]["all"];
+    const myTierAverage = AVERAGE[user.tier][user.rank]["all"];
     const myAverage = [
       myTierAverage.avgvwpm * 10000,
       myTierAverage.avgwcpm * 5000,

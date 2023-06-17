@@ -29,7 +29,7 @@ const PdfDownloader = ({ result, printReport }: Props) => {
       ];
     else
       newContents = [
-        `해당 소환사는 부스팅 플에이어일 확률이 ${STANDARD.higher} 이하입니다.\n하지만 대리 플레이어로 의심된다면 `,
+        `해당 소환사는 부스팅 플에이어일 확률이 ${STANDARD.higher}% 이하입니다.\n하지만 대리 플레이어로 의심된다면 `,
         `이곳`,
         `에서 신고를 진행해보세요!`,
       ];

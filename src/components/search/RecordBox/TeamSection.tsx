@@ -19,10 +19,9 @@ const TeamSection = ({ data, ...props }: Props) => {
 
   /** 한 명의 데이터 */
   const One = ({ one }: OneProps) => {
-    //TODO 초상화 챔피언 명으로 수정해야됨. 현재 검색결과는 챔피언 아이디가 오고있음;
     return (
       <OneWrapper onClick={() => navigate(`/search/${one.summonerName}`)}>
-        <Portrait src={getPortrait("Zoe")} />
+        <Portrait src={getPortrait(one.championName)} />
         <span>{one.summonerName}</span>
       </OneWrapper>
     );

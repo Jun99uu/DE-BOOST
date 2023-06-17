@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import { AnalysisResult } from "../../interface";
 import { ContentMid, Title, TitleBox } from "../style";
 
@@ -10,7 +11,13 @@ const GeneralSection = ({ result }: Props) => {
   return (
     <TitleBox>
       <Title>전체 분석</Title>
-      <ContentMid>{dummy}</ContentMid>
+      <ContentMid
+        css={css`
+          line-height: 2.8rem;
+        `}
+      >
+        {dummy}
+      </ContentMid>
     </TitleBox>
   );
 };

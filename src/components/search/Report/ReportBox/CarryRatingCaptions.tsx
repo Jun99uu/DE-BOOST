@@ -26,7 +26,7 @@ const CarryRatingCaptions = ({ result }: Props) => {
   });
 
   const calculate = (data: ManufactureInfo) => {
-    const myTierAverage = AVERAGE[user.tier][1]["all"];
+    const myTierAverage = AVERAGE[user.tier][user.rank]["all"];
     const newInfo = compareObjects(data, myTierAverage);
 
     setReport(newInfo);

@@ -8,6 +8,7 @@ import { colors, typography } from "@/styles/tokens";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoins, faDragon, faGhost } from "@fortawesome/free-solid-svg-icons";
 import { mq } from "@/styles/breakpoints";
+import { convertToRomanNumber } from "@/libs/toRome";
 
 interface Props {
   data: GameData;
@@ -34,7 +35,7 @@ const Profile = ({ data }: Props) => {
             color: ${colors.gray};
           `}
         >
-          {user.tier}
+          {user.tier} {convertToRomanNumber(user.rank)}
         </span>
       </NameWrapper>
     );

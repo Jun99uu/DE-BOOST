@@ -1,91 +1,200 @@
 {
   "summonerInfo": {
     "summonerName": "노는게제일행보케",
-    "summonerLevel": 288,
+    "summonerLevel": 292,
     "summonerIconId": 5840,
-    "tier": "GOLD"
+    "tier": "GOLD",
+    "rank": 3
   },
   "gameInfos": [
     {
-      "gameId": "KR_6520725740",
+      "cursor": 10,
+      "gameId": "KR_6541471808",
       "participantInfos": {
         "team1": [
           {
             "teamId": 100,
-            "summonerName": "노는게제일행보케",
-            "championId": 85
+            "summonerName": "Mr피노",
+            "championId": 54,
+            "championName": "Malphite"
           },
           {
             "teamId": 100,
-            "summonerName": "Mr피노",
-            "championId": 28
+            "summonerName": "윤석봉1",
+            "championId": 60,
+            "championName": "Elise"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "노는게제일행보케",
+            "championId": 13,
+            "championName": "Ryze"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "포도맛스틱",
+            "championId": 222,
+            "championName": "Jinx"
           },
           {
             "teamId": 100,
             "summonerName": "김민근그는신인가",
-            "championId": 234
-          },
-          {
-            "teamId": 100,
-            "summonerName": "수박맛스틱",
-            "championId": 236
-          },
-          {
-            "teamId": 100,
-            "summonerName": "그레이브즈마스터",
-            "championId": 412
+            "championId": 32,
+            "championName": "Amumu"
           }
         ],
         "team2": [
           {
             "teamId": 200,
-            "summonerName": "게리 바이너 철",
-            "championId": 202
+            "summonerName": "피지컬차이",
+            "championId": 82,
+            "championName": "Mordekaiser"
           },
           {
             "teamId": 200,
-            "summonerName": "IIIIIlIIIIII",
-            "championId": 517
+            "summonerName": "꿀 향 기",
+            "championId": 421,
+            "championName": "RekSai"
           },
           {
             "teamId": 200,
-            "summonerName": "The Mid Goddess",
-            "championId": 75
+            "summonerName": "2사단신대위",
+            "championId": 134,
+            "championName": "Syndra"
           },
           {
             "teamId": 200,
-            "summonerName": "살살때려 으이 ",
-            "championId": 110
+            "summonerName": "스캇빠",
+            "championId": 81,
+            "championName": "Ezreal"
           },
           {
             "teamId": 200,
-            "summonerName": "맛난고구마",
-            "championId": 32
+            "summonerName": "벅차요",
+            "championId": 16,
+            "championName": "Soraka"
           }
         ]
       },
       "info": {
-        "gameEndTimestamp": 1685506975839,
-        "gameStartTimestamp": 1685505044015,
+        "gameEndTimestamp": 1686717710415,
+        "gameStartTimestamp": 1686715071559,
         "gameData": {
-          "championId": 85,
-          "championName": "Kennen",
+          "championId": 13,
+          "championName": "Ryze",
           "summonerName": "노는게제일행보케",
-          "champLevel": 17,
+          "champLevel": 18,
           "summoner1Id": 12,
           "summoner2Id": 4,
-          "kills": 2,
-          "deaths": 8,
-          "assists": 4,
-          "item0": 3091,
-          "item1": 3006,
-          "item2": 2015,
-          "item3": 3124,
-          "item4": 3153,
-          "item5": 1036,
+          "kills": 5,
+          "deaths": 5,
+          "assists": 15,
+          "item0": 3040,
+          "item1": 6657,
+          "item2": 2420,
+          "item3": 3111,
+          "item4": 3165,
+          "item5": 4629,
           "item6": 3364,
-          "totalMinionsKilled": 241,
-          "goldEarned": 14158,
+          "totalMinionsKilled": 317,
+          "goldEarned": 17289,
+          "dragonKills": 0,
+          "baronKills": 0,
+          "win": true
+        }
+      }
+    },
+    {
+      "cursor": 9,
+      "gameId": "KR_6541463089",
+      "participantInfos": {
+        "team1": [
+          {
+            "teamId": 100,
+            "summonerName": "피지컬차이",
+            "championId": 122,
+            "championName": "Darius"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "꿀 향 기",
+            "championId": 421,
+            "championName": "RekSai"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "2사단신대위",
+            "championId": 131,
+            "championName": "Diana"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "스캇빠",
+            "championId": 96,
+            "championName": "KogMaw"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "벅차요",
+            "championId": 117,
+            "championName": "Lulu"
+          }
+        ],
+        "team2": [
+          {
+            "teamId": 200,
+            "summonerName": "Mr피노",
+            "championId": 133,
+            "championName": "Quinn"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "김민근그는신인가",
+            "championId": 200,
+            "championName": "Belveth"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "노는게제일행보케",
+            "championId": 127,
+            "championName": "Lissandra"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "윤석봉1",
+            "championId": 21,
+            "championName": "MissFortune"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "포도맛스틱",
+            "championId": 412,
+            "championName": "Thresh"
+          }
+        ]
+      },
+      "info": {
+        "gameEndTimestamp": 1686714814853,
+        "gameStartTimestamp": 1686713495332,
+        "gameData": {
+          "championId": 127,
+          "championName": "Lissandra",
+          "summonerName": "노는게제일행보케",
+          "champLevel": 13,
+          "summoner1Id": 12,
+          "summoner2Id": 4,
+          "kills": 0,
+          "deaths": 5,
+          "assists": 4,
+          "item0": 2421,
+          "item1": 2031,
+          "item2": 6656,
+          "item3": 3020,
+          "item4": 1056,
+          "item5": 3108,
+          "item6": 3364,
+          "totalMinionsKilled": 157,
+          "goldEarned": 6557,
           "dragonKills": 0,
           "baronKills": 0,
           "win": false
@@ -93,66 +202,174 @@
       }
     },
     {
-      "gameId": "KR_6520711124",
+      "cursor": 8,
+      "gameId": "KR_6541320649",
       "participantInfos": {
         "team1": [
           {
             "teamId": 100,
-            "summonerName": "Dtain",
-            "championId": 875
+            "summonerName": "노는게제일행보케",
+            "championId": 77,
+            "championName": "Udyr"
           },
           {
             "teamId": 100,
-            "summonerName": "AllocDalloc",
-            "championId": 98
+            "summonerName": "윤석봉1",
+            "championId": 254,
+            "championName": "Vi"
           },
           {
             "teamId": 100,
-            "summonerName": "sm섹",
-            "championId": 112
+            "summonerName": "포도맛스틱",
+            "championId": 238,
+            "championName": "Zed"
           },
           {
             "teamId": 100,
-            "summonerName": "Seung yeop",
-            "championId": 222
+            "summonerName": "김민근그는신인가",
+            "championId": 110,
+            "championName": "Varus"
           },
           {
             "teamId": 100,
-            "summonerName": "왕자지수",
-            "championId": 78
+            "summonerName": "Mr피노",
+            "championId": 99,
+            "championName": "Lux"
           }
         ],
         "team2": [
           {
             "teamId": 200,
-            "summonerName": "노는게제일행보케",
-            "championId": 110
+            "summonerName": "깅갱행",
+            "championId": 82,
+            "championName": "Mordekaiser"
           },
           {
             "teamId": 200,
-            "summonerName": "수박맛스틱",
-            "championId": 60
+            "summonerName": "최 목",
+            "championId": 121,
+            "championName": "Khazix"
           },
           {
             "teamId": 200,
-            "summonerName": "김민근그는신인가",
-            "championId": 234
+            "summonerName": "전라도국밥",
+            "championId": 91,
+            "championName": "Talon"
           },
           {
             "teamId": 200,
-            "summonerName": "그레이브즈마스터",
-            "championId": 221
+            "summonerName": "Agenda Setting",
+            "championId": 221,
+            "championName": "Zeri"
           },
           {
             "teamId": 200,
-            "summonerName": "Mr피노",
-            "championId": 350
+            "summonerName": "흑인궁디코박죽",
+            "championId": 350,
+            "championName": "Yuumi"
           }
         ]
       },
       "info": {
-        "gameEndTimestamp": 1685504670784,
-        "gameStartTimestamp": 1685502543068,
+        "gameEndTimestamp": 1686685135281,
+        "gameStartTimestamp": 1686682879530,
+        "gameData": {
+          "championId": 77,
+          "championName": "Udyr",
+          "summonerName": "노는게제일행보케",
+          "champLevel": 18,
+          "summoner1Id": 12,
+          "summoner2Id": 6,
+          "kills": 2,
+          "deaths": 9,
+          "assists": 4,
+          "item0": 1056,
+          "item1": 4637,
+          "item2": 4401,
+          "item3": 3111,
+          "item4": 6665,
+          "item5": 3082,
+          "item6": 3364,
+          "totalMinionsKilled": 239,
+          "goldEarned": 12032,
+          "dragonKills": 0,
+          "baronKills": 0,
+          "win": false
+        }
+      }
+    },
+    {
+      "cursor": 7,
+      "gameId": "KR_6541313017",
+      "participantInfos": {
+        "team1": [
+          {
+            "teamId": 100,
+            "summonerName": "노는게제일행보케",
+            "championId": 110,
+            "championName": "Varus"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "김민근그는신인가",
+            "championId": 421,
+            "championName": "RekSai"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "포도맛스틱",
+            "championId": 103,
+            "championName": "Ahri"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "Mr피노",
+            "championId": 202,
+            "championName": "Jhin"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "윤석봉1",
+            "championId": 51,
+            "championName": "Caitlyn"
+          }
+        ],
+        "team2": [
+          {
+            "teamId": 200,
+            "summonerName": "른 모",
+            "championId": 157,
+            "championName": "Yasuo"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "눼웨에",
+            "championId": 79,
+            "championName": "Gragas"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "강기환",
+            "championId": 238,
+            "championName": "Zed"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "숟가락좀 봐줘",
+            "championId": 523,
+            "championName": "Aphelios"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "학즈메",
+            "championId": 117,
+            "championName": "Lulu"
+          }
+        ]
+      },
+      "info": {
+        "gameEndTimestamp": 1686682641463,
+        "gameStartTimestamp": 1686680610045,
         "gameData": {
           "championId": 110,
           "championName": "Varus",
@@ -160,448 +377,18 @@
           "champLevel": 17,
           "summoner1Id": 21,
           "summoner2Id": 4,
-          "kills": 2,
-          "deaths": 7,
-          "assists": 5,
-          "item0": 2421,
-          "item1": 3115,
-          "item2": 3102,
-          "item3": 3020,
-          "item4": 3108,
-          "item5": 4633,
-          "item6": 3363,
-          "totalMinionsKilled": 228,
-          "goldEarned": 12853,
-          "dragonKills": 0,
-          "baronKills": 0,
-          "win": false
-        }
-      }
-    },
-    {
-      "gameId": "KR_6515028375",
-      "participantInfos": {
-        "team1": [
-          {
-            "teamId": 100,
-            "summonerName": "크크루삥뽕빵뿡",
-            "championId": 83
-          },
-          {
-            "teamId": 100,
-            "summonerName": "참치돈가스김밥",
-            "championId": 517
-          },
-          {
-            "teamId": 100,
-            "summonerName": "멘붕온리",
-            "championId": 103
-          },
-          {
-            "teamId": 100,
-            "summonerName": "성조응꼬",
-            "championId": 96
-          },
-          {
-            "teamId": 100,
-            "summonerName": "송이삭",
-            "championId": 201
-          }
-        ],
-        "team2": [
-          {
-            "teamId": 200,
-            "summonerName": "박대만",
-            "championId": 897
-          },
-          {
-            "teamId": 200,
-            "summonerName": "내가 만든 오렌지",
-            "championId": 76
-          },
-          {
-            "teamId": 200,
-            "summonerName": "건랑이 우왕좌왕",
-            "championId": 420
-          },
-          {
-            "teamId": 200,
-            "summonerName": "서양신과함께",
-            "championId": 498
-          },
-          {
-            "teamId": 200,
-            "summonerName": "노는게제일행보케",
-            "championId": 111
-          }
-        ]
-      },
-      "info": {
-        "gameEndTimestamp": 1685205389253,
-        "gameStartTimestamp": 1685202891452,
-        "gameData": {
-          "championId": 111,
-          "championName": "Nautilus",
-          "summonerName": "노는게제일행보케",
-          "champLevel": 16,
-          "summoner1Id": 14,
-          "summoner2Id": 4,
-          "kills": 1,
-          "deaths": 11,
-          "assists": 20,
-          "item0": 3109,
-          "item1": 3050,
-          "item2": 3860,
-          "item3": 2055,
-          "item4": 3111,
-          "item5": 3001,
-          "item6": 3364,
-          "totalMinionsKilled": 30,
-          "goldEarned": 9863,
-          "dragonKills": 0,
-          "baronKills": 0,
-          "win": false
-        }
-      }
-    },
-    {
-      "gameId": "KR_6514914061",
-      "participantInfos": {
-        "team1": [
-          {
-            "teamId": 100,
-            "summonerName": "노는게제일행보케",
-            "championId": 78
-          },
-          {
-            "teamId": 100,
-            "summonerName": "내가 만든 오렌지",
-            "championId": 60
-          },
-          {
-            "teamId": 100,
-            "summonerName": "그만예뻐 징버거",
-            "championId": 127
-          },
-          {
-            "teamId": 100,
-            "summonerName": "Harukas 300",
-            "championId": 96
-          },
-          {
-            "teamId": 100,
-            "summonerName": "예지예지",
-            "championId": 117
-          }
-        ],
-        "team2": [
-          {
-            "teamId": 200,
-            "summonerName": "없지너",
-            "championId": 41
-          },
-          {
-            "teamId": 200,
-            "summonerName": "꽝쓰이",
-            "championId": 68
-          },
-          {
-            "teamId": 200,
-            "summonerName": "임삼보자지곤지름",
-            "championId": 75
-          },
-          {
-            "teamId": 200,
-            "summonerName": "으음 마싯따",
-            "championId": 202
-          },
-          {
-            "teamId": 200,
-            "summonerName": "하리2세",
-            "championId": 101
-          }
-        ]
-      },
-      "info": {
-        "gameEndTimestamp": 1685202133291,
-        "gameStartTimestamp": 1685199890061,
-        "gameData": {
-          "championId": 78,
-          "championName": "Poppy",
-          "summonerName": "노는게제일행보케",
-          "champLevel": 18,
-          "summoner1Id": 12,
-          "summoner2Id": 4,
-          "kills": 2,
-          "deaths": 5,
-          "assists": 9,
-          "item0": 1033,
-          "item1": 3047,
-          "item2": 3143,
-          "item3": 3068,
-          "item4": 1029,
-          "item5": 6632,
-          "item6": 3364,
-          "totalMinionsKilled": 241,
-          "goldEarned": 12620,
-          "dragonKills": 0,
-          "baronKills": 0,
-          "win": true
-        }
-      }
-    },
-    {
-      "gameId": "KR_6514797746",
-      "participantInfos": {
-        "team1": [
-          {
-            "teamId": 100,
-            "summonerName": "달려라코끼리",
-            "championId": 6
-          },
-          {
-            "teamId": 100,
-            "summonerName": "Perfect Regime",
-            "championId": 121
-          },
-          {
-            "teamId": 100,
-            "summonerName": "골목대장미누",
-            "championId": 157
-          },
-          {
-            "teamId": 100,
-            "summonerName": "EEZ",
-            "championId": 67
-          },
-          {
-            "teamId": 100,
-            "summonerName": "오독오독오이시",
-            "championId": 111
-          }
-        ],
-        "team2": [
-          {
-            "teamId": 200,
-            "summonerName": "한현만",
-            "championId": 897
-          },
-          {
-            "teamId": 200,
-            "summonerName": "1OOYA",
-            "championId": 876
-          },
-          {
-            "teamId": 200,
-            "summonerName": "빅딜 한라인만",
-            "championId": 777
-          },
-          {
-            "teamId": 200,
-            "summonerName": "노는게제일행보케",
-            "championId": 21
-          },
-          {
-            "teamId": 200,
-            "summonerName": "고양이는내칭구",
-            "championId": 518
-          }
-        ]
-      },
-      "info": {
-        "gameEndTimestamp": 1685199424216,
-        "gameStartTimestamp": 1685197576670,
-        "gameData": {
-          "championId": 21,
-          "championName": "MissFortune",
-          "summonerName": "노는게제일행보케",
-          "champLevel": 15,
-          "summoner1Id": 7,
-          "summoner2Id": 4,
-          "kills": 7,
-          "deaths": 8,
-          "assists": 10,
-          "item0": 6694,
-          "item1": 6676,
-          "item2": 3142,
-          "item3": 1055,
-          "item4": 3047,
-          "item5": 3134,
-          "item6": 3363,
-          "totalMinionsKilled": 187,
-          "goldEarned": 12627,
-          "dragonKills": 0,
-          "baronKills": 0,
-          "win": false
-        }
-      }
-    },
-    {
-      "gameId": "KR_6511621396",
-      "participantInfos": {
-        "team1": [
-          {
-            "teamId": 100,
-            "summonerName": "자크는 늘 즐거워",
-            "championId": 75
-          },
-          {
-            "teamId": 100,
-            "summonerName": "pyq",
-            "championId": 77
-          },
-          {
-            "teamId": 100,
-            "summonerName": "오늘은 뭐하는 날",
-            "championId": 134
-          },
-          {
-            "teamId": 100,
-            "summonerName": "01086726283",
-            "championId": 145
-          },
-          {
-            "teamId": 100,
-            "summonerName": "남양주UDT",
-            "championId": 99
-          }
-        ],
-        "team2": [
-          {
-            "teamId": 200,
-            "summonerName": "노는게제일행보케",
-            "championId": 78
-          },
-          {
-            "teamId": 200,
-            "summonerName": "돌뿌리에걸려",
-            "championId": 20
-          },
-          {
-            "teamId": 200,
-            "summonerName": "가을하늘 흰구름",
-            "championId": 777
-          },
-          {
-            "teamId": 200,
-            "summonerName": "매주먹는메주",
-            "championId": 222
-          },
-          {
-            "teamId": 200,
-            "summonerName": "플리샤르",
-            "championId": 32
-          }
-        ]
-      },
-      "info": {
-        "gameEndTimestamp": 1685034635030,
-        "gameStartTimestamp": 1685032225952,
-        "gameData": {
-          "championId": 78,
-          "championName": "Poppy",
-          "summonerName": "노는게제일행보케",
-          "champLevel": 18,
-          "summoner1Id": 12,
-          "summoner2Id": 4,
-          "kills": 14,
-          "deaths": 8,
-          "assists": 10,
-          "item0": 3075,
-          "item1": 3047,
-          "item2": 3110,
-          "item3": 3068,
-          "item4": 3742,
-          "item5": 6632,
-          "item6": 3364,
-          "totalMinionsKilled": 250,
-          "goldEarned": 17684,
-          "dragonKills": 0,
-          "baronKills": 0,
-          "win": true
-        }
-      }
-    },
-    {
-      "gameId": "KR_6511571706",
-      "participantInfos": {
-        "team1": [
-          {
-            "teamId": 100,
-            "summonerName": "시간을 되돌려서",
-            "championId": 83
-          },
-          {
-            "teamId": 100,
-            "summonerName": "강맹s",
-            "championId": 33
-          },
-          {
-            "teamId": 100,
-            "summonerName": "apfkrkt",
-            "championId": 4
-          },
-          {
-            "teamId": 100,
-            "summonerName": "허레이븐",
-            "championId": 202
-          },
-          {
-            "teamId": 100,
-            "summonerName": "우리고양이입냄새",
-            "championId": 147
-          }
-        ],
-        "team2": [
-          {
-            "teamId": 200,
-            "summonerName": "매주먹는메주",
-            "championId": 85
-          },
-          {
-            "teamId": 200,
-            "summonerName": "돌뿌리에걸려",
-            "championId": 141
-          },
-          {
-            "teamId": 200,
-            "summonerName": "가을하늘 흰구름",
-            "championId": 517
-          },
-          {
-            "teamId": 200,
-            "summonerName": "노는게제일행보케",
-            "championId": 523
-          },
-          {
-            "teamId": 200,
-            "summonerName": "플리샤르",
-            "championId": 32
-          }
-        ]
-      },
-      "info": {
-        "gameEndTimestamp": 1685031825926,
-        "gameStartTimestamp": 1685029971209,
-        "gameData": {
-          "championId": 523,
-          "championName": "Aphelios",
-          "summonerName": "노는게제일행보케",
-          "champLevel": 16,
-          "summoner1Id": 6,
-          "summoner2Id": 4,
-          "kills": 11,
-          "deaths": 0,
+          "kills": 8,
+          "deaths": 10,
           "assists": 4,
-          "item0": 3085,
-          "item1": 3095,
-          "item2": 3139,
-          "item3": 3006,
-          "item4": 3031,
-          "item5": 0,
+          "item0": 1055,
+          "item1": 3115,
+          "item2": 3020,
+          "item3": 4633,
+          "item4": 3102,
+          "item5": 1058,
           "item6": 3363,
-          "totalMinionsKilled": 272,
-          "goldEarned": 14873,
+          "totalMinionsKilled": 217,
+          "goldEarned": 12567,
           "dragonKills": 0,
           "baronKills": 0,
           "win": false
@@ -609,260 +396,584 @@
       }
     },
     {
-      "gameId": "KR_6511495961",
+      "cursor": 6,
+      "gameId": "KR_6541291328",
       "participantInfos": {
         "team1": [
           {
             "teamId": 100,
-            "summonerName": "매주먹는메주",
-            "championId": 57
+            "summonerName": "사쳬업자",
+            "championId": 126,
+            "championName": "Jayce"
           },
           {
             "teamId": 100,
-            "summonerName": "돌뿌리에걸려",
-            "championId": 20
+            "summonerName": "님 둥",
+            "championId": 121,
+            "championName": "Khazix"
           },
           {
             "teamId": 100,
-            "summonerName": "가을하늘 흰구름",
-            "championId": 238
+            "summonerName": "Freewin",
+            "championId": 518,
+            "championName": "Neeko"
           },
           {
             "teamId": 100,
-            "summonerName": "노는게제일행보케",
-            "championId": 498
+            "summonerName": "스칼렛바이올렛",
+            "championId": 222,
+            "championName": "Jinx"
           },
           {
             "teamId": 100,
-            "summonerName": "플리샤르",
-            "championId": 111
+            "summonerName": "FATGOM",
+            "championId": 12,
+            "championName": "Alistar"
           }
         ],
         "team2": [
           {
             "teamId": 200,
-            "summonerName": "룰루랄라빵야",
-            "championId": 114
+            "summonerName": "포도맛스틱",
+            "championId": 54,
+            "championName": "Malphite"
           },
           {
             "teamId": 200,
-            "summonerName": "빅 돔",
-            "championId": 104
+            "summonerName": "김민근그는신인가",
+            "championId": 64,
+            "championName": "LeeSin"
           },
           {
             "teamId": 200,
-            "summonerName": "jackiss",
-            "championId": 103
-          },
-          {
-            "teamId": 200,
-            "summonerName": "펌프스",
-            "championId": 96
-          },
-          {
-            "teamId": 200,
-            "summonerName": "apfkrkt",
-            "championId": 99
-          }
-        ]
-      },
-      "info": {
-        "gameEndTimestamp": 1685029656929,
-        "gameStartTimestamp": 1685027144614,
-        "gameData": {
-          "championId": 498,
-          "championName": "Xayah",
-          "summonerName": "노는게제일행보케",
-          "champLevel": 18,
-          "summoner1Id": 7,
-          "summoner2Id": 4,
-          "kills": 11,
-          "deaths": 8,
-          "assists": 15,
-          "item0": 3095,
-          "item1": 6675,
-          "item2": 3087,
-          "item3": 3046,
-          "item4": 3006,
-          "item5": 3085,
-          "item6": 3363,
-          "totalMinionsKilled": 289,
-          "goldEarned": 18936,
-          "dragonKills": 0,
-          "baronKills": 0,
-          "win": true
-        }
-      }
-    },
-    {
-      "gameId": "KR_6511445494",
-      "participantInfos": {
-        "team1": [
-          {
-            "teamId": 100,
-            "summonerName": "가을하늘 흰구름",
-            "championId": 516
-          },
-          {
-            "teamId": 100,
             "summonerName": "노는게제일행보케",
-            "championId": 517
-          },
-          {
-            "teamId": 100,
-            "summonerName": "돌뿌리에걸려",
-            "championId": 20
-          },
-          {
-            "teamId": 100,
-            "summonerName": "매주먹는메주",
-            "championId": 145
-          },
-          {
-            "teamId": 100,
-            "summonerName": "플리샤르",
-            "championId": 111
-          }
-        ],
-        "team2": [
-          {
-            "teamId": 200,
-            "summonerName": "초보예요봐주세요",
-            "championId": 86
+            "championId": 711,
+            "championName": "Vex"
           },
           {
             "teamId": 200,
-            "summonerName": "뜽오닝",
-            "championId": 57
+            "summonerName": "Mr피노",
+            "championId": 21,
+            "championName": "MissFortune"
           },
           {
             "teamId": 200,
-            "summonerName": "종이검",
-            "championId": 1
-          },
-          {
-            "teamId": 200,
-            "summonerName": "노예5병",
-            "championId": 221
-          },
-          {
-            "teamId": 200,
-            "summonerName": "쯔증맨",
-            "championId": 350
+            "summonerName": "윤석봉1",
+            "championId": 202,
+            "championName": "Jhin"
           }
         ]
       },
       "info": {
-        "gameEndTimestamp": 1685026851098,
-        "gameStartTimestamp": 1685025226432,
+        "gameEndTimestamp": 1686680295755,
+        "gameStartTimestamp": 1686678777053,
         "gameData": {
-          "championId": 517,
-          "championName": "Sylas",
+          "championId": 711,
+          "championName": "Vex",
           "summonerName": "노는게제일행보케",
           "champLevel": 14,
-          "summoner1Id": 11,
+          "summoner1Id": 14,
           "summoner2Id": 4,
-          "kills": 6,
-          "deaths": 4,
-          "assists": 5,
-          "item0": 4645,
-          "item1": 2055,
-          "item2": 2421,
-          "item3": 3108,
-          "item4": 3020,
-          "item5": 4636,
-          "item6": 3364,
-          "totalMinionsKilled": 24,
-          "goldEarned": 10232,
-          "dragonKills": 1,
-          "baronKills": 1,
+          "kills": 2,
+          "deaths": 7,
+          "assists": 4,
+          "item0": 1056,
+          "item1": 6655,
+          "item2": 2031,
+          "item3": 4645,
+          "item4": 1001,
+          "item5": 1052,
+          "item6": 3340,
+          "totalMinionsKilled": 150,
+          "goldEarned": 7920,
+          "dragonKills": 0,
+          "baronKills": 0,
           "win": false
         }
       }
     },
     {
-      "gameId": "KR_6511381833",
+      "cursor": 5,
+      "gameId": "KR_6541267373",
       "participantInfos": {
         "team1": [
           {
             "teamId": 100,
-            "summonerName": "가을하늘 흰구름",
-            "championId": 114
+            "summonerName": "박규재의 문단속",
+            "championId": 897,
+            "championName": "KSante"
           },
           {
             "teamId": 100,
-            "summonerName": "노는게제일행보케",
-            "championId": 79
+            "summonerName": "녹색 옷 링크",
+            "championId": 131,
+            "championName": "Diana"
           },
           {
             "teamId": 100,
-            "summonerName": "돌뿌리에걸려",
-            "championId": 157
+            "summonerName": "CarlX",
+            "championId": 518,
+            "championName": "Neeko"
           },
           {
             "teamId": 100,
-            "summonerName": "플리샤르",
-            "championId": 89
+            "summonerName": "슈으냥",
+            "championId": 81,
+            "championName": "Ezreal"
           },
           {
             "teamId": 100,
-            "summonerName": "매주먹는메주",
-            "championId": 67
+            "summonerName": "티 츄",
+            "championId": 143,
+            "championName": "Zyra"
           }
         ],
         "team2": [
           {
             "teamId": 200,
-            "summonerName": " ChoooGath",
-            "championId": 31
+            "summonerName": "김민근그는신인가",
+            "championId": 110,
+            "championName": "Varus"
           },
           {
             "teamId": 200,
-            "summonerName": "가드레일 차박남",
-            "championId": 111
+            "summonerName": "노는게제일행보케",
+            "championId": 57,
+            "championName": "Maokai"
           },
           {
             "teamId": 200,
-            "summonerName": "메카사이온조개룡",
-            "championId": 56
+            "summonerName": "포도맛스틱",
+            "championId": 3,
+            "championName": "Galio"
           },
           {
             "teamId": 200,
-            "summonerName": "죽고픈하루살이",
-            "championId": 145
+            "summonerName": "윤석봉1",
+            "championId": 67,
+            "championName": "Vayne"
           },
           {
             "teamId": 200,
-            "summonerName": "겸둥이보리",
-            "championId": 39
+            "summonerName": "Mr피노",
+            "championId": 40,
+            "championName": "Janna"
           }
         ]
       },
       "info": {
-        "gameEndTimestamp": 1685024935310,
-        "gameStartTimestamp": 1685023466311,
+        "gameEndTimestamp": 1686678387218,
+        "gameStartTimestamp": 1686676647355,
         "gameData": {
-          "championId": 79,
-          "championName": "Gragas",
+          "championId": 57,
+          "championName": "Maokai",
           "summonerName": "노는게제일행보케",
-          "champLevel": 12,
+          "champLevel": 15,
           "summoner1Id": 11,
           "summoner2Id": 4,
-          "kills": 8,
+          "kills": 4,
           "deaths": 4,
-          "assists": 5,
-          "item0": 1101,
-          "item1": 4636,
-          "item2": 3157,
-          "item3": 4645,
-          "item4": 3020,
+          "assists": 12,
+          "item0": 2055,
+          "item1": 4637,
+          "item2": 6667,
+          "item3": 3111,
+          "item4": 3068,
           "item5": 0,
           "item6": 3364,
-          "totalMinionsKilled": 45,
-          "goldEarned": 10615,
+          "totalMinionsKilled": 31,
+          "goldEarned": 11165,
+          "dragonKills": 1,
+          "baronKills": 1,
+          "win": true
+        }
+      }
+    },
+    {
+      "cursor": 4,
+      "gameId": "KR_6541234651",
+      "participantInfos": {
+        "team1": [
+          {
+            "teamId": 100,
+            "summonerName": "푸유안유안유",
+            "championId": 107,
+            "championName": "Rengar"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "물갖고옴기달",
+            "championId": 111,
+            "championName": "Nautilus"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "이게임이그리잼슴",
+            "championId": 103,
+            "championName": "Ahri"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "쿵덕기",
+            "championId": 498,
+            "championName": "Xayah"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "불량경찰",
+            "championId": 902,
+            "championName": "Milio"
+          }
+        ],
+        "team2": [
+          {
+            "teamId": 200,
+            "summonerName": "포도맛스틱",
+            "championId": 79,
+            "championName": "Gragas"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "Mr피노",
+            "championId": 28,
+            "championName": "Evelynn"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "김민근그는신인가",
+            "championId": 41,
+            "championName": "Gangplank"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "노는게제일행보케",
+            "championId": 236,
+            "championName": "Lucian"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "윤석봉1",
+            "championId": 267,
+            "championName": "Nami"
+          }
+        ]
+      },
+      "info": {
+        "gameEndTimestamp": 1686676336337,
+        "gameStartTimestamp": 1686674439572,
+        "gameData": {
+          "championId": 236,
+          "championName": "Lucian",
+          "summonerName": "노는게제일행보케",
+          "champLevel": 15,
+          "summoner1Id": 14,
+          "summoner2Id": 4,
+          "kills": 15,
+          "deaths": 6,
+          "assists": 5,
+          "item0": 2421,
+          "item1": 3095,
+          "item2": 6671,
+          "item3": 6673,
+          "item4": 3094,
+          "item5": 3006,
+          "item6": 3363,
+          "totalMinionsKilled": 222,
+          "goldEarned": 15636,
           "dragonKills": 0,
           "baronKills": 0,
           "win": false
+        }
+      }
+    },
+    {
+      "cursor": 3,
+      "gameId": "KR_6539929194",
+      "participantInfos": {
+        "team1": [
+          {
+            "teamId": 100,
+            "summonerName": "원피스니카",
+            "championId": 86,
+            "championName": "Garen"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "손절3초전",
+            "championId": 104,
+            "championName": "Graves"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "이나뉴",
+            "championId": 711,
+            "championName": "Vex"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "허찬희",
+            "championId": 110,
+            "championName": "Varus"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "한석희",
+            "championId": 35,
+            "championName": "Shaco"
+          }
+        ],
+        "team2": [
+          {
+            "teamId": 200,
+            "summonerName": "포도맛스틱",
+            "championId": 79,
+            "championName": "Gragas"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "Mr피노",
+            "championId": 518,
+            "championName": "Neeko"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "노는게제일행보케",
+            "championId": 777,
+            "championName": "Yone"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "윤석봉1",
+            "championId": 18,
+            "championName": "Tristana"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "김민근그는신인가",
+            "championId": 200,
+            "championName": "Belveth"
+          }
+        ]
+      },
+      "info": {
+        "gameEndTimestamp": 1686581888696,
+        "gameStartTimestamp": 1686580420552,
+        "gameData": {
+          "championId": 777,
+          "championName": "Yone",
+          "summonerName": "노는게제일행보케",
+          "champLevel": 15,
+          "summoner1Id": 14,
+          "summoner2Id": 4,
+          "kills": 3,
+          "deaths": 7,
+          "assists": 5,
+          "item0": 2031,
+          "item1": 3006,
+          "item2": 6671,
+          "item3": 1054,
+          "item4": 3072,
+          "item5": 0,
+          "item6": 3364,
+          "totalMinionsKilled": 156,
+          "goldEarned": 9584,
+          "dragonKills": 0,
+          "baronKills": 0,
+          "win": true
+        }
+      }
+    },
+    {
+      "cursor": 2,
+      "gameId": "KR_6539860785",
+      "participantInfos": {
+        "team1": [
+          {
+            "teamId": 100,
+            "summonerName": "20김병현",
+            "championId": 24,
+            "championName": "Jax"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "쀼부캐",
+            "championId": 113,
+            "championName": "Sejuani"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "장관 정경두",
+            "championId": 61,
+            "championName": "Orianna"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "제발좀이기고싶다",
+            "championId": 236,
+            "championName": "Lucian"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "멕스웰 방정식",
+            "championId": 497,
+            "championName": "Rakan"
+          }
+        ],
+        "team2": [
+          {
+            "teamId": 200,
+            "summonerName": "Mr피노",
+            "championId": 133,
+            "championName": "Quinn"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "윤석봉1",
+            "championId": 876,
+            "championName": "Lillia"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "노는게제일행보케",
+            "championId": 13,
+            "championName": "Ryze"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "포도맛스틱",
+            "championId": 81,
+            "championName": "Ezreal"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "김민근그는신인가",
+            "championId": 43,
+            "championName": "Karma"
+          }
+        ]
+      },
+      "info": {
+        "gameEndTimestamp": 1686580133548,
+        "gameStartTimestamp": 1686578367619,
+        "gameData": {
+          "championId": 13,
+          "championName": "Ryze",
+          "summonerName": "노는게제일행보케",
+          "champLevel": 15,
+          "summoner1Id": 12,
+          "summoner2Id": 4,
+          "kills": 2,
+          "deaths": 8,
+          "assists": 5,
+          "item0": 3108,
+          "item1": 3020,
+          "item2": 2421,
+          "item3": 1052,
+          "item4": 3040,
+          "item5": 6657,
+          "item6": 3364,
+          "totalMinionsKilled": 196,
+          "goldEarned": 9507,
+          "dragonKills": 0,
+          "baronKills": 0,
+          "win": false
+        }
+      }
+    },
+    {
+      "cursor": 1,
+      "gameId": "KR_6539813153",
+      "participantInfos": {
+        "team1": [
+          {
+            "teamId": 100,
+            "summonerName": "밤이올까",
+            "championId": 5,
+            "championName": "XinZhao"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "화려한 양학러",
+            "championId": 64,
+            "championName": "LeeSin"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "바텀지면서랜침",
+            "championId": 166,
+            "championName": "Akshan"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "안산초지동이준",
+            "championId": 236,
+            "championName": "Lucian"
+          },
+          {
+            "teamId": 100,
+            "summonerName": "진짜미쳤어",
+            "championId": 143,
+            "championName": "Zyra"
+          }
+        ],
+        "team2": [
+          {
+            "teamId": 200,
+            "summonerName": "포도맛스틱",
+            "championId": 777,
+            "championName": "Yone"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "윤석봉1",
+            "championId": 254,
+            "championName": "Vi"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "김민근그는신인가",
+            "championId": 4,
+            "championName": "TwistedFate"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "노는게제일행보케",
+            "championId": 29,
+            "championName": "Twitch"
+          },
+          {
+            "teamId": 200,
+            "summonerName": "Mr피노",
+            "championId": 350,
+            "championName": "Yuumi"
+          }
+        ]
+      },
+      "info": {
+        "gameEndTimestamp": 1686578070044,
+        "gameStartTimestamp": 1686576526977,
+        "gameData": {
+          "championId": 29,
+          "championName": "Twitch",
+          "summonerName": "노는게제일행보케",
+          "champLevel": 14,
+          "summoner1Id": 6,
+          "summoner2Id": 4,
+          "kills": 6,
+          "deaths": 2,
+          "assists": 10,
+          "item0": 0,
+          "item1": 3153,
+          "item2": 3006,
+          "item3": 1055,
+          "item4": 3124,
+          "item5": 3086,
+          "item6": 3363,
+          "totalMinionsKilled": 172,
+          "goldEarned": 10490,
+          "dragonKills": 0,
+          "baronKills": 0,
+          "win": true
         }
       }
     }
