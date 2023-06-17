@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import customAPI from "./customApi";
 
 const token = localStorage.getItem("at");
@@ -56,4 +56,44 @@ export const getInfoDetails = (
   });
 
   return get;
+};
+
+/** 부마크 받아오기 */
+export const getBookmark = (): Promise<AxiosResponse<any, any>> => {
+  const get = customAPI.get("/bookmark", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return get;
+};
+
+/** 북마크 요청하기 */
+export const postBookmark = (
+  name: string
+): Promise<AxiosResponse<any, any>> => {
+  const post = customAPI.post(
+    "/bookmark",
+    {
+      summonerName: name,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  return post;
+};
+
+export const deleteBookmark = (
+  id: number
+): Promise<AxiosResponse<any, any>> => {
+  const remove = customAPI.delete(`/bookmark/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return remove;
 };

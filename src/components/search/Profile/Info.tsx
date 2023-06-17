@@ -5,16 +5,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCrown } from "@fortawesome/free-solid-svg-icons";
 import { css } from "@emotion/react";
 import BookmarkButton from "@/components/common/Buttons/BookmarkButton";
-import { useState } from "react";
 import { convertToRomanNumber } from "@/libs/toRome";
+import useBookmark from "@/hooks/useBookmark";
+import { useEffect, useState } from "react";
 
 /** 프로필 컴포넌트에서 우측 정보 부분 */
 const Info = ({ data }: Props) => {
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [bookmarked, setBookmarked] = useState(false);
+  const { list, isBookmark, onBookmark } = useBookmark();
 
-  const onBookmark = () => {
-    setIsBookmarked((prev) => !prev);
+  const settingBookmarked = () => {
+    const newIsBookmark = isBookmark(data.summonerInfo.summonerName);
+    setBookmarked(newIsBookmark);
   };
+
+  const bookmarking = () => {
+    onBookmark(data.summonerInfo.summonerName);
+  };
+
+  useEffect(() => {
+    settingBookmarked();
+  }, [list]);
 
   return (
     <Container>
@@ -36,8 +47,8 @@ const Info = ({ data }: Props) => {
         </Tier>
       </Wrapper>
       <BookmarkButton
-        isBookmarked={isBookmarked}
-        onClick={onBookmark}
+        isBookmarked={bookmarked}
+        onClick={bookmarking}
         css={css`
           margin-top: 1rem;
         `}
@@ -60,6 +71,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 0.8rem;
+  cursor: default;
 `;
 
 const Name = styled.span`

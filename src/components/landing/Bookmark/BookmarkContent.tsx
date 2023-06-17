@@ -1,8 +1,10 @@
+import useBookmark from "@/hooks/useBookmark";
 import { colors, typography } from "@/styles/tokens";
 import styled from "@emotion/styled";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export interface BookmarkInfo {
   bookmarkId: number;
@@ -17,20 +19,37 @@ interface Props {
  * 북마크 한 줄
  */
 const BookmarkContent = ({ data }: Props) => {
+  const [name, setName] = useState(data.bookmarkGamerName);
   const [bookmarked, setBookmarked] = useState(true);
+  const navigate = useNavigate();
+  const { list, isBookmark, onBookmark } = useBookmark();
+
   const starColor = bookmarked ? "#F4BE37" : colors.gray30;
 
   const settingBookmark = () => {
-    setBookmarked((prev) => !prev);
+    setBookmarked(isBookmark(name));
   };
 
+  const onMove = () => {
+    navigate(`/search/${data.bookmarkGamerName}`);
+  };
+
+  useEffect(() => {
+    settingBookmark();
+  }, [list]);
+
   return (
-    <ContentWrapper>
+    <ContentWrapper onClick={onMove}>
       <InfoWrapper>
         <NationTag>KR</NationTag>
         <Name>{data.bookmarkGamerName}</Name>
       </InfoWrapper>
-      <ButtonWrapper onClick={() => settingBookmark()}>
+      <ButtonWrapper
+        onClick={(event) => {
+          event.stopPropagation();
+          onBookmark(name);
+        }}
+      >
         <FontAwesomeIcon icon={faStar} color={starColor} />
       </ButtonWrapper>
     </ContentWrapper>

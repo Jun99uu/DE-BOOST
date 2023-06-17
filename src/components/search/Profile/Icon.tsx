@@ -22,6 +22,7 @@ const ProfileImageWrapper = styled.div`
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
+  cursor: default;
 `;
 
 const ProfileImage = styled.img`
