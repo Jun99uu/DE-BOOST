@@ -62,10 +62,9 @@ const RightNavigation = () => {
           />
           <Title>정말 로그아웃 하실건가요?</Title>
           <Subtitle>
-            {`DE:BOOST가 마음에 드셨다면,\n`}
+            {`이용 중 문제가 있었다면,\n`}
             <Subtitle
               css={css`
-                font-size: 1.7rem;
                 cursor: pointer;
                 color: ${colors.primary};
                 padding-bottom: 1px;
@@ -74,7 +73,7 @@ const RightNavigation = () => {
             >
               이곳
             </Subtitle>
-            {`에서 광고를 봐주시면 안될까요?`}
+            {` 에서 신고해주세요.`}
           </Subtitle>
           <LogoutButton onClick={onLogout}>로그아웃</LogoutButton>
         </>
