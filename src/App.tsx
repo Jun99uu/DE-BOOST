@@ -4,6 +4,7 @@ import { Landing, Login, Search } from "./pages";
 import { Global } from "@emotion/react";
 import reset from "./styles/reset";
 import { Frame } from "./components/common";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -32,6 +33,14 @@ function App() {
             element={
               <Frame>
                 <Search />
+              </Frame>
+            }
+          />
+          <Route
+            path="/About"
+            element={
+              <Frame>
+                <About />
               </Frame>
             }
           />

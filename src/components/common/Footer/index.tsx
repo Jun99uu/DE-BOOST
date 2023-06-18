@@ -8,8 +8,8 @@ const Footer = () => {
   const { pathname } = useLocation();
   const isMobile = useMobile();
   const contents = [
-    "DE:BOOST | 서울특별시 동작구 사당로 50 숭실대학교 그 어딘가",
-    "특허번호 : 제2022-서울동작-1234 | Contact : DE:BOOST@email.com",
+    "DE:BOOST | 서울특별시 동작구 사당로 50 숭실대학교",
+    "Contact : deboost.elo@gmail.com",
     "Copyright by DE:BOOST. All right reserved.",
   ];
 

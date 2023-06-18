@@ -23,7 +23,7 @@ const PdfDownloader = ({ result, printReport }: Props) => {
     let newContents = [];
     if (Number(percentage) > STANDARD.higher)
       newContents = [
-        `해당 소환사는 부스팅 플레이어일 확률이 ${STANDARD.higher} 이상입니다.\n건전하고 즐거운 게임 플레이를 위해 신고자료를 활용하여 `,
+        `해당 소환사는 부스팅 플레이어일 확률이 ${STANDARD.higher}% 이상입니다.\n건전하고 즐거운 게임 플레이를 위해 신고자료를 활용하여 `,
         `이곳`,
         `에서 신고를 진행해보세요!`,
       ];

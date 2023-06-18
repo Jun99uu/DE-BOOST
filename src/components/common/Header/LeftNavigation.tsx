@@ -2,9 +2,15 @@ import styled from "@emotion/styled";
 import Title from "./Title";
 import { colors, typography } from "@/styles/tokens";
 import useMobile from "@/hooks/useMobile";
+import { useNavigate } from "react-router-dom";
 
 const LeftNavigation = () => {
   const isMobile = useMobile();
+  const navigate = useNavigate();
+
+  const goAbout = () => {
+    navigate("/about");
+  };
 
   /**
    * PC에서만 보이는 네비게이션 바
@@ -13,7 +19,7 @@ const LeftNavigation = () => {
     return !isMobile ? (
       <>
         <Vertical />
-        <Menu>About DE:BOOST</Menu>
+        <Menu onClick={goAbout}>About DE:BOOST</Menu>
       </>
     ) : (
       <></>

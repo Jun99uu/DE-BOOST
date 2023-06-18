@@ -53,6 +53,13 @@ const RightNavigation = () => {
       handleLogout();
     };
 
+    const openForm = () => {
+      window.open(
+        "https://docs.google.com/forms/d/1_H4OEOOePVYobYgiD021HUQefkNzpyZBAIbz4nAveVs/edit",
+        "_blank"
+      );
+    };
+
     const Content = () => {
       return (
         <>
@@ -64,6 +71,7 @@ const RightNavigation = () => {
           <Subtitle>
             {`이용 중 문제가 있었다면,\n`}
             <Subtitle
+              onClick={openForm}
               css={css`
                 cursor: pointer;
                 color: ${colors.primary};
