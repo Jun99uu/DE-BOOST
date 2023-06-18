@@ -8,11 +8,11 @@ type Bookmark = {
   onBookmark: (name: string) => void;
 };
 
-const useBookmark = (): Bookmark => {
+const useBookmark = (isLogined: boolean): Bookmark => {
   const queryClient = useQueryClient();
 
   const { data: list = [] } = useQuery<Array<BookmarkInfo>>(["bookmarks"], () =>
-    getBookmark().then((res) => res.data)
+    isLogined ? getBookmark().then((res) => res.data) : []
   );
 
   const deleteMutation = useMutation(deleteBookmark, {

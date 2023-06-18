@@ -16,7 +16,7 @@ interface InfoProps extends Props {
 /** 프로필 컴포넌트에서 우측 정보 부분 */
 const Info = ({ data, update }: InfoProps) => {
   const [bookmarked, setBookmarked] = useState(false);
-  const { list, isBookmark, onBookmark } = useBookmark();
+  const { list, isBookmark, onBookmark } = useBookmark(true);
 
   const settingBookmarked = () => {
     const newIsBookmark = isBookmark(data.summonerInfo.summonerName);

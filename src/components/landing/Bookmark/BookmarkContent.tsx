@@ -22,7 +22,7 @@ const BookmarkContent = ({ data }: Props) => {
   const [name, setName] = useState(data.bookmarkGamerName);
   const [bookmarked, setBookmarked] = useState(true);
   const navigate = useNavigate();
-  const { list, isBookmark, onBookmark } = useBookmark();
+  const { list, isBookmark, onBookmark } = useBookmark(true);
 
   const starColor = bookmarked ? "#F4BE37" : colors.gray30;
 

@@ -7,11 +7,12 @@ import { useEffect, useState } from "react";
 
 const BookmarkSection = () => {
   const { loginState } = useLoginState();
-  const { list } = useBookmark();
+  const { list } = useBookmark(loginState.isLogined);
   const [bookmarkLists, setBookmarkLists] = useState(list);
 
   useEffect(() => {
-    if (bookmarkLists.length === 0) setBookmarkLists(list);
+    if (bookmarkLists.length === 0 && loginState.isLogined)
+      setBookmarkLists(list);
   }, [list]);
 
   return (
@@ -19,7 +20,7 @@ const BookmarkSection = () => {
       title="관심 소환사"
       subtitle="관심 있는 소환사를 북마크하고, 쉽게 확인해보세요!"
     >
-      {bookmarkLists.length > 0 ? (
+      {bookmarkLists && bookmarkLists.length > 0 ? (
         <Bookmark datas={bookmarkLists} />
       ) : (
         <EmptyComponent isLogined={loginState.isLogined} />

@@ -38,6 +38,7 @@ const Search = () => {
       })
       .catch((err) => {
         console.log(err);
+        setData(null);
         setLoading(false);
       });
   };
