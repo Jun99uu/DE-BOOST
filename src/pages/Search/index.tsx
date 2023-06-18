@@ -13,7 +13,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import NotRegister from "@/components/search/NotRegister";
 import Contents from "@/components/search/Contents";
 import { useParams } from "react-router-dom";
-import { getSearchResult } from "@/libs/api/apis";
+import { getSearchNextCursor, getSearchResult } from "@/libs/api/apis";
 import Seo from "@/components/common/Seo";
 
 /**
@@ -46,7 +46,7 @@ const Search = () => {
   const getNextPage = () => {
     if (data && !loading && !end) {
       setLoading(true);
-      getSearchResult(name!, cursor)
+      getSearchNextCursor(name!, cursor)
         .then((res) => {
           console.log(res);
           setData({
