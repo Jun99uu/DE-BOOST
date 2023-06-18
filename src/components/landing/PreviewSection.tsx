@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import ResultBox from "../search/ResultBox";
 import Summoner from "../search/ResultBox/Summoner";
 import Section from "./Section";
 import { dummyLanding } from "./dummy";
@@ -14,7 +13,7 @@ const PreviewSection = () => {
       <LandingPreview>
         <Summoner {...dummyLanding} />
       </LandingPreview>
-      <ResultBox />
+      {/* <ResultBox /> */}
     </Section>
   );
 };
