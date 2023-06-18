@@ -8,7 +8,7 @@ interface Props {
   ogImage?: string;
 }
 
-const defaultData = {
+export const defaultData = {
   title: "DE:BOOST",
   description:
     "최신 트랜스포머 모델을 기반의 DE:BOOST 솔루션으로, 리그오브레전드의 대리 플레이어를 손쉽게 탐지해보세요.",
@@ -50,7 +50,7 @@ const Seo = ({
   keywords = defaultData.keywords,
   ogImage = defaultData.ogImage,
 }: Props) => {
-  const domain = "https://deboost.site"; //대표 도메인
+  const domain = "https://deboost.site/"; //대표 도메인
 
   return (
     <Helmet>
