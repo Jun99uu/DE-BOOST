@@ -5,8 +5,7 @@ const token = localStorage.getItem("at");
 
 /** 검색 결과 받아오기 */
 export const getSearchResult = (
-  name: string,
-  cursor?: number
+  name: string
 ): Promise<AxiosResponse<any, any>> => {
   const get = customAPI.get(`/riot/gameinfo`, {
     headers: {
@@ -14,7 +13,24 @@ export const getSearchResult = (
     },
     params: {
       summonerName: name,
-      cursor: cursor ? cursor : "",
+    },
+  });
+
+  return get;
+};
+
+/** 검색 결과 받아오기 */
+export const getSearchNextCursor = (
+  name: string,
+  cursor: number
+): Promise<AxiosResponse<any, any>> => {
+  const get = customAPI.get(`/riot/gameinfo`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    params: {
+      summonerName: name,
+      cursor: cursor,
     },
   });
 

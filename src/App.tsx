@@ -7,13 +7,28 @@ import { Frame } from "./components/common";
 import About from "./pages/About";
 import { Helmet } from "react-helmet-async";
 import NotFound from "./pages/NotFound";
+import ogImage from "@assets/og.png";
+import { defaultData } from "./components/common/Seo";
 
 function App() {
+  const domain = "https://deboost.site/"; //대표 도메인
   return (
     <RecoilRoot>
       <Global styles={reset} />
       <Helmet>
         <title>DE:BOOST</title>
+        <meta name="description" content={defaultData.description} />
+        <meta name="keywords" content={defaultData.keywords.join(",")} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={defaultData.title} />
+        <meta property="og:site_name" content={defaultData.title} />
+        <meta property="og:description" content={defaultData.description} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:url" content={domain} />
+        <meta name="twitter:title" content={defaultData.title} />
+        <meta name="twitter:description" content={defaultData.description} />
+        <meta name="twitter:image" content={ogImage} />
+        <link rel="canonical" href={domain} />
       </Helmet>
       <BrowserRouter>
         <Routes>
