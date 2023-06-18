@@ -1,3 +1,4 @@
+import Seo from "@/components/common/Seo";
 import { LeftSection, RightSection } from "@/components/login";
 import { mq } from "@/styles/breakpoints";
 import { colors } from "@/styles/tokens";
@@ -41,6 +42,10 @@ const Login = () => {
 
   return (
     <div css={backgroundStyle}>
+      <Seo
+        title="Login"
+        description="구글 로그인으로 3초만에 로그인하고, 최신 AI 대리 플레이어 탐지 기술을 즐겨보세요!"
+      />
       <LeftSection />
       <RightSection />
     </div>

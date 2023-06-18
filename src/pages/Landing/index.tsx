@@ -12,6 +12,7 @@ import { Modal } from "@qve-ui/qds";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { loginState } from "@/store/loginAtom";
+import Seo from "@/components/common/Seo";
 
 /**
  * 최초 시작 페이지 (랜딩)
@@ -41,6 +42,7 @@ const Landing = () => {
 
   return (
     <Container>
+      <Seo />
       <SearchSection />
       <BookmarkSection />
       {/* <PreviewSection /> */}

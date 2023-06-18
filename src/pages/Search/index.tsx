@@ -14,6 +14,7 @@ import NotRegister from "@/components/search/NotRegister";
 import Contents from "@/components/search/Contents";
 import { useParams } from "react-router-dom";
 import { getSearchResult } from "@/libs/api/apis";
+import Seo from "@/components/common/Seo";
 
 /**
  * 검색 결과 페이지
@@ -129,6 +130,7 @@ const Search = () => {
 
   return (
     <Container>
+      <Seo title={`${name}`} />
       <BackgroundWrapper>
         <Background src={getChampionRandomIllust()} alt="bg" />
         <BackgroundGradient />

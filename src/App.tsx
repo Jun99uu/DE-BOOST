@@ -5,11 +5,15 @@ import { Global } from "@emotion/react";
 import reset from "./styles/reset";
 import { Frame } from "./components/common";
 import About from "./pages/About";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   return (
     <RecoilRoot>
       <Global styles={reset} />
+      <Helmet>
+        <title>DE:BOOST</title>
+      </Helmet>
       <BrowserRouter>
         <Routes>
           <Route
