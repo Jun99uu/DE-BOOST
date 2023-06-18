@@ -19,7 +19,11 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo REACT_APP_API_ENDPOINT=${{ secrets.REACT_APP_API_ENDPOINT }} >> .env
+          echo VITE_GOOGLE_CLIENT_ID=${{ secrets.VITE_GOOGLE_CLIENT_ID }} >> .env
+          echo VITE_GOOGLE_REDIRECT_URI=${{ secrets.VITE_GOOGLE_REDIRECT_URI }} >> .env
+          echo VITE_GOOGLE_REDIRECT_URI_BUILD=${{ secrets.VITE_GOOGLE_REDIRECT_URI_BUILD }} >> .env
+          echo VITE_BASE_URL=${{ secrets.VITE_BASE_URL }} >> .env
+          echo VITE_NOTION_KEY=${{ secrets.VITE_NOTION_KEY }} >> .env
           cat .env
       - name: Yarn Install
         run: |
