@@ -34,7 +34,7 @@ const NotRegister = ({ settingData, onLoading }: Props) => {
   const reSearchData = () => {
     settingData(null);
     onLoading(true);
-    getSearchResult(name!, 1)
+    getSearchResult(name!)
       .then((res) => {
         settingData(res.data);
         onLoading(false);
