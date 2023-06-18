@@ -6,6 +6,7 @@ import reset from "./styles/reset";
 import { Frame } from "./components/common";
 import About from "./pages/About";
 import { Helmet } from "react-helmet-async";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -45,6 +46,14 @@ function App() {
             element={
               <Frame>
                 <About />
+              </Frame>
+            }
+          />
+          <Route
+            path="/*"
+            element={
+              <Frame>
+                <NotFound />
               </Frame>
             }
           />
