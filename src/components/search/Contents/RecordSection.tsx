@@ -2,15 +2,19 @@ import styled from "@emotion/styled";
 import RecordBox from "../RecordBox";
 import { SearchResult } from "../interface";
 import { useEffect, useRef } from "react";
+import { Caption } from "../Report/style";
+import { css } from "@emotion/react";
+import { colors } from "@/styles/tokens";
 
 interface Props {
   data: SearchResult;
   moveToAnalysis: () => void;
   loadMore: () => void;
+  end: boolean;
 }
 
 /** 실제로 전적이 보여지는 섹션 */
-const RecordSection = ({ data, moveToAnalysis, loadMore }: Props) => {
+const RecordSection = ({ data, moveToAnalysis, loadMore, end }: Props) => {
   const observer = useRef<IntersectionObserver | null>(null);
   const lastRecordBoxElementRef = useRef<HTMLDivElement | null>(null);
 
@@ -35,6 +39,19 @@ const RecordSection = ({ data, moveToAnalysis, loadMore }: Props) => {
     };
   }, [loadMore]);
 
+  const EndCaption = () => {
+    return end ? (
+      <Caption
+        css={css`
+          text-align: center;
+          color: ${colors.gray20};
+        `}
+      >{`현재까지 분석된 모든 전적 검색이 완료되었어요.\n24시간에 한 번 씩 분석 데이터를 갱신할 수 있어요.`}</Caption>
+    ) : (
+      <></>
+    );
+  };
+
   return (
     <Container>
       {data.gameInfos.map((match, index) => {
@@ -57,6 +74,7 @@ const RecordSection = ({ data, moveToAnalysis, loadMore }: Props) => {
           );
         }
       })}
+      <EndCaption />
     </Container>
   );
 };

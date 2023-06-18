@@ -120,7 +120,7 @@ const Search = () => {
     return data && data.searchedBefore && loginInfo.isLogined ? (
       <InfoContainer>
         <Profile data={data} update={update} />
-        <Contents data={data} loadMore={getNextPage} />
+        <Contents data={data} loadMore={getNextPage} end={end} />
       </InfoContainer>
     ) : (
       <></>

@@ -9,12 +9,13 @@ import { SearchResult } from "../interface";
 interface Props {
   data: SearchResult;
   loadMore: () => void;
+  end: boolean;
 }
 
 /**
  * 전적이 표시되는 콘텐츠 섹션 내부
  */
-const Contents = ({ data, loadMore }: Props) => {
+const Contents = ({ data, loadMore, end }: Props) => {
   const [menu, setMenu] = useState<MENU>(MENU.game);
 
   const selectMenu = (menu: MENU) => {
@@ -34,6 +35,7 @@ const Contents = ({ data, loadMore }: Props) => {
             data={data}
             moveToAnalysis={moveToAnalysis}
             loadMore={loadMore}
+            end={end}
           />
         );
       case MENU.analyze:
