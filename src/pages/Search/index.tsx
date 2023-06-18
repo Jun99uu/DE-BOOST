@@ -26,6 +26,7 @@ const Search = () => {
   const [loading, setLoading] = useState(true);
   const [cursor, setCursor] = useState(1);
   const [end, setEnd] = useState(false); //무한 스크롤이 끝났는가
+  const [goUpdate, setGoUpdate] = useState(false);
 
   const getSearchData = () => {
     getSearchResult(name!)
@@ -61,12 +62,19 @@ const Search = () => {
     }
   };
 
+  const update = () => {
+    if (data && !loading && !data.updated) {
+      setGoUpdate(true);
+    }
+  };
+
   const onLoading = (state: boolean) => {
     setLoading(state);
   };
 
   const settingData = (data: SearchResult | null) => {
     setData(data);
+    setGoUpdate(false);
   };
 
   const settingSummonerName = (data: SearchResult) => {
@@ -99,7 +107,7 @@ const Search = () => {
   /** 아직 등록되지 않은 경우, 최신화 안된 경우 */
   const NotRegisterSection = () => {
     return data &&
-      (!data.searchedBefore || !data.updated) &&
+      (!data.searchedBefore || !data.updated || goUpdate) &&
       loginInfo.isLogined ? (
       <NotRegister settingData={settingData} onLoading={onLoading} />
     ) : (
@@ -111,7 +119,7 @@ const Search = () => {
   const InfoSection = () => {
     return data && data.searchedBefore && loginInfo.isLogined ? (
       <InfoContainer>
-        <Profile data={data} />
+        <Profile data={data} update={update} />
         <Contents data={data} loadMore={getNextPage} />
       </InfoContainer>
     ) : (

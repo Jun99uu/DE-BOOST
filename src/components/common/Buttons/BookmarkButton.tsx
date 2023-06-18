@@ -56,7 +56,8 @@ const BookmarkButton = ({ isBookmarked, ...props }: Props) => {
 };
 
 const Button = styled.button<{ isBookmarked: boolean }>`
-  padding: 1.2rem 2rem;
+  height: 100%;
+  padding: 0rem 2rem;
   outline: none;
   display: flex;
   flex-direction: row;
@@ -67,6 +68,7 @@ const Button = styled.button<{ isBookmarked: boolean }>`
   border-radius: 1rem;
   cursor: pointer;
   transition: all 0.2s;
+  white-space: nowrap;
 
   ${typography.content.md2.sb};
 
