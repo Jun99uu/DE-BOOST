@@ -12,6 +12,7 @@ import useMobile from "@/hooks/useMobile";
 import { MatchData } from "../interface";
 import { getInfoDetails } from "@/libs/api/apis";
 import { CircleSquare } from "@/components/common/Loading";
+import MobilePlayerList from "./MobilePlayerList";
 
 interface Props {
   gameId: string;
@@ -57,23 +58,38 @@ const ResultBox = ({ gameId, moveToAnalysis }: Props) => {
     );
   };
 
+  const MobileSection = () => {
+    return isMobile && data && !loading ? (
+      <MobilePlayerList {...info!} />
+    ) : (
+      <></>
+    );
+  };
+
   return (
-    <Container>
-      <Heading css={info?.win ? winStyle : loseStyle} />
-      {!isMobile && data && !loading ? (
-        <>
-          <PlayerList
-            {...info!}
-            duration={data.gameInfo.gameDuration}
-            dateBefore={data.gameInfo.gameStartTimestamp}
-          />
-        </>
-      ) : (
-        <></>
-      )}
-      {data ? <Analysis info={data} moveToAnalysis={moveToAnalysis} /> : <></>}
-      <LoadingSection />
-    </Container>
+    <>
+      <Container>
+        <Heading css={info?.win ? winStyle : loseStyle} />
+        {!isMobile && data && !loading ? (
+          <>
+            <PlayerList
+              {...info!}
+              duration={data.gameInfo.gameDuration}
+              dateBefore={data.gameInfo.gameStartTimestamp}
+            />
+          </>
+        ) : (
+          <></>
+        )}
+        {data ? (
+          <Analysis info={data} moveToAnalysis={moveToAnalysis} />
+        ) : (
+          <></>
+        )}
+        <LoadingSection />
+      </Container>
+      <MobileSection />
+    </>
   );
 };
 

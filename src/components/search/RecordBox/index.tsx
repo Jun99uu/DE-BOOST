@@ -11,7 +11,6 @@ import Summoner from "./Summoner";
 import TeamSection from "./TeamSection";
 import useMobile from "@/hooks/useMobile";
 import { ResultBox } from "..";
-
 interface Props {
   match: GameInfo;
   moveToAnalysis: () => void;
