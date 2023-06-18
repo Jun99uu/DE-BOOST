@@ -7,7 +7,8 @@ import { ReactComponent as GoogleLogo } from "@assets/Google.svg";
 const RightSection = () => {
   const secretKeys = {
     clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-    redirectURI: import.meta.env.VITE_GOOGLE_REDIRECT_URI,
+    // redirectURI: import.meta.env.VITE_GOOGLE_REDIRECT_URI,
+    redirectURI: import.meta.env.VITE_GOOGLE_REDIRECT_URI_BUILD,
   };
 
   const onLogin = () => {
