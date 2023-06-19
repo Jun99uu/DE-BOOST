@@ -19,7 +19,7 @@ const PdfDownloader = ({ result, printReport }: Props) => {
   const [contents, setContents] = useState<Array<string>>([]);
 
   const settingContents = () => {
-    const percentage = boostingPercent(result.predictionList);
+    const percentage = result.modelPrediction;
     let newContents = [];
     if (Number(percentage) > STANDARD.higher)
       newContents = [

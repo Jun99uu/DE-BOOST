@@ -11,6 +11,9 @@ import ReactApexChart from "react-apexcharts";
 import { TIERS, getHigherTier } from "@/libs/getHigherTier";
 import { css } from "@emotion/react";
 import { colors } from "@/styles/tokens";
+import { useRecoilValue } from "recoil";
+import { userNameState } from "@/store/usernameAtom";
+import { convertToRomanNumber } from "@/libs/toRome";
 
 interface Props {
   result: AnalysisResult;
@@ -18,6 +21,7 @@ interface Props {
 
 /** 추이 그래프 섹션 */
 const RadialSection = ({ result }: Props) => {
+  const user = useRecoilValue(userNameState);
   const analysis = getHigherTier(result.predictionList);
   const option: ApexOptions = {
     chart: {
@@ -69,8 +73,15 @@ const RadialSection = ({ result }: Props) => {
           `}
         >
           <ContentMid>
-            결론적으로, 해당 소환사의 매치를 바탕으로 유추할 수 있는 소환사의
-            티어는 <ContentBd>{analysis[0].tier}이며,</ContentBd>
+            현재 소환사의 티어는{" "}
+            <ContentBd>
+              {user.tier}
+              {convertToRomanNumber(user.rank)}입니다.
+            </ContentBd>
+          </ContentMid>
+          <ContentMid>
+            하지만 소환사의 매치를 분석하여 유추할 수 있는 실제 티어는{" "}
+            <ContentBd>{analysis[0].tier}이며,</ContentBd>
           </ContentMid>
           <ContentMid>
             해당 소환사가 부스팅 플레이어일 확률은{" "}
@@ -79,7 +90,7 @@ const RadialSection = ({ result }: Props) => {
                 color: ${colors.negative};
               `}
             >
-              {result.modelPrediction}%
+              {result.modelPrediction.toFixed(2)}%
             </ContentBd>
             인 것을 알 수 있습니다.
           </ContentMid>
