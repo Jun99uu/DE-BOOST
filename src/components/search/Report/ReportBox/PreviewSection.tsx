@@ -30,11 +30,10 @@ const PreviewSection = ({ result }: Props) => {
 
   //최근 10게임 계산해서 세팅하는 함수
   const settingPercentage = () => {
-    const boostPer = boostingPercent(result.predictionList);
     setInfo((prev) => {
-      return { ...prev, percent: boostPer };
+      return { ...prev, percent: `${result.modelPrediction}` };
     });
-    return Number(boostPer);
+    return result.modelPrediction;
   };
 
   // 분석 값에 대비하여 추가정보 저장하는 함수
