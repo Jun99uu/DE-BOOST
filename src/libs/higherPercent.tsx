@@ -1,8 +1,8 @@
 /** 대리 판별 기준 */
 export const STANDARD = {
-  highest: 90,
-  higher: 75,
-  regular: 50,
+  highest: 70,
+  higher: 50,
+  regular: 20,
 };
 
 /** 높은 수치가 몇개인가 */

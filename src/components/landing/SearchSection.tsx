@@ -7,7 +7,7 @@ import { mq } from "@/styles/breakpoints";
 const SearchSection = () => {
   return (
     <Container>
-      <BgVideo muted autoPlay loop src={StarVideo} />
+      <BgVideo muted autoPlay playsInline loop src={StarVideo} />
       <BgWrapper />
       <ContentWrapper>
         <MainLogo />

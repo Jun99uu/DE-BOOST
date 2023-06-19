@@ -8,10 +8,11 @@ import { postAnalysis } from "@/libs/api/apis";
 
 interface Props {
   name: string;
+  tempRegister?: () => void;
 }
 
 /** 종합 분석이 되지 않은 상태 */
-const NotReported = ({ name }: Props) => {
+const NotReported = ({ name, tempRegister }: Props) => {
   const isMobile = useMobile();
 
   const register = () => {
@@ -30,7 +31,7 @@ const NotReported = ({ name }: Props) => {
         <Title>종합 분석을 진행한 적 없는 소환사네요!</Title>
         <Subtitle>종합 분석을 원한다면, 아래 버튼을 클릭해주세요.</Subtitle>
       </ContentsWrapper>
-      <Button onClick={register}>
+      <Button onClick={tempRegister ? tempRegister : register}>
         <span>종합 분석 신청하기</span>
         <FontAwesomeIcon icon={faArrowRight} />
       </Button>

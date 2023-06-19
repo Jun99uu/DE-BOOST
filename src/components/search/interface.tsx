@@ -102,4 +102,5 @@ export interface MatchData {
 export interface AnalysisResult {
   manufactureInfo: ManufactureInfo;
   predictionList: Array<number>;
+  modelPrediction: number;
 }

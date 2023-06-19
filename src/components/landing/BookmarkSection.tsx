@@ -4,16 +4,26 @@ import EmptyComponent from "./Bookmark/Empty";
 import useLoginState from "@/hooks/useLogined";
 import useBookmark from "@/hooks/useBookmark";
 import { useEffect, useState } from "react";
+import { getBookmark } from "@/libs/api/apis";
 
 const BookmarkSection = () => {
   const { loginState } = useLoginState();
   const { list } = useBookmark(loginState.isLogined);
   const [bookmarkLists, setBookmarkLists] = useState(list);
 
+  const initalSettingBookmarks = () => {
+    if (loginState.isLogined)
+      getBookmark().then((res) => setBookmarkLists(res.data));
+  };
+
   useEffect(() => {
     if (bookmarkLists.length === 0 && loginState.isLogined)
       setBookmarkLists(list);
   }, [list]);
+
+  useEffect(() => {
+    initalSettingBookmarks();
+  }, [loginState.isLogined]);
 
   return (
     <Section
