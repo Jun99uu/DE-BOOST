@@ -11,7 +11,7 @@ interface Props {
 
 /** 전체 분석 섹션 */
 const GeneralSection = ({ result }: Props) => {
-  const percentage = Number(boostingPercent(result.predictionList));
+  const percentage = result.modelPrediction;
 
   const getAnalysis = () => {
     if (percentage > STANDARD.highest) return ANALYSIS.highest;
