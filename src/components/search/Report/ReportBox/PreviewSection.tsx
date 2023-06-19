@@ -85,7 +85,9 @@ const PreviewSection = ({ result }: Props) => {
     <PreviewWrapper>
       <ContentMid>
         {`${user.name} 소환사가 최근 10게임에서 대리 플레이(이하 부스팅)을 진행했을 확률은 `}
-        <ContentBd css={info.color}>{`${info.percent}%`}</ContentBd>
+        <ContentBd css={info.color}>{`${Number(info.percent).toFixed(
+          2
+        )}%`}</ContentBd>
         {`로, ${info.caption}입니다.`}
       </ContentMid>
       <ContentMid>상기 내용에 대한 근거는 아래와 같습니다.</ContentMid>
