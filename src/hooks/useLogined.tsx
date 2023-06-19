@@ -35,6 +35,8 @@ const useLoginState = () => {
               name: "",
               img: "",
             }));
+            localStorage.removeItem("at");
+            localStorage.removeItem("rt");
           }
         } else {
           //토큰이 사용불가한 경우
