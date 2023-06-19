@@ -101,23 +101,8 @@ const TrendSection = ({ result }: Props) => {
             </>
           ))}
           <ContentMid>
-            결론적으로, 해당 소환사의 매치를 바탕으로 유추할 수 있는 소환사의
-            티어는 <ContentBd>{analysis[0].tier}이며,</ContentBd>
-          </ContentMid>
-          <ContentMid>
-            현재 티어에 소속되지 않을 확률은{" "}
-            <ContentBd
-              css={css`
-                color: ${colors.negative};
-              `}
-            >
-              {result.modelPrediction}%
-            </ContentBd>
-            인 것을 알 수 있습니다.
-          </ContentMid>
-          <ContentMid>
-            해당 확률은 AI Transformer Model을 기반으로, 캐리 레이팅 지표를
-            분석하여 도출한 수치입니다.
+            해당 확률은 AI Transformer Model을 기반으로, 캐리 레이팅 및 인게임
+            지표를 분석하여 도출한 수치입니다.
           </ContentMid>
         </ContentMid>
       </CaptionWrapper>

@@ -9,6 +9,7 @@ import { useReactToPrint } from "react-to-print";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
 import { AnalysisResult } from "../../interface";
+import RadialSection from "./RadialSection";
 
 interface Props {
   result: AnalysisResult;
@@ -18,7 +19,12 @@ interface Props {
 const ReportBox = ({ result }: Props) => {
   const user = useRecoilValue(userNameState);
   const componentRef = useRef(null);
-  const COMPONENTS = [CarryRatingSection, TrendSection, GeneralSection];
+  const COMPONENTS = [
+    CarryRatingSection,
+    TrendSection,
+    RadialSection,
+    GeneralSection,
+  ];
 
   const printReport = () => {
     handlePrint();
