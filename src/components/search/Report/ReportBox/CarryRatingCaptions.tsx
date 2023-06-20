@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import { userNameState } from "@/store/usernameAtom";
 import { compareObjects } from "@/libs/reportMaker";
 import { CaptionWrapper, ContentBd, ContentMid, flexStyle } from "../style";
+import { getHigherTier } from "@/libs/getHigherTier";
 
 interface Props {
   result: AnalysisResult;
@@ -85,12 +86,12 @@ const CarryRatingCaptions = ({ result }: Props) => {
   };
 
   const AnalysisSection = () => {
-    // TODO: 어느정도 수준의 지표를 보이는지 받아와야함
     return (
       <CaptionWrapper>
         <ContentMid>종합적으로 평가했을 때,</ContentMid>
         <ContentBd>
-          해당 소환사는 {user.tier} 수준의 지표를 보이고 있습니다.
+          해당 소환사는 {getHigherTier(result.predictionList)[0].tier} 수준의
+          지표를 보이고 있습니다.
         </ContentBd>
       </CaptionWrapper>
     );
