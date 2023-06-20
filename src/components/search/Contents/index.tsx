@@ -55,6 +55,7 @@ const Contents = ({ data, loadMore, end }: Props) => {
 
 const Container = styled.div`
   width: 100%;
+  max-width: 100rem;
   display: flex;
   flex-direction: column;
   align-items: center;

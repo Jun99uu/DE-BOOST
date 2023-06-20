@@ -20,6 +20,7 @@ const Profile = ({ data, update }: ProfileProps) => {
 
 const Container = styled.div`
   width: 100%;
+  max-width: 100rem;
   display: flex;
   flex-direction: row;
   align-items: center;

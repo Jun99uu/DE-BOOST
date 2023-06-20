@@ -62,6 +62,7 @@ const Container = styled.div`
 `;
 
 const TopWrapper = styled.div`
+  min-width: 20rem;
   height: 70%;
   display: flex;
   flex-direction: row;
