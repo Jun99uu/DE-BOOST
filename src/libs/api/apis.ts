@@ -1,12 +1,11 @@
 import { AxiosResponse } from "axios";
 import customAPI from "./customApi";
 
-const token = localStorage.getItem("at");
-
 /** 검색 결과 받아오기 */
 export const getSearchResult = (
   name: string
 ): Promise<AxiosResponse<any, any>> => {
+  const token = localStorage.getItem("at");
   const get = customAPI.get(`/riot/gameinfo`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -24,6 +23,7 @@ export const getSearchNextCursor = (
   name: string,
   cursor: number
 ): Promise<AxiosResponse<any, any>> => {
+  const token = localStorage.getItem("at");
   const get = customAPI.get(`/riot/gameinfo`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -41,6 +41,7 @@ export const getSearchNextCursor = (
 export const postSearchResult = (
   name: string
 ): Promise<AxiosResponse<any, any>> => {
+  const token = localStorage.getItem("at");
   const post = customAPI.post(
     "/riot/gameinfo",
     {
@@ -61,6 +62,7 @@ export const getInfoDetails = (
   name: string,
   id: string
 ): Promise<AxiosResponse<any, any>> => {
+  const token = localStorage.getItem("at");
   const get = customAPI.get(`/riot/gameinfo/detail`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -76,6 +78,7 @@ export const getInfoDetails = (
 
 /** 부마크 받아오기 */
 export const getBookmark = (): Promise<AxiosResponse<any, any>> => {
+  const token = localStorage.getItem("at");
   const get = customAPI.get("/bookmark", {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -88,6 +91,7 @@ export const getBookmark = (): Promise<AxiosResponse<any, any>> => {
 export const postBookmark = (
   name: string
 ): Promise<AxiosResponse<any, any>> => {
+  const token = localStorage.getItem("at");
   const post = customAPI.post(
     "/bookmark",
     {
@@ -106,6 +110,7 @@ export const postBookmark = (
 export const deleteBookmark = (
   id: number
 ): Promise<AxiosResponse<any, any>> => {
+  const token = localStorage.getItem("at");
   const remove = customAPI.delete(`/bookmark/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -116,6 +121,7 @@ export const deleteBookmark = (
 
 /** 종합 분석 데이터 받아오기 */
 export const getAnalysis = (name: string): Promise<AxiosResponse<any, any>> => {
+  const token = localStorage.getItem("at");
   const get = customAPI.get("/riot/gameinfo/analysis", {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -131,6 +137,7 @@ export const getAnalysis = (name: string): Promise<AxiosResponse<any, any>> => {
 export const postAnalysis = (
   name: string
 ): Promise<AxiosResponse<any, any>> => {
+  const token = localStorage.getItem("at");
   const post = customAPI.post(
     "/riot/gameinfo/analysis",
     {
