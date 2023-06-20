@@ -1,6 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import OG from "@assets/og.png";
-
 interface Props {
   title?: string;
   description?: string;
@@ -41,7 +39,7 @@ export const defaultData = {
     "DEBOOST",
     "디부스트",
   ],
-  ogImage: OG,
+  ogImage: "og.png",
 };
 
 const Seo = ({
@@ -63,12 +61,12 @@ const Seo = ({
       <meta property="og:title" content={title} />
       <meta property="og:site_name" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={`${domain}${ogImage}`} />
       <meta property="og:url" content={domain} />
 
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={`${domain}${ogImage}`} />
 
       <link rel="canonical" href={domain} />
     </Helmet>

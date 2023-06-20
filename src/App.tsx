@@ -7,7 +7,6 @@ import { Frame } from "./components/common";
 import About from "./pages/About";
 import { Helmet } from "react-helmet-async";
 import NotFound from "./pages/NotFound";
-import ogImage from "@assets/og.png";
 import { defaultData } from "./components/common/Seo";
 
 function App() {
@@ -23,11 +22,11 @@ function App() {
         <meta property="og:title" content={defaultData.title} />
         <meta property="og:site_name" content={defaultData.title} />
         <meta property="og:description" content={defaultData.description} />
-        <meta property="og:image" content={ogImage} />
+        <meta property="og:image" content={"og.png"} />
         <meta property="og:url" content={domain} />
         <meta name="twitter:title" content={defaultData.title} />
         <meta name="twitter:description" content={defaultData.description} />
-        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image" content={"og.png"} />
         <link rel="canonical" href={domain} />
       </Helmet>
       <BrowserRouter>
